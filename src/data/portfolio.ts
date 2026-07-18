@@ -318,283 +318,283 @@ export const portfolioDataID = {
     }
   ],
   projects: [
-    {
-      id: "movie-recommendation-system",
-      title: "Movie Recommendation System using Content-Based & Collaborative Filtering",
-      category: "Data & AI Solution",
-      year: "2025",
-      domain: "Machine Learning, Recommendation System",
-      shortDesc: "Mengembangkan sistem rekomendasi film menggunakan pendekatan Content-Based Filtering dan Collaborative Filtering untuk menghasilkan rekomendasi yang relevan berdasarkan karakteristik film serta preferensi pengguna.",
-      tags: ["Python", "Pandas", "NumPy", "Scikit-learn", "TensorFlow", "Keras", "Matplotlib", "Seaborn", "TF-IDF Vectorizer", "Cosine Similarity", "Content-Based Filtering", "Collaborative Filtering", "NCF", "Embedding Layer", "Recommendation System", "Machine Learning", "Feature Engineering"],
-      fullDesc: "Mengembangkan sistem rekomendasi film berbasis Machine Learning dengan menggabungkan dua pendekatan, yaitu Content-Based Filtering menggunakan TF-IDF dan Cosine Similarity serta Collaborative Filtering menggunakan Neural Collaborative Filtering (NCF). Proyek mencakup preprocessing data, feature engineering, pembangunan model, hingga evaluasi performa rekomendasi.",
-      keyInsights: [
-        { title: "1. Dua Pendekatan Recommendation System", desc: "Membangun dua pendekatan recommendation system: Content-Based Filtering dan Collaborative Filtering." },
-        { title: "2. Content-Based Filtering Presisi Tinggi", desc: "Content-Based Filtering menghasilkan Precision@20 sebesar 1.00 berdasarkan evaluasi relevansi rekomendasi." },
-        { title: "3. Collaborative Filtering Berbasis Deep Learning", desc: "Collaborative Filtering menggunakan Neural Collaborative Filtering (TensorFlow/Keras) untuk mempelajari preferensi pengguna melalui embedding." },
-        { title: "4. Performa NCF Akurat", desc: "Model Collaborative Filtering menghasilkan RMSE sekitar 0.18, menunjukkan kemampuan prediksi rating yang akurat." }
-      ],
-      outcome: [
-        "Menghasilkan sistem rekomendasi film berbasis kemiripan konten dan preferensi pengguna.",
-        "Membangun model rekomendasi menggunakan TF-IDF, Cosine Similarity, dan Neural Collaborative Filtering.",
-        "Menghasilkan model dengan Precision@20 = 1.00 dan RMSE sekitar 0.18.",
-        "Menyediakan pipeline end-to-end Recommendation System mulai dari preprocessing hingga evaluasi model."
-      ],
-      linkGithub: "https://github.com/sadinal04/Sistem-Rekomendasi",
-      linkNotebook: "https://github.com/sadinal04/Sistem-Rekomendasi/blob/main/Notebook.ipynb",
-      image: "/projects/movie-recommendation-system.png"
-    },
-    {
-      id: "grab-review-sentiment-analysis",
-      title: "Grab Review Sentiment Analysis using Deep Learning",
-      category: "Data & AI Solution",
-      year: "2025",
-      domain: "Natural Language Processing (NLP), Deep Learning, Sentiment Analysis",
-      shortDesc: "Mengembangkan pipeline Natural Language Processing (NLP) end-to-end untuk melakukan analisis sentimen terhadap ulasan aplikasi Grab di Google Play Store, mulai dari web scraping, text preprocessing, sentiment labeling, hingga pelatihan dan evaluasi model Deep Learning.",
-      tags: ["Python", "TensorFlow", "Keras", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Seaborn", "NLTK", "Sastrawi", "Google Play Scraper", "LSTM", "GRU", "RNN", "NLP", "Deep Learning"],
-      fullDesc: "Proyek ini membangun sistem analisis sentimen berbasis Deep Learning menggunakan ulasan aplikasi Grab yang diperoleh melalui proses web scraping dari Google Play Store. Sebanyak 15.000 ulasan berhasil dikumpulkan dan diproses melalui tahapan data cleaning, case folding, tokenization, stopword removal, stemming, serta sentiment labeling berdasarkan rating pengguna. Selanjutnya dilakukan Exploratory Data Analysis (EDA) untuk memahami distribusi data dan karakteristik ulasan.\n\nProses feature extraction menggunakan Keras Tokenizer dan Padding Sequence sebelum dilakukan pelatihan model Deep Learning. Tiga arsitektur neural network, yaitu LSTM, Simple RNN, dan GRU, dibandingkan performanya untuk menentukan model terbaik dalam mengklasifikasikan sentimen pengguna. Hasil eksperimen menunjukkan bahwa model LSTM memberikan performa terbaik dengan akurasi sebesar 92.13%, sehingga dipilih sebagai model utama untuk klasifikasi sentimen. Proyek ini mendemonstrasikan implementasi pipeline NLP secara end-to-end mulai dari pengumpulan data hingga evaluasi model.",
-      keyInsights: [
-        { title: "1. Scraping 15.000 Ulasan", desc: "Berhasil melakukan scraping 15.000 ulasan pengguna Grab dari Google Play Store." },
-        { title: "2. Pipeline NLP End-to-End", desc: "Membangun pipeline NLP lengkap mulai dari preprocessing hingga sentiment classification." },
-        { title: "3. Perbandingan Arsitektur Model", desc: "Membandingkan performa LSTM, GRU, dan Simple RNN untuk klasifikasi sentimen." },
-        { title: "4. LSTM Sebagai Model Terbaik", desc: "LSTM menjadi model terbaik dengan akurasi 92.13% dalam mengklasifikasikan sentimen ulasan pengguna." }
-      ],
-      outcome: [
-        "Menghasilkan dataset ulasan Grab yang siap dianalisis.",
-        "Membangun model sentiment analysis dengan akurasi terbaik 92.13% menggunakan LSTM.",
-        "Menyediakan pipeline NLP end-to-end yang dapat diterapkan untuk customer feedback analysis dan business intelligence."
-      ],
-      linkGithub: "https://github.com/sadinal04/Grab-Review-Sentiment-Analysis",
-      linkNotebook: "https://github.com/sadinal04/Grab-Review-Sentiment-Analysis/blob/main/Pelatihan_Sentimen_Analisis.ipynb",
-      image: "/projects/grab-review-sentiment-analysis.jpeg"
-    },
-    {
-      id: "bank-transaction-clustering-classification",
-      title: "Bank Transaction Clustering & Classification using Machine Learning",
-      category: "Data & AI Solution",
-      year: "2025",
-      domain: "Machine Learning • Unsupervised Learning • Supervised Learning • Fraud Analytics",
-      shortDesc: "Mengembangkan pipeline Machine Learning end-to-end untuk menganalisis transaksi perbankan menggunakan pendekatan clustering guna menemukan pola transaksi, kemudian membangun model classification untuk memprediksi hasil segmentasi tersebut menggunakan algoritma supervised learning.",
-      tags: ["Python", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Seaborn", "K-Means", "KNN", "Naïve Bayes", "GridSearchCV", "PCA", "EDA"],
-      fullDesc: "Proyek ini mengimplementasikan alur Machine Learning lengkap menggunakan Bank Transaction Dataset for Fraud Detection yang terdiri dari 2.512 transaksi dengan 16 fitur yang mencakup informasi transaksi, pelanggan, akun, merchant, perangkat, lokasi, hingga saldo rekening.\n\nTahap pertama dilakukan Exploratory Data Analysis (EDA) untuk memahami distribusi data, karakteristik fitur numerik dan kategorikal, serta hubungan antarvariabel. Selanjutnya dilakukan preprocessing meliputi penghapusan fitur yang tidak relevan, pengelompokan usia pelanggan, label encoding, dan normalisasi data.\n\nPada tahap unsupervised learning, algoritma K-Means Clustering digunakan untuk mengelompokkan transaksi berdasarkan karakteristik yang dimiliki. Jumlah cluster terbaik ditentukan menggunakan Elbow Method dan Silhouette Score, kemudian dilakukan feature selection untuk meningkatkan kualitas cluster. Hasil clustering divisualisasikan menggunakan Principal Component Analysis (PCA) serta diinterpretasikan berdasarkan karakteristik setiap kelompok.\n\nTahap berikutnya memanfaatkan label hasil clustering sebagai target untuk membangun model supervised learning. Dua algoritma klasifikasi, yaitu K-Nearest Neighbors (KNN) dan Gaussian Naïve Bayes, dibandingkan performanya menggunakan berbagai metrik evaluasi. Selain itu dilakukan hyperparameter tuning menggunakan GridSearchCV untuk meningkatkan performa model Naïve Bayes.",
-      keyInsights: [
-        { title: "1. Clustering Menghasilkan Tiga Kelompok Transaksi", desc: "Evaluasi menggunakan Elbow Method dan Silhouette Score menunjukkan bahwa 3 cluster merupakan jumlah cluster yang paling optimal dengan Silhouette Score sebesar 0.6211." },
-        { title: "2. Feature Selection Meningkatkan Kualitas Cluster", desc: "Penerapan SelectKBest berhasil meningkatkan kualitas hasil clustering dibandingkan menggunakan seluruh fitur, sehingga segmentasi transaksi menjadi lebih representatif." },
-        { title: "3. Karakteristik Transaksi Berbeda pada Setiap Cluster", desc: "Setiap cluster memiliki karakteristik unik berdasarkan rata-rata Transaction Amount, Account Balance, usia pelanggan, serta atribut transaksi lainnya, sehingga dapat digunakan untuk memahami pola perilaku transaksi pelanggan." },
-        { title: "4. KNN Menjadi Model Klasifikasi Terbaik", desc: "Perbandingan model menunjukkan bahwa K-Nearest Neighbors (KNN) memberikan performa terbaik dengan akurasi sekitar 99,4%, mengungguli Gaussian Naïve Bayes." },
-        { title: "5. Hyperparameter Tuning Meningkatkan Naïve Bayes", desc: "Optimasi menggunakan GridSearchCV berhasil meningkatkan akurasi model Gaussian Naïve Bayes dari sekitar 94,0% menjadi 96,6%, menunjukkan pentingnya proses tuning dalam meningkatkan performa model." }
-      ],
-      outcome: [
-        "Melakukan data cleaning dan preprocessing terhadap dataset transaksi perbankan.",
-        "Menghasilkan segmentasi transaksi menggunakan algoritma K-Means Clustering.",
-        "Menentukan jumlah cluster terbaik menggunakan Elbow Method dan Silhouette Score.",
-        "Meningkatkan kualitas cluster melalui feature selection.",
-        "Mengembangkan model klasifikasi berbasis hasil clustering.",
-        "Membandingkan performa KNN dan Gaussian Naïve Bayes.",
-        "Melakukan hyperparameter tuning untuk meningkatkan performa model.",
-        "Membangun pipeline Machine Learning dari tahap eksplorasi data hingga evaluasi model."
-      ],
-      linkGithub: "https://github.com/sadinal04/Bank-transaction-clustering-classification",
-      image: "/projects/bank_transaction.jpeg"
-    },
-    {
-      id: "bike-sharing-analysis",
-      title: "Bike Sharing Data Analysis & Interactive Dashboard",
-      category: "Data & AI Solution",
-      year: "2025",
-      domain: "Data Analytics • Business Intelligence • Streamlit Dashboard",
-      shortDesc: "Melakukan analisis eksploratif (EDA) terhadap Bike Sharing Dataset untuk mengidentifikasi pola penyewaan sepeda berdasarkan musim, waktu, hari kerja, jenis pelanggan, serta kondisi cuaca. Hasil analisis divisualisasikan dalam dashboard interaktif menggunakan Streamlit.",
-      tags: ["Python", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Streamlit", "Jupyter Notebook", "Data Cleaning", "EDA", "Data Visualization", "Business Analytics"],
-      fullDesc: "Mengembangkan proyek analisis data end-to-end menggunakan Bike Sharing Dataset untuk membantu memahami faktor-faktor yang memengaruhi jumlah penyewaan sepeda.\n\nProyek dimulai dari proses data wrangling (data cleaning, transformasi tipe data, dan feature engineering), dilanjutkan dengan Exploratory Data Analysis (EDA) untuk menjawab berbagai pertanyaan bisnis, seperti pengaruh musim, jam operasional, tipe pelanggan, hingga kondisi cuaca terhadap jumlah penyewaan.\n\nSeluruh hasil analisis kemudian dikemas menjadi dashboard interaktif berbasis Streamlit sehingga pengguna dapat mengeksplorasi insight secara visual dan mudah dipahami.",
-      keyInsights: [
-        { title: "1. Musim berpengaruh terhadap jumlah penyewaan", desc: "Musim Fall (Autumn) memiliki rata-rata penyewaan tertinggi. Musim Spring memiliki tingkat penyewaan terendah." },
-        { title: "2. Terdapat pola jam sibuk (Rush Hour)", desc: "Puncak penyewaan terjadi pada 07.00–09.00 dan 17.00–19.00. Pola ini menunjukkan penggunaan sepeda sebagai moda transportasi menuju dan pulang kerja." },
-        { title: "3. Registered User mendominasi", desc: "Sebagian besar penyewaan berasal dari registered users. Korelasi antara jumlah pengguna terdaftar dan total penyewaan mencapai sekitar 0.95, menunjukkan loyalitas pelanggan yang tinggi." },
-        { title: "4. Pertumbuhan signifikan pada tahun berikutnya", desc: "Jumlah penyewaan meningkat sekitar 64.8% dari tahun 2011 ke 2012. Mengindikasikan pertumbuhan layanan bike sharing yang sangat pesat." },
-        { title: "5. Cuaca memengaruhi permintaan", desc: "Suhu memiliki korelasi positif terhadap jumlah penyewaan. Kelembaban dan kecepatan angin berkorelasi negatif terhadap jumlah penyewaan." },
-        { title: "6. Mayoritas hari memiliki penggunaan tinggi", desc: "Melalui teknik binning/clustering sederhana, mayoritas hari termasuk kategori High Usage, yang menunjukkan layanan memiliki tingkat utilisasi yang tinggi." }
-      ],
-      outcome: [
-        "Membersihkan dan mentransformasikan dataset agar siap dianalisis.",
-        "Menghasilkan insight bisnis berbasis data mengenai perilaku pengguna bike sharing.",
-        "Membangun dashboard interaktif menggunakan Streamlit.",
-        "Membantu pengambilan keputusan terkait operasional layanan berdasarkan pola musim, waktu, dan cuaca.",
-        "Menyajikan visualisasi yang mudah dipahami untuk stakeholder maupun pengguna non-teknis."
-      ],
-      linkGithub: "https://github.com/sadinal04/Analisis-Data-Bike-Sharing",
-      linkWeb: "https://sadinal04-analisis-data-bike-sharing-dashboarddashboard-l3ldkz.streamlit.app/",
-      image: "/projects/bike-sharing.jpeg"
-    },
-    {
-      id: "cobabantu",
-      title: "COBABANTU – Smart Digital & AI Solutions",
-      category: "Web Development",
-      year: "2026",
-      domain: "Company Profile, Digital Services",
-      shortDesc: "Website company profile modern untuk penyedia layanan Web Development, AI, Dashboard, dan Data Analytics.",
-      tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel"],
-      fullDesc: "Merancang dan mengembangkan website company profile responsif untuk COBABANTU yang menampilkan layanan, portfolio, teknologi, dan informasi perusahaan secara profesional. Website dioptimalkan untuk performa, SEO, dan pengalaman pengguna dengan desain modern sebagai media branding dan pemasaran digital.",
-      linkWeb: "https://cobabantu.com",
-      image: "/projects/cobabantu.png"
-    },
-    {
-      id: "multitask-plant-disease",
-      title: "Multi-Task CNN with Self-Attention for Plant & Leaf Disease Classification",
-      category: "Data & AI Solution",
-      year: "2025",
-      domain: "Computer Vision, Deep Learning, Mobile AI",
-      shortDesc: "Model Multi-Task CNN ringan untuk klasifikasi jenis tanaman dan penyakit daun secara bersamaan.",
-      tags: ["Python", "TensorFlow", "Keras", "NumPy", "Pandas", "OpenCV", "Scikit-learn", "Matplotlib", "Seaborn", "CNN", "Multi-Task Learning", "Self-Attention (SE Block)", "Grad-CAM", "TensorFlow Lite", "Image Processing", "Computer Vision", "Deep Learning", "Data Augmentation", "Model Evaluation"],
-      fullDesc: "Mengembangkan model Multi-Task Deep Learning berbasis Convolutional Neural Network (CNN) dengan Self-Attention (Squeeze-and-Excitation Block) untuk mengidentifikasi jenis tanaman dan penyakit daun secara simultan dalam satu proses inferensi. Model dilengkapi dengan species-aware disease masking untuk memastikan prediksi penyakit sesuai dengan jenis tanaman, serta Grad-CAM untuk meningkatkan interpretabilitas hasil prediksi. Model kemudian dioptimalkan dan diekspor ke TensorFlow Lite agar dapat diimplementasikan pada perangkat mobile.",
-      keyInsights: [
-        { title: "1. Arsitektur Multi-Task CNN", desc: "Mengembangkan arsitektur Multi-Task CNN yang mampu memprediksi 5 jenis tanaman dan 14 kelas penyakit secara bersamaan." },
-        { title: "2. Integrasi Self-Attention", desc: "Mengintegrasikan Self-Attention (SE Block) untuk meningkatkan kemampuan model dalam mengekstraksi fitur penting pada citra daun." },
-        { title: "3. Species-Aware Masking", desc: "Menerapkan species-aware disease masking sehingga hanya penyakit yang relevan dengan tanaman tertentu yang dapat diprediksi." },
-        { title: "4. Performa Akurasi Tinggi", desc: "Menghasilkan akurasi 98.31% untuk identifikasi kombinasi tanaman–penyakit, dengan akurasi 99.53% pada klasifikasi tanaman dan 98.72% pada klasifikasi penyakit." },
-        { title: "5. Optimasi Model Edge", desc: "Menghasilkan model ringan yang diekspor ke TensorFlow Lite dengan waktu inferensi sekitar 58 ms per gambar sehingga siap untuk deployment pada aplikasi mobile." }
-      ],
-      outcome: [
-        "Berhasil membangun model Multi-Task CNN dengan Self-Attention untuk identifikasi tanaman dan penyakit daun secara simultan.",
-        "Mencapai 98.31% akurasi pada klasifikasi kombinasi tanaman–penyakit, 99.53% pada klasifikasi tanaman, dan 98.72% pada klasifikasi penyakit.",
-        "Mengintegrasikan Grad-CAM untuk visualisasi area penting yang digunakan model dalam proses prediksi.",
-        "Mengekspor model ke format TensorFlow Lite sehingga siap diimplementasikan pada perangkat Android atau edge devices."
-      ],
-      linkGithub: "https://github.com/sadinal04/PlantDiseaseClassification-Multitask-SelfAttention",
-      image: "/projects/multitask-plant-disease.jpeg"
-    },
-    {
-      id: "transportation-risk-prediction",
-      title: "Multi-Task CNN for Transportation Risk Prediction",
-      category: "Data & AI Solution",
-      year: "2025",
-      domain: "Computer Vision, Intelligent Transportation",
-      shortDesc: "Model Deep Learning untuk memprediksi risiko berkendara berdasarkan cuaca dan visibilitas.",
-      tags: ["Python", "TensorFlow", "Keras", "CNN", "OpenCV", "NumPy"],
-      fullDesc: "Mengembangkan model Multi-Task CNN untuk memprediksi tingkat risiko berkendara secara real-time berdasarkan kondisi cuaca dan visibilitas. Model dioptimalkan untuk perangkat embedded dengan inferensi CPU di bawah 70 ms dan akurasi sekitar 96%.",
-      linkNotebook: "https://drive.google.com/file/d/1jmjjjHamfHUu7UhB1mmp8jgJK8NFZUCJ/view",
-      image: "/projects/transportation-risk.jpeg"
-    },
-    {
-      id: "agriscan-ai",
-      title: "AgriScan: AI-Powered Plant Disease Detection",
-      category: "Data & AI Solution",
-      year: "2025",
-      domain: "Agriculture AI, Computer Vision",
-      shortDesc: "Sistem AI berbasis Streamlit untuk mendeteksi penyakit tanaman.",
-      tags: ["Python", "TensorFlow", "Keras", "ResNet50", "Transfer Learning", "Streamlit", "OpenCV"],
-      fullDesc: "Mengembangkan sistem deteksi penyakit tanaman menggunakan transfer learning ResNet. Model mencapai akurasi sekitar 99% dan diimplementasikan ke aplikasi web berbasis Streamlit untuk prediksi secara real-time. ini adalah project capstone saya di Coding Camp Power by DBS dan Dicoding Indonesia 2025. role saya adalah Machine Learning Engineer.",
-      linkGithub: "https://github.com/sadinal04/AgriScan-ML-CapstoneProject",
-      image: "/projects/agriscan.jpeg"
-    },
-    {
-      id: "predictive-analytics",
-      title: "Predictive Analytics for Data-Driven Insights",
-      category: "Data & AI Solution",
-      year: "2025",
-      domain: "Machine Learning, Predictive Analytics",
-      shortDesc: "Pipeline Machine Learning untuk analisis data dan prediksi.",
-      tags: ["Python", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Seaborn"],
-      fullDesc: "Mengembangkan pipeline data science mulai dari preprocessing, exploratory data analysis, feature engineering, pelatihan model Machine Learning, hingga evaluasi performa untuk menghasilkan insight dan prediksi berbasis data.",
-      linkGithub: "https://github.com/sadinal04/Predictive-Analytics",
-      image: "/projects/predictive-analytics.jpeg"
-    },
-    {
-      id: "wantutri-ai",
-      title: "Wantutri AI – AI Content Generation Platform",
-      category: "Data & AI Solution",
-      year: "2025",
-      domain: "Generative AI, Content Automation",
-      shortDesc: "Platform Generative AI untuk menghasilkan konten promosi secara otomatis bagi UMKM.",
-      tags: ["Python", "FastAPI", "Next.js", "React", "TypeScript", "Tailwind CSS", "Qwen", "Wan", "Generative AI", "REST API"],
-      fullDesc: "Mengembangkan platform berbasis Generative AI dalam kompetisi Alibaba Cloud AI x Creativity Hackathon. Platform memanfaatkan Large Language Model (Qwen) untuk menghasilkan naskah, AI Image Generation untuk membuat visual, serta Wan Video Generation untuk menghasilkan video promosi secara otomatis dari input pengguna. Solusi ini dirancang untuk membantu UMKM dan content creator mempercepat proses produksi konten digital. Proyek ini berhasil menjadi Finalist pada Alibaba Cloud AI x Creativity National Hackathon.",
-      linkGithub: "https://github.com/MuhammadBintang27/WanTuTriActIon",
-      linkWeb: "https://wantutriai.xyz/",
-      image: "/projects/wantutri-ai.png"
-    },
-    {
-      id: "plnalyze",
-      title: "Data Scientist Intern @ PT PLN (Persero)",
-      category: "Data & AI Solution",
-      year: "2025",
-      domain: "Predictive Analytics, Forecasting",
-      shortDesc: "Platform analitik untuk memprediksi durasi penyelesaian gangguan layanan IP-VPN PLN.",
-      tags: ["Python", "Pandas", "NumPy", "Scikit-learn", "XGBoost", "Random Forest", "Linear Regression", "FastAPI", "Docker", "PostgreSQL", "Jupyter Notebook"],
-      fullDesc: "Berkontribusi dalam pengembangan sistem peramalan berbasis Machine Learning untuk memprediksi durasi penyelesaian gangguan layanan IP-VPN menggunakan data operasional historis (2023–2025). Proyek ini difokuskan pada transformasi data operasional mentah menjadi insight prediktif melalui prapemrosesan, feature engineering, pengembangan model, evaluasi, integrasi dasbor, dan pipeline pelatihan ulang otomatis untuk mendukung perencanaan operasional dan pengambilan keputusan.",
-      metrics: [
-        { label: "Durasi", value: "2 Bulan (Agt - Sep 2025)" },
-        { label: "Data Historis", value: "Catatan Operasional 2023–2025" },
-        { label: "Model ML", value: "XGBoost, Random Forest, Linear Regression" },
-        { label: "Batas Prediksi", value: "4 Minggu ke Depan" },
-        { label: "Dataset Bersih", value: "2.457 Catatan" },
-        { label: "Hasil Kerja", value: "Sistem Peramalan, Dasbor, Pipeline Pelatihan Ulang Otomatis" }
-      ],
-      sections: [
-        {
-          title: "Sorotan",
-          list: [
-            "Memproses dan mengonsolidasikan data gangguan layanan IP-VPN dari berbagai sumber Excel (2023–2025).",
-            "Membangun pipeline pemuatan dan penggabungan data otomatis yang mampu menangani struktur sheet dan header yang tidak konsisten.",
-            "Membersihkan, memvalidasi, dan menstandarisasi dataset untuk alur kerja Machine Learning.",
-            "Melakukan Exploratory Data Analysis untuk mengidentifikasi nilai yang hilang, outlier, dan inkonsistensi data.",
-            "Melakukan Feature Engineering temporal (minggu, bulan, tahun) dan fitur jeda untuk model prediksi deret waktu.",
-            "Menghasilkan dataset siap produksi yang berisi 2.457 catatan bersih.",
-            "Mengembangkan model peramalan dengan membandingkan algoritma regresi (XGBoost, Random Forest, Linear Regression).",
-            "Menghasilkan prediksi operasional untuk 4 minggu ke depan guna mendukung perencanaan pemeliharaan.",
-            "Merancang dasbor analitik interaktif untuk memantau hasil prediksi.",
-            "Mengimplementasikan otomatisasi pembaruan data, prapemrosesan, dan pelatihan ulang model dengan pipeline Machine Learning."
-          ]
-        },
-        {
-          title: "Alur Kerja Machine Learning",
-          list: [
-            "Data Operasional Mentah → Pengumpulan Data → Pembersihan Data",
-            "Exploratory Data Analysis → Feature Engineering",
-            "Pengembangan Model → Evaluasi Model (MAE & MAPE)",
-            "Peramalan (4 Minggu ke Depan) → Dasbor",
-            "Pelatihan Ulang Otomatis → Deployment"
-          ]
-        },
-        {
-          title: "Tanggung Jawab",
-          list: [
-            "Pengumpulan Data, Pembersihan, dan Exploratory Data Analysis",
-            "Feature Engineering & Pemodelan Machine Learning",
-            "Peramalan & Evaluasi Model",
-            "Pengembangan Dasbor & Otomatisasi Pipeline",
-            "Visualisasi Data & Dokumentasi Teknis"
-          ]
-        }
-      ],
-      image: "/projects/plnalyze.png",
-      images: [
-        "/projects/plnalyze.png",
-        "/projects/pln-dashboard.png"
-      ]
-    },
-    {
-      id: "petcare-search",
-      title: "PetCare Search Engine",
-      category: "Web Development",
-      year: "2024",
-      domain: "Information Retrieval System",
-      shortDesc: "Mesin pencari informasi kesehatan hewan menggunakan NLP Bahasa Indonesia.",
-      tags: ["Python", "Flask", "HTML", "CSS", "JavaScript", "TF-IDF", "Cosine Similarity", "Jaccard Similarity", "Sastrawi"],
-      fullDesc: "Mengembangkan search engine berbasis Flask menggunakan TF-IDF, Cosine Similarity, dan Jaccard Similarity dengan preprocessing NLP Bahasa Indonesia menggunakan Sastrawi serta fitur ranking dan pagination.",
-      linkGithub: "https://github.com/sadinal04/PetCareSearchEngine-Kelompok13",
-      image: "/projects/petcare-search.jpeg"
-    },
-    {
-      id: "youtube-comment-summarizer",
-      title: "YouTube Comment Summarizer using Fine-Tuned IndoT5",
-      category: "Data & AI Solution",
-      year: "2024",
-      domain: "Natural Language Processing",
-      shortDesc: "Sistem peringkasan komentar YouTube Bahasa Indonesia menggunakan model IndoT5 yang telah di-fine-tuning.",
-      tags: ["Python", "PyTorch", "Hugging Face Transformers", "IndoT5", "Fine-Tuning", "YouTube Data API", "Pandas"],
-      fullDesc: "Mengembangkan sistem otomatis untuk merangkum komentar video YouTube berbahasa Indonesia menggunakan model `cahya/t5-base-indonesian-summarization-cased` yang di-fine-tuning pada dataset hasil scraping komentar YouTube. Sistem mencakup proses pengumpulan data, preprocessing, fine-tuning model, dan inferensi untuk menghasilkan ringkasan yang ringkas dan informatif.",
-      linkGithub: "https://github.com/sadinal04/youtubeCommentSummarize",
-      image: "/projects/youtube-comment-summarizer.jpeg"
-    }
-  ]
+      {
+                  id: "multitask-plant-disease",
+                  title: "Multi-Task CNN with Self-Attention for Plant & Leaf Disease Classification",
+                  category: "Data & AI Solution",
+                  year: "2026",
+                  domain: "Computer Vision, Deep Learning, Mobile AI",
+                  shortDesc: "Model Multi-Task CNN ringan untuk klasifikasi jenis tanaman dan penyakit daun secara bersamaan.",
+                  tags: ["Python", "TensorFlow", "Keras", "NumPy", "Pandas", "OpenCV", "Scikit-learn", "Matplotlib", "Seaborn", "CNN", "Multi-Task Learning", "Self-Attention (SE Block)", "Grad-CAM", "TensorFlow Lite", "Image Processing", "Computer Vision", "Deep Learning", "Data Augmentation", "Model Evaluation"],
+                  fullDesc: "Mengembangkan model Multi-Task Deep Learning berbasis Convolutional Neural Network (CNN) dengan Self-Attention (Squeeze-and-Excitation Block) untuk mengidentifikasi jenis tanaman dan penyakit daun secara simultan dalam satu proses inferensi. Model dilengkapi dengan species-aware disease masking untuk memastikan prediksi penyakit sesuai dengan jenis tanaman, serta Grad-CAM untuk meningkatkan interpretabilitas hasil prediksi. Model kemudian dioptimalkan dan diekspor ke TensorFlow Lite agar dapat diimplementasikan pada perangkat mobile.",
+                  keyInsights: [
+                    { title: "1. Arsitektur Multi-Task CNN", desc: "Mengembangkan arsitektur Multi-Task CNN yang mampu memprediksi 5 jenis tanaman dan 14 kelas penyakit secara bersamaan." },
+                    { title: "2. Integrasi Self-Attention", desc: "Mengintegrasikan Self-Attention (SE Block) untuk meningkatkan kemampuan model dalam mengekstraksi fitur penting pada citra daun." },
+                    { title: "3. Species-Aware Masking", desc: "Menerapkan species-aware disease masking sehingga hanya penyakit yang relevan dengan tanaman tertentu yang dapat diprediksi." },
+                    { title: "4. Performa Akurasi Tinggi", desc: "Menghasilkan akurasi 98.31% untuk identifikasi kombinasi tanaman–penyakit, dengan akurasi 99.53% pada klasifikasi tanaman dan 98.72% pada klasifikasi penyakit." },
+                    { title: "5. Optimasi Model Edge", desc: "Menghasilkan model ringan yang diekspor ke TensorFlow Lite dengan waktu inferensi sekitar 58 ms per gambar sehingga siap untuk deployment pada aplikasi mobile." }
+                  ],
+                  outcome: [
+                    "Berhasil membangun model Multi-Task CNN dengan Self-Attention untuk identifikasi tanaman dan penyakit daun secara simultan.",
+                    "Mencapai 98.31% akurasi pada klasifikasi kombinasi tanaman–penyakit, 99.53% pada klasifikasi tanaman, dan 98.72% pada klasifikasi penyakit.",
+                    "Mengintegrasikan Grad-CAM untuk visualisasi area penting yang digunakan model dalam proses prediksi.",
+                    "Mengekspor model ke format TensorFlow Lite sehingga siap diimplementasikan pada perangkat Android atau edge devices."
+                  ],
+                  linkGithub: "https://github.com/sadinal04/PlantDiseaseClassification-Multitask-SelfAttention",
+                  image: "/projects/multitask-plant-disease.jpeg"
+                },
+          {
+                  id: "cobabantu",
+                  title: "COBABANTU – Smart Digital & AI Solutions",
+                  category: "Web Development",
+                  year: "2026",
+                  domain: "Company Profile, Digital Services",
+                  shortDesc: "Website company profile modern untuk penyedia layanan Web Development, AI, Dashboard, dan Data Analytics.",
+                  tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel"],
+                  fullDesc: "Merancang dan mengembangkan website company profile responsif untuk COBABANTU yang menampilkan layanan, portfolio, teknologi, dan informasi perusahaan secara profesional. Website dioptimalkan untuk performa, SEO, dan pengalaman pengguna dengan desain modern sebagai media branding dan pemasaran digital.",
+                  linkWeb: "https://cobabantu.com",
+                  image: "/projects/cobabantu.png"
+                },
+          {
+                  id: "wantutri-ai",
+                  title: "Wantutri AI – AI Content Generation Platform",
+                  category: ["Data & AI Solution", "Web Development"],
+                  year: "2026",
+                  domain: "Generative AI, Content Automation",
+                  shortDesc: "Platform Generative AI untuk menghasilkan konten promosi secara otomatis bagi UMKM.",
+                  tags: ["Python", "FastAPI", "Next.js", "React", "TypeScript", "Tailwind CSS", "Qwen", "Wan", "Generative AI", "REST API"],
+                  fullDesc: "Mengembangkan platform berbasis Generative AI dalam kompetisi Alibaba Cloud AI x Creativity Hackathon. Platform memanfaatkan Large Language Model (Qwen) untuk menghasilkan naskah, AI Image Generation untuk membuat visual, serta Wan Video Generation untuk menghasilkan video promosi secara otomatis dari input pengguna. Solusi ini dirancang untuk membantu UMKM dan content creator mempercepat proses produksi konten digital. Proyek ini berhasil menjadi Finalist pada Alibaba Cloud AI x Creativity National Hackathon.",
+                  linkGithub: "https://github.com/MuhammadBintang27/WanTuTriActIon",
+                  linkWeb: "https://wantutriai.xyz/",
+                  image: "/projects/wantutri-ai.png"
+                },
+          {
+                  id: "movie-recommendation-system",
+                  title: "Movie Recommendation System using Content-Based & Collaborative Filtering",
+                  category: "Data & AI Solution",
+                  year: "2025",
+                  domain: "Machine Learning, Recommendation System",
+                  shortDesc: "Mengembangkan sistem rekomendasi film menggunakan pendekatan Content-Based Filtering dan Collaborative Filtering untuk menghasilkan rekomendasi yang relevan berdasarkan karakteristik film serta preferensi pengguna.",
+                  tags: ["Python", "Pandas", "NumPy", "Scikit-learn", "TensorFlow", "Keras", "Matplotlib", "Seaborn", "TF-IDF Vectorizer", "Cosine Similarity", "Content-Based Filtering", "Collaborative Filtering", "NCF", "Embedding Layer", "Recommendation System", "Machine Learning", "Feature Engineering"],
+                  fullDesc: "Mengembangkan sistem rekomendasi film berbasis Machine Learning dengan menggabungkan dua pendekatan, yaitu Content-Based Filtering menggunakan TF-IDF dan Cosine Similarity serta Collaborative Filtering menggunakan Neural Collaborative Filtering (NCF). Proyek mencakup preprocessing data, feature engineering, pembangunan model, hingga evaluasi performa rekomendasi.",
+                  keyInsights: [
+                    { title: "1. Dua Pendekatan Recommendation System", desc: "Membangun dua pendekatan recommendation system: Content-Based Filtering dan Collaborative Filtering." },
+                    { title: "2. Content-Based Filtering Presisi Tinggi", desc: "Content-Based Filtering menghasilkan Precision@20 sebesar 1.00 berdasarkan evaluasi relevansi rekomendasi." },
+                    { title: "3. Collaborative Filtering Berbasis Deep Learning", desc: "Collaborative Filtering menggunakan Neural Collaborative Filtering (TensorFlow/Keras) untuk mempelajari preferensi pengguna melalui embedding." },
+                    { title: "4. Performa NCF Akurat", desc: "Model Collaborative Filtering menghasilkan RMSE sekitar 0.18, menunjukkan kemampuan prediksi rating yang akurat." }
+                  ],
+                  outcome: [
+                    "Menghasilkan sistem rekomendasi film berbasis kemiripan konten dan preferensi pengguna.",
+                    "Membangun model rekomendasi menggunakan TF-IDF, Cosine Similarity, dan Neural Collaborative Filtering.",
+                    "Menghasilkan model dengan Precision@20 = 1.00 dan RMSE sekitar 0.18.",
+                    "Menyediakan pipeline end-to-end Recommendation System mulai dari preprocessing hingga evaluasi model."
+                  ],
+                  linkGithub: "https://github.com/sadinal04/Sistem-Rekomendasi",
+                  linkNotebook: "https://github.com/sadinal04/Sistem-Rekomendasi/blob/main/Notebook.ipynb",
+                  image: "/projects/movie-recommendation-system.png"
+                },
+          {
+                  id: "grab-review-sentiment-analysis",
+                  title: "Grab Review Sentiment Analysis using Deep Learning",
+                  category: "Data & AI Solution",
+                  year: "2025",
+                  domain: "Natural Language Processing (NLP), Deep Learning, Sentiment Analysis",
+                  shortDesc: "Mengembangkan pipeline Natural Language Processing (NLP) end-to-end untuk melakukan analisis sentimen terhadap ulasan aplikasi Grab di Google Play Store, mulai dari web scraping, text preprocessing, sentiment labeling, hingga pelatihan dan evaluasi model Deep Learning.",
+                  tags: ["Python", "TensorFlow", "Keras", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Seaborn", "NLTK", "Sastrawi", "Google Play Scraper", "LSTM", "GRU", "RNN", "NLP", "Deep Learning"],
+                  fullDesc: "Proyek ini membangun sistem analisis sentimen berbasis Deep Learning menggunakan ulasan aplikasi Grab yang diperoleh melalui proses web scraping dari Google Play Store. Sebanyak 15.000 ulasan berhasil dikumpulkan dan diproses melalui tahapan data cleaning, case folding, tokenization, stopword removal, stemming, serta sentiment labeling berdasarkan rating pengguna. Selanjutnya dilakukan Exploratory Data Analysis (EDA) untuk memahami distribusi data dan karakteristik ulasan.\n\nProses feature extraction menggunakan Keras Tokenizer dan Padding Sequence sebelum dilakukan pelatihan model Deep Learning. Tiga arsitektur neural network, yaitu LSTM, Simple RNN, dan GRU, dibandingkan performanya untuk menentukan model terbaik dalam mengklasifikasikan sentimen pengguna. Hasil eksperimen menunjukkan bahwa model LSTM memberikan performa terbaik dengan akurasi sebesar 92.13%, sehingga dipilih sebagai model utama untuk klasifikasi sentimen. Proyek ini mendemonstrasikan implementasi pipeline NLP secara end-to-end mulai dari pengumpulan data hingga evaluasi model.",
+                  keyInsights: [
+                    { title: "1. Scraping 15.000 Ulasan", desc: "Berhasil melakukan scraping 15.000 ulasan pengguna Grab dari Google Play Store." },
+                    { title: "2. Pipeline NLP End-to-End", desc: "Membangun pipeline NLP lengkap mulai dari preprocessing hingga sentiment classification." },
+                    { title: "3. Perbandingan Arsitektur Model", desc: "Membandingkan performa LSTM, GRU, dan Simple RNN untuk klasifikasi sentimen." },
+                    { title: "4. LSTM Sebagai Model Terbaik", desc: "LSTM menjadi model terbaik dengan akurasi 92.13% dalam mengklasifikasikan sentimen ulasan pengguna." }
+                  ],
+                  outcome: [
+                    "Menghasilkan dataset ulasan Grab yang siap dianalisis.",
+                    "Membangun model sentiment analysis dengan akurasi terbaik 92.13% menggunakan LSTM.",
+                    "Menyediakan pipeline NLP end-to-end yang dapat diterapkan untuk customer feedback analysis dan business intelligence."
+                  ],
+                  linkGithub: "https://github.com/sadinal04/Grab-Review-Sentiment-Analysis",
+                  linkNotebook: "https://github.com/sadinal04/Grab-Review-Sentiment-Analysis/blob/main/Pelatihan_Sentimen_Analisis.ipynb",
+                  image: "/projects/grab-review-sentiment-analysis.jpeg"
+                },
+          {
+                  id: "bank-transaction-clustering-classification",
+                  title: "Bank Transaction Clustering & Classification using Machine Learning",
+                  category: "Data & AI Solution",
+                  year: "2025",
+                  domain: "Machine Learning • Unsupervised Learning • Supervised Learning • Fraud Analytics",
+                  shortDesc: "Mengembangkan pipeline Machine Learning end-to-end untuk menganalisis transaksi perbankan menggunakan pendekatan clustering guna menemukan pola transaksi, kemudian membangun model classification untuk memprediksi hasil segmentasi tersebut menggunakan algoritma supervised learning.",
+                  tags: ["Python", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Seaborn", "K-Means", "KNN", "Naïve Bayes", "GridSearchCV", "PCA", "EDA"],
+                  fullDesc: "Proyek ini mengimplementasikan alur Machine Learning lengkap menggunakan Bank Transaction Dataset for Fraud Detection yang terdiri dari 2.512 transaksi dengan 16 fitur yang mencakup informasi transaksi, pelanggan, akun, merchant, perangkat, lokasi, hingga saldo rekening.\n\nTahap pertama dilakukan Exploratory Data Analysis (EDA) untuk memahami distribusi data, karakteristik fitur numerik dan kategorikal, serta hubungan antarvariabel. Selanjutnya dilakukan preprocessing meliputi penghapusan fitur yang tidak relevan, pengelompokan usia pelanggan, label encoding, dan normalisasi data.\n\nPada tahap unsupervised learning, algoritma K-Means Clustering digunakan untuk mengelompokkan transaksi berdasarkan karakteristik yang dimiliki. Jumlah cluster terbaik ditentukan menggunakan Elbow Method dan Silhouette Score, kemudian dilakukan feature selection untuk meningkatkan kualitas cluster. Hasil clustering divisualisasikan menggunakan Principal Component Analysis (PCA) serta diinterpretasikan berdasarkan karakteristik setiap kelompok.\n\nTahap berikutnya memanfaatkan label hasil clustering sebagai target untuk membangun model supervised learning. Dua algoritma klasifikasi, yaitu K-Nearest Neighbors (KNN) dan Gaussian Naïve Bayes, dibandingkan performanya menggunakan berbagai metrik evaluasi. Selain itu dilakukan hyperparameter tuning menggunakan GridSearchCV untuk meningkatkan performa model Naïve Bayes.",
+                  keyInsights: [
+                    { title: "1. Clustering Menghasilkan Tiga Kelompok Transaksi", desc: "Evaluasi menggunakan Elbow Method dan Silhouette Score menunjukkan bahwa 3 cluster merupakan jumlah cluster yang paling optimal dengan Silhouette Score sebesar 0.6211." },
+                    { title: "2. Feature Selection Meningkatkan Kualitas Cluster", desc: "Penerapan SelectKBest berhasil meningkatkan kualitas hasil clustering dibandingkan menggunakan seluruh fitur, sehingga segmentasi transaksi menjadi lebih representatif." },
+                    { title: "3. Karakteristik Transaksi Berbeda pada Setiap Cluster", desc: "Setiap cluster memiliki karakteristik unik berdasarkan rata-rata Transaction Amount, Account Balance, usia pelanggan, serta atribut transaksi lainnya, sehingga dapat digunakan untuk memahami pola perilaku transaksi pelanggan." },
+                    { title: "4. KNN Menjadi Model Klasifikasi Terbaik", desc: "Perbandingan model menunjukkan bahwa K-Nearest Neighbors (KNN) memberikan performa terbaik dengan akurasi sekitar 99,4%, mengungguli Gaussian Naïve Bayes." },
+                    { title: "5. Hyperparameter Tuning Meningkatkan Naïve Bayes", desc: "Optimasi menggunakan GridSearchCV berhasil meningkatkan akurasi model Gaussian Naïve Bayes dari sekitar 94,0% menjadi 96,6%, menunjukkan pentingnya proses tuning dalam meningkatkan performa model." }
+                  ],
+                  outcome: [
+                    "Melakukan data cleaning dan preprocessing terhadap dataset transaksi perbankan.",
+                    "Menghasilkan segmentasi transaksi menggunakan algoritma K-Means Clustering.",
+                    "Menentukan jumlah cluster terbaik menggunakan Elbow Method dan Silhouette Score.",
+                    "Meningkatkan kualitas cluster melalui feature selection.",
+                    "Mengembangkan model klasifikasi berbasis hasil clustering.",
+                    "Membandingkan performa KNN dan Gaussian Naïve Bayes.",
+                    "Melakukan hyperparameter tuning untuk meningkatkan performa model.",
+                    "Membangun pipeline Machine Learning dari tahap eksplorasi data hingga evaluasi model."
+                  ],
+                  linkGithub: "https://github.com/sadinal04/Bank-transaction-clustering-classification",
+                  image: "/projects/bank_transaction.jpeg"
+                },
+          {
+                  id: "bike-sharing-analysis",
+                  title: "Bike Sharing Data Analysis & Interactive Dashboard",
+                  category: "Data & AI Solution",
+                  year: "2025",
+                  domain: "Data Analytics • Business Intelligence • Streamlit Dashboard",
+                  shortDesc: "Melakukan analisis eksploratif (EDA) terhadap Bike Sharing Dataset untuk mengidentifikasi pola penyewaan sepeda berdasarkan musim, waktu, hari kerja, jenis pelanggan, serta kondisi cuaca. Hasil analisis divisualisasikan dalam dashboard interaktif menggunakan Streamlit.",
+                  tags: ["Python", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Streamlit", "Jupyter Notebook", "Data Cleaning", "EDA", "Data Visualization", "Business Analytics"],
+                  fullDesc: "Mengembangkan proyek analisis data end-to-end menggunakan Bike Sharing Dataset untuk membantu memahami faktor-faktor yang memengaruhi jumlah penyewaan sepeda.\n\nProyek dimulai dari proses data wrangling (data cleaning, transformasi tipe data, dan feature engineering), dilanjutkan dengan Exploratory Data Analysis (EDA) untuk menjawab berbagai pertanyaan bisnis, seperti pengaruh musim, jam operasional, tipe pelanggan, hingga kondisi cuaca terhadap jumlah penyewaan.\n\nSeluruh hasil analisis kemudian dikemas menjadi dashboard interaktif berbasis Streamlit sehingga pengguna dapat mengeksplorasi insight secara visual dan mudah dipahami.",
+                  keyInsights: [
+                    { title: "1. Musim berpengaruh terhadap jumlah penyewaan", desc: "Musim Fall (Autumn) memiliki rata-rata penyewaan tertinggi. Musim Spring memiliki tingkat penyewaan terendah." },
+                    { title: "2. Terdapat pola jam sibuk (Rush Hour)", desc: "Puncak penyewaan terjadi pada 07.00–09.00 dan 17.00–19.00. Pola ini menunjukkan penggunaan sepeda sebagai moda transportasi menuju dan pulang kerja." },
+                    { title: "3. Registered User mendominasi", desc: "Sebagian besar penyewaan berasal dari registered users. Korelasi antara jumlah pengguna terdaftar dan total penyewaan mencapai sekitar 0.95, menunjukkan loyalitas pelanggan yang tinggi." },
+                    { title: "4. Pertumbuhan signifikan pada tahun berikutnya", desc: "Jumlah penyewaan meningkat sekitar 64.8% dari tahun 2011 ke 2012. Mengindikasikan pertumbuhan layanan bike sharing yang sangat pesat." },
+                    { title: "5. Cuaca memengaruhi permintaan", desc: "Suhu memiliki korelasi positif terhadap jumlah penyewaan. Kelembaban dan kecepatan angin berkorelasi negatif terhadap jumlah penyewaan." },
+                    { title: "6. Mayoritas hari memiliki penggunaan tinggi", desc: "Melalui teknik binning/clustering sederhana, mayoritas hari termasuk kategori High Usage, yang menunjukkan layanan memiliki tingkat utilisasi yang tinggi." }
+                  ],
+                  outcome: [
+                    "Membersihkan dan mentransformasikan dataset agar siap dianalisis.",
+                    "Menghasilkan insight bisnis berbasis data mengenai perilaku pengguna bike sharing.",
+                    "Membangun dashboard interaktif menggunakan Streamlit.",
+                    "Membantu pengambilan keputusan terkait operasional layanan berdasarkan pola musim, waktu, dan cuaca.",
+                    "Menyajikan visualisasi yang mudah dipahami untuk stakeholder maupun pengguna non-teknis."
+                  ],
+                  linkGithub: "https://github.com/sadinal04/Analisis-Data-Bike-Sharing",
+                  linkWeb: "https://sadinal04-analisis-data-bike-sharing-dashboarddashboard-l3ldkz.streamlit.app/",
+                  image: "/projects/bike-sharing.jpeg"
+                },
+          {
+                  id: "transportation-risk-prediction",
+                  title: "Multi-Task CNN for Transportation Risk Prediction",
+                  category: "Data & AI Solution",
+                  year: "2025",
+                  domain: "Computer Vision, Intelligent Transportation",
+                  shortDesc: "Model Deep Learning untuk memprediksi risiko berkendara berdasarkan cuaca dan visibilitas.",
+                  tags: ["Python", "TensorFlow", "Keras", "CNN", "OpenCV", "NumPy"],
+                  fullDesc: "Mengembangkan model Multi-Task CNN untuk memprediksi tingkat risiko berkendara secara real-time berdasarkan kondisi cuaca dan visibilitas. Model dioptimalkan untuk perangkat embedded dengan inferensi CPU di bawah 70 ms dan akurasi sekitar 96%.",
+                  linkNotebook: "https://drive.google.com/file/d/1jmjjjHamfHUu7UhB1mmp8jgJK8NFZUCJ/view",
+                  image: "/projects/transportation-risk.jpeg"
+                },
+          {
+                  id: "agriscan-ai",
+                  title: "AgriScan: AI-Powered Plant Disease Detection",
+                  category: "Data & AI Solution",
+                  year: "2025",
+                  domain: "Agriculture AI, Computer Vision",
+                  shortDesc: "Sistem AI berbasis Streamlit untuk mendeteksi penyakit tanaman.",
+                  tags: ["Python", "TensorFlow", "Keras", "ResNet50", "Transfer Learning", "Streamlit", "OpenCV"],
+                  fullDesc: "Mengembangkan sistem deteksi penyakit tanaman menggunakan transfer learning ResNet. Model mencapai akurasi sekitar 99% dan diimplementasikan ke aplikasi web berbasis Streamlit untuk prediksi secara real-time. ini adalah project capstone saya di Coding Camp Power by DBS dan Dicoding Indonesia 2025. role saya adalah Machine Learning Engineer.",
+                  linkGithub: "https://github.com/sadinal04/AgriScan-ML-CapstoneProject",
+                  image: "/projects/agriscan.jpeg"
+                },
+          {
+                  id: "predictive-analytics",
+                  title: "Predictive Analytics for Data-Driven Insights",
+                  category: "Data & AI Solution",
+                  year: "2025",
+                  domain: "Machine Learning, Predictive Analytics",
+                  shortDesc: "Pipeline Machine Learning untuk analisis data dan prediksi.",
+                  tags: ["Python", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Seaborn"],
+                  fullDesc: "Mengembangkan pipeline data science mulai dari preprocessing, exploratory data analysis, feature engineering, pelatihan model Machine Learning, hingga evaluasi performa untuk menghasilkan insight dan prediksi berbasis data.",
+                  linkGithub: "https://github.com/sadinal04/Predictive-Analytics",
+                  image: "/projects/predictive-analytics.jpeg"
+                },
+          {
+                  id: "plnalyze",
+                  title: "Data Scientist Intern @ PT PLN (Persero)",
+                  category: "Data & AI Solution",
+                  year: "2025",
+                  domain: "Predictive Analytics, Forecasting",
+                  shortDesc: "Platform analitik untuk memprediksi durasi penyelesaian gangguan layanan IP-VPN PLN.",
+                  tags: ["Python", "Pandas", "NumPy", "Scikit-learn", "XGBoost", "Random Forest", "Linear Regression", "FastAPI", "Docker", "PostgreSQL", "Jupyter Notebook"],
+                  fullDesc: "Berkontribusi dalam pengembangan sistem peramalan berbasis Machine Learning untuk memprediksi durasi penyelesaian gangguan layanan IP-VPN menggunakan data operasional historis (2023–2025). Proyek ini difokuskan pada transformasi data operasional mentah menjadi insight prediktif melalui prapemrosesan, feature engineering, pengembangan model, evaluasi, integrasi dasbor, dan pipeline pelatihan ulang otomatis untuk mendukung perencanaan operasional dan pengambilan keputusan.",
+                  metrics: [
+                    { label: "Durasi", value: "2 Bulan (Agt - Sep 2025)" },
+                    { label: "Data Historis", value: "Catatan Operasional 2023–2025" },
+                    { label: "Model ML", value: "XGBoost, Random Forest, Linear Regression" },
+                    { label: "Batas Prediksi", value: "4 Minggu ke Depan" },
+                    { label: "Dataset Bersih", value: "2.457 Catatan" },
+                    { label: "Hasil Kerja", value: "Sistem Peramalan, Dasbor, Pipeline Pelatihan Ulang Otomatis" }
+                  ],
+                  sections: [
+                    {
+                      title: "Sorotan",
+                      list: [
+                        "Memproses dan mengonsolidasikan data gangguan layanan IP-VPN dari berbagai sumber Excel (2023–2025).",
+                        "Membangun pipeline pemuatan dan penggabungan data otomatis yang mampu menangani struktur sheet dan header yang tidak konsisten.",
+                        "Membersihkan, memvalidasi, dan menstandarisasi dataset untuk alur kerja Machine Learning.",
+                        "Melakukan Exploratory Data Analysis untuk mengidentifikasi nilai yang hilang, outlier, dan inkonsistensi data.",
+                        "Melakukan Feature Engineering temporal (minggu, bulan, tahun) dan fitur jeda untuk model prediksi deret waktu.",
+                        "Menghasilkan dataset siap produksi yang berisi 2.457 catatan bersih.",
+                        "Mengembangkan model peramalan dengan membandingkan algoritma regresi (XGBoost, Random Forest, Linear Regression).",
+                        "Menghasilkan prediksi operasional untuk 4 minggu ke depan guna mendukung perencanaan pemeliharaan.",
+                        "Merancang dasbor analitik interaktif untuk memantau hasil prediksi.",
+                        "Mengimplementasikan otomatisasi pembaruan data, prapemrosesan, dan pelatihan ulang model dengan pipeline Machine Learning."
+                      ]
+                    },
+                    {
+                      title: "Alur Kerja Machine Learning",
+                      list: [
+                        "Data Operasional Mentah → Pengumpulan Data → Pembersihan Data",
+                        "Exploratory Data Analysis → Feature Engineering",
+                        "Pengembangan Model → Evaluasi Model (MAE & MAPE)",
+                        "Peramalan (4 Minggu ke Depan) → Dasbor",
+                        "Pelatihan Ulang Otomatis → Deployment"
+                      ]
+                    },
+                    {
+                      title: "Tanggung Jawab",
+                      list: [
+                        "Pengumpulan Data, Pembersihan, dan Exploratory Data Analysis",
+                        "Feature Engineering & Pemodelan Machine Learning",
+                        "Peramalan & Evaluasi Model",
+                        "Pengembangan Dasbor & Otomatisasi Pipeline",
+                        "Visualisasi Data & Dokumentasi Teknis"
+                      ]
+                    }
+                  ],
+                  image: "/projects/plnalyze.png",
+                  images: [
+                    "/projects/plnalyze.png",
+                    "/projects/pln-dashboard.png"
+                  ]
+                },
+          {
+                  id: "petcare-search",
+                  title: "PetCare Search Engine",
+                  category: "Web Development",
+                  year: "2024",
+                  domain: "Information Retrieval System",
+                  shortDesc: "Mesin pencari informasi kesehatan hewan menggunakan NLP Bahasa Indonesia.",
+                  tags: ["Python", "Flask", "HTML", "CSS", "JavaScript", "TF-IDF", "Cosine Similarity", "Jaccard Similarity", "Sastrawi"],
+                  fullDesc: "Mengembangkan search engine berbasis Flask menggunakan TF-IDF, Cosine Similarity, dan Jaccard Similarity dengan preprocessing NLP Bahasa Indonesia menggunakan Sastrawi serta fitur ranking dan pagination.",
+                  linkGithub: "https://github.com/sadinal04/PetCareSearchEngine-Kelompok13",
+                  image: "/projects/petcare-search.jpeg"
+                },
+          {
+                  id: "youtube-comment-summarizer",
+                  title: "YouTube Comment Summarizer using Fine-Tuned IndoT5",
+                  category: "Data & AI Solution",
+                  year: "2024",
+                  domain: "Natural Language Processing",
+                  shortDesc: "Sistem peringkasan komentar YouTube Bahasa Indonesia menggunakan model IndoT5 yang telah di-fine-tuning.",
+                  tags: ["Python", "PyTorch", "Hugging Face Transformers", "IndoT5", "Fine-Tuning", "YouTube Data API", "Pandas"],
+                  fullDesc: "Mengembangkan sistem otomatis untuk merangkum komentar video YouTube berbahasa Indonesia menggunakan model `cahya/t5-base-indonesian-summarization-cased` yang di-fine-tuning pada dataset hasil scraping komentar YouTube. Sistem mencakup proses pengumpulan data, preprocessing, fine-tuning model, dan inferensi untuk menghasilkan ringkasan yang ringkas dan informatif.",
+                  linkGithub: "https://github.com/sadinal04/youtubeCommentSummarize",
+                  image: "/projects/youtube-comment-summarizer.jpeg"
+                }
+        ]
 };
 
 export const portfolioDataEN = {
@@ -915,283 +915,283 @@ export const portfolioDataEN = {
     }
   ],
   projects: [
-    {
-      id: "movie-recommendation-system",
-      title: "Movie Recommendation System using Content-Based & Collaborative Filtering",
-      category: "Data & AI Solution",
-      year: "2025",
-      domain: "Machine Learning, Recommendation System",
-      shortDesc: "Developed a movie recommendation system using Content-Based Filtering and Collaborative Filtering approaches to generate relevant recommendations based on movie characteristics and user preferences.",
-      tags: ["Python", "Pandas", "NumPy", "Scikit-learn", "TensorFlow", "Keras", "Matplotlib", "Seaborn", "TF-IDF Vectorizer", "Cosine Similarity", "Content-Based Filtering", "Collaborative Filtering", "NCF", "Embedding Layer", "Recommendation System", "Machine Learning", "Feature Engineering"],
-      fullDesc: "Developed a Machine Learning-based movie recommendation system by combining two approaches: Content-Based Filtering using TF-IDF and Cosine Similarity, and Collaborative Filtering using Neural Collaborative Filtering (NCF). The project includes data preprocessing, feature engineering, model building, and recommendation performance evaluation.",
-      keyInsights: [
-        { title: "1. Two Recommendation System Approaches", desc: "Built two recommendation system approaches: Content-Based Filtering and Collaborative Filtering." },
-        { title: "2. High Precision Content-Based Filtering", desc: "Content-Based Filtering achieved a Precision@20 of 1.00 based on recommendation relevance evaluation." },
-        { title: "3. Deep Learning-Based Collaborative Filtering", desc: "Collaborative Filtering utilized Neural Collaborative Filtering (TensorFlow/Keras) to learn user preferences through embeddings." },
-        { title: "4. Accurate NCF Performance", desc: "The Collaborative Filtering model achieved an RMSE of approximately 0.18, indicating accurate rating prediction capabilities." }
-      ],
-      outcome: [
-        "Produced a movie recommendation system based on content similarity and user preferences.",
-        "Built recommendation models using TF-IDF, Cosine Similarity, and Neural Collaborative Filtering.",
-        "Achieved a Precision@20 of 1.00 and an RMSE of approximately 0.18.",
-        "Provided an end-to-end Recommendation System pipeline from preprocessing to model evaluation."
-      ],
-      linkGithub: "https://github.com/sadinal04/Sistem-Rekomendasi",
-      linkNotebook: "https://github.com/sadinal04/Sistem-Rekomendasi/blob/main/Notebook.ipynb",
-      image: "/projects/movie-recommendation-system.png"
-    },
-    {
-      id: "grab-review-sentiment-analysis",
-      title: "Grab Review Sentiment Analysis using Deep Learning",
-      category: "Data & AI Solution",
-      year: "2025",
-      domain: "Natural Language Processing (NLP), Deep Learning, Sentiment Analysis",
-      shortDesc: "Developed an end-to-end Natural Language Processing (NLP) pipeline to perform sentiment analysis on Grab app reviews in the Google Play Store, from web scraping, text preprocessing, and sentiment labeling to training and evaluating Deep Learning models.",
-      tags: ["Python", "TensorFlow", "Keras", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Seaborn", "NLTK", "Sastrawi", "Google Play Scraper", "LSTM", "GRU", "RNN", "NLP", "Deep Learning"],
-      fullDesc: "This project builds a Deep Learning-based sentiment analysis system using Grab app reviews obtained through web scraping from the Google Play Store. A total of 15,000 reviews were successfully collected and processed through data cleaning, case folding, tokenization, stopword removal, stemming, and sentiment labeling based on user ratings. Exploratory Data Analysis (EDA) was then performed to understand data distribution and review characteristics.\n\nThe feature extraction process utilized Keras Tokenizer and Padding Sequences prior to Deep Learning model training. Three neural network architectures, namely LSTM, Simple RNN, and GRU, were compared in terms of performance to determine the best model for classifying user sentiment. Experimental results showed that the LSTM model delivered the best performance with an accuracy of 92.13%, thus chosen as the primary model for sentiment classification. This project demonstrates the implementation of an end-to-end NLP pipeline from data collection to model evaluation.",
-      keyInsights: [
-        { title: "1. Scraped 15,000 Reviews", desc: "Successfully scraped 15,000 Grab user reviews from the Google Play Store." },
-        { title: "2. End-to-End NLP Pipeline", desc: "Built a complete NLP pipeline from preprocessing to sentiment classification." },
-        { title: "3. Model Architecture Comparison", desc: "Compared the performance of LSTM, GRU, and Simple RNN for sentiment classification." },
-        { title: "4. LSTM as the Best Model", desc: "LSTM emerged as the best model with a 92.13% accuracy in classifying user review sentiment." }
-      ],
-      outcome: [
-        "Produced a Grab review dataset ready for analysis.",
-        "Built a sentiment analysis model with a peak accuracy of 92.13% using LSTM.",
-        "Provided an end-to-end NLP pipeline applicable for customer feedback analysis and business intelligence."
-      ],
-      linkGithub: "https://github.com/sadinal04/Grab-Review-Sentiment-Analysis",
-      linkNotebook: "https://github.com/sadinal04/Grab-Review-Sentiment-Analysis/blob/main/Pelatihan_Sentimen_Analisis.ipynb",
-      image: "/projects/grab-review-sentiment-analysis.jpeg"
-    },
-    {
-      id: "bank-transaction-clustering-classification",
-      title: "Bank Transaction Clustering & Classification using Machine Learning",
-      category: "Data & AI Solution",
-      year: "2025",
-      domain: "Machine Learning • Unsupervised Learning • Supervised Learning • Fraud Analytics",
-      shortDesc: "Developed an end-to-end Machine Learning pipeline to analyze bank transactions using a clustering approach to find transaction patterns, then built a classification model to predict segmentation results using supervised learning algorithms.",
-      tags: ["Python", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Seaborn", "K-Means", "KNN", "Naïve Bayes", "GridSearchCV", "PCA", "EDA"],
-      fullDesc: "This project implements a complete Machine Learning workflow using the Bank Transaction Dataset for Fraud Detection, consisting of 2,512 transactions with 16 features that include information on transactions, customers, accounts, merchants, devices, locations, and account balances.\n\nThe first phase involved Exploratory Data Analysis (EDA) to understand the data distribution, numerical and categorical feature characteristics, and relationships between variables. Preprocessing followed, including the removal of irrelevant features, customer age grouping, label encoding, and data normalization.\n\nIn the unsupervised learning phase, the K-Means Clustering algorithm was used to group transactions based on their characteristics. The optimal number of clusters was determined using the Elbow Method and Silhouette Score, followed by feature selection to improve cluster quality. The clustering results were visualized using Principal Component Analysis (PCA) and interpreted based on the characteristics of each group.\n\nThe next phase utilized the clustering labels as targets to build supervised learning models. Two classification algorithms, K-Nearest Neighbors (KNN) and Gaussian Naïve Bayes, were compared using various evaluation metrics. Additionally, hyperparameter tuning was performed using GridSearchCV to improve the performance of the Naïve Bayes model.",
-      keyInsights: [
-        { title: "1. Clustering Produces Three Transaction Groups", desc: "Evaluation using the Elbow Method and Silhouette Score indicates that 3 clusters is the optimal number with a Silhouette Score of 0.6211." },
-        { title: "2. Feature Selection Improves Cluster Quality", desc: "The application of SelectKBest successfully improved clustering quality compared to using all features, making transaction segmentation more representative." },
-        { title: "3. Distinct Transaction Characteristics in Each Cluster", desc: "Each cluster possesses unique characteristics based on the average Transaction Amount, Account Balance, customer age, and other transaction attributes, allowing them to be used for understanding customer transaction behavior patterns." },
-        { title: "4. KNN is the Best Classification Model", desc: "Model comparison shows that K-Nearest Neighbors (KNN) yields the best performance with an accuracy of approximately 99.4%, outperforming Gaussian Naïve Bayes." },
-        { title: "5. Hyperparameter Tuning Enhances Naïve Bayes", desc: "Optimization using GridSearchCV successfully increased the accuracy of the Gaussian Naïve Bayes model from around 94.0% to 96.6%, demonstrating the importance of the tuning process in improving model performance." }
-      ],
-      outcome: [
-        "Performed data cleaning and preprocessing on the bank transaction dataset.",
-        "Generated transaction segmentation using the K-Means Clustering algorithm.",
-        "Determined the optimal number of clusters using the Elbow Method and Silhouette Score.",
-        "Improved cluster quality through feature selection.",
-        "Developed a classification model based on clustering results.",
-        "Compared the performance of KNN and Gaussian Naïve Bayes.",
-        "Performed hyperparameter tuning to improve model performance.",
-        "Built a Machine Learning pipeline from data exploration to model evaluation."
-      ],
-      linkGithub: "https://github.com/sadinal04/Bank-transaction-clustering-classification",
-      image: "/projects/bank_transaction.jpeg"
-    },
-    {
-      id: "bike-sharing-analysis",
-      title: "Bike Sharing Data Analysis & Interactive Dashboard",
-      category: "Data & AI Solution",
-      year: "2025",
-      domain: "Data Analytics • Business Intelligence • Streamlit Dashboard",
-      shortDesc: "Performed exploratory data analysis (EDA) on the Bike Sharing Dataset to identify bike rental patterns based on seasons, time, workdays, customer types, and weather conditions. The analysis results were visualized in an interactive dashboard using Streamlit.",
-      tags: ["Python", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Streamlit", "Jupyter Notebook", "Data Cleaning", "EDA", "Data Visualization", "Business Analytics"],
-      fullDesc: "Developed an end-to-end data analysis project using the Bike Sharing Dataset to help understand the factors affecting the number of bike rentals.\n\nThe project started with data wrangling (data cleaning, data type transformation, and feature engineering), followed by Exploratory Data Analysis (EDA) to answer various business questions, such as the effect of seasons, operational hours, customer types, and weather conditions on the number of rentals.\n\nAll analysis results were then packaged into an interactive Streamlit-based dashboard so users can explore insights visually and easily.",
-      keyInsights: [
-        { title: "1. Season affects rental numbers", desc: "Fall (Autumn) has the highest average rentals. Spring has the lowest rental rates." },
-        { title: "2. Rush Hour patterns exist", desc: "Peak rentals occur at 07.00–09.00 and 17.00–19.00. This pattern indicates the use of bikes as a mode of transportation for commuting to and from work." },
-        { title: "3. Registered Users dominate", desc: "Most rentals come from registered users. The correlation between the number of registered users and total rentals reaches around 0.95, indicating high customer loyalty." },
-        { title: "4. Significant growth in the following year", desc: "The number of rentals increased by about 64.8% from 2011 to 2012, indicating very rapid growth of the bike sharing service." },
-        { title: "5. Weather affects demand", desc: "Temperature has a positive correlation with the number of rentals. Humidity and wind speed have a negative correlation with rentals." },
-        { title: "6. Majority of days have high usage", desc: "Through simple binning/clustering techniques, the majority of days fall into the High Usage category, indicating the service has a high utilization rate." }
-      ],
-      outcome: [
-        "Cleaned and transformed the dataset ready for analysis.",
-        "Generated data-driven business insights regarding bike sharing user behavior.",
-        "Built an interactive dashboard using Streamlit.",
-        "Aided decision-making regarding service operations based on seasonal, time, and weather patterns.",
-        "Presented easy-to-understand visualizations for stakeholders and non-technical users."
-      ],
-      linkGithub: "https://github.com/sadinal04/Analisis-Data-Bike-Sharing",
-      linkWeb: "https://sadinal04-analisis-data-bike-sharing-dashboarddashboard-l3ldkz.streamlit.app/",
-      image: "/projects/bike-sharing.jpeg"
-    },
-    {
-      id: "cobabantu",
-      title: "COBABANTU – Smart Digital & AI Solutions",
-      category: "Web Development",
-      year: "2026",
-      domain: "Company Profile, Digital Services",
-      shortDesc: "A modern company profile website for Web Development, AI, Dashboard, and Data Analytics service providers.",
-      tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel"],
-      fullDesc: "Designed and developed a responsive company profile website for COBABANTU showcasing services, portfolio, technologies, and company information professionally. The website is optimized for performance, SEO, and user experience with a modern design acting as a digital branding and marketing medium.",
-      linkWeb: "https://cobabantu.com",
-      image: "/projects/cobabantu.png"
-    },
-    {
-      id: "multitask-plant-disease",
-      title: "Multi-Task CNN with Self-Attention for Plant & Leaf Disease Classification",
-      category: "Data & AI Solution",
-      year: "2025",
-      domain: "Computer Vision, Deep Learning, Mobile AI",
-      shortDesc: "A lightweight Multi-Task CNN model for simultaneous plant species and leaf disease classification.",
-      tags: ["Python", "TensorFlow", "Keras", "NumPy", "Pandas", "OpenCV", "Scikit-learn", "Matplotlib", "Seaborn", "CNN", "Multi-Task Learning", "Self-Attention (SE Block)", "Grad-CAM", "TensorFlow Lite", "Image Processing", "Computer Vision", "Deep Learning", "Data Augmentation", "Model Evaluation"],
-      fullDesc: "Developed a Convolutional Neural Network (CNN)-based Multi-Task Deep Learning model with Self-Attention (Squeeze-and-Excitation Block) to simultaneously identify plant species and leaf diseases in a single inference process. The model features species-aware disease masking to ensure disease predictions align with the plant species, along with Grad-CAM to enhance the interpretability of predictions. The model was then optimized and exported to TensorFlow Lite for deployment on mobile devices.",
-      keyInsights: [
-        { title: "1. Multi-Task CNN Architecture", desc: "Developed a Multi-Task CNN architecture capable of simultaneously predicting 5 plant species and 14 disease classes." },
-        { title: "2. Self-Attention Integration", desc: "Integrated Self-Attention (SE Block) to enhance the model's ability to extract critical features from leaf images." },
-        { title: "3. Species-Aware Masking", desc: "Applied species-aware disease masking so that only diseases relevant to a specific plant can be predicted." },
-        { title: "4. High Accuracy Performance", desc: "Achieved 98.31% accuracy for plant-disease combination identification, with 99.53% accuracy in plant classification and 98.72% in disease classification." },
-        { title: "5. Edge Model Optimization", desc: "Produced a lightweight model exported to TensorFlow Lite with an inference time of approximately 58 ms per image, ready for deployment on mobile applications." }
-      ],
-      outcome: [
-        "Successfully built a Multi-Task CNN model with Self-Attention for simultaneous plant and leaf disease identification.",
-        "Achieved 98.31% accuracy in plant-disease combination classification, 99.53% in plant classification, and 98.72% in disease classification.",
-        "Integrated Grad-CAM for visualizing critical areas used by the model during the prediction process.",
-        "Exported the model into TensorFlow Lite format, making it ready for implementation on Android or edge devices."
-      ],
-      linkGithub: "https://github.com/sadinal04/PlantDiseaseClassification-Multitask-SelfAttention",
-      image: "/projects/multitask-plant-disease.jpeg"
-    },
-    {
-      id: "transportation-risk-prediction",
-      title: "Multi-Task CNN for Transportation Risk Prediction",
-      category: "Data & AI Solution",
-      year: "2025",
-      domain: "Computer Vision, Intelligent Transportation",
-      shortDesc: "A Deep Learning model to predict driving risks based on weather and visibility.",
-      tags: ["Python", "TensorFlow", "Keras", "CNN", "OpenCV", "NumPy"],
-      fullDesc: "Developed a Multi-Task CNN model to predict driving risk levels in real-time based on weather conditions and visibility. The model was optimized for embedded devices with a CPU inference time under 70 ms and an accuracy of approximately 96%.",
-      linkNotebook: "https://drive.google.com/file/d/1jmjjjHamfHUu7UhB1mmp8jgJK8NFZUCJ/view",
-      image: "/projects/transportation-risk.jpeg"
-    },
-    {
-      id: "agriscan-ai",
-      title: "AgriScan: AI-Powered Plant Disease Detection",
-      category: "Data & AI Solution",
-      year: "2025",
-      domain: "Agriculture AI, Computer Vision",
-      shortDesc: "A Streamlit-based AI system for detecting plant diseases.",
-      tags: ["Python", "TensorFlow", "Keras", "ResNet50", "Transfer Learning", "Streamlit", "OpenCV"],
-      fullDesc: "Developed a plant disease detection system using ResNet transfer learning. The model achieved an accuracy of around 99% and was implemented into a Streamlit-based web application for real-time predictions. This was my capstone project at Coding Camp Powered by DBS and Dicoding Indonesia 2025, where my role was Machine Learning Engineer.",
-      linkGithub: "https://github.com/sadinal04/AgriScan-ML-CapstoneProject",
-      image: "/projects/agriscan.jpeg"
-    },
-    {
-      id: "predictive-analytics",
-      title: "Predictive Analytics for Data-Driven Insights",
-      category: "Data & AI Solution",
-      year: "2025",
-      domain: "Machine Learning, Predictive Analytics",
-      shortDesc: "A Machine Learning pipeline for data analysis and predictions.",
-      tags: ["Python", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Seaborn"],
-      fullDesc: "Developed a full data science pipeline starting from preprocessing, exploratory data analysis, and feature engineering to training Machine Learning models and evaluating performance, aimed at generating data-driven insights and predictions.",
-      linkGithub: "https://github.com/sadinal04/Predictive-Analytics",
-      image: "/projects/predictive-analytics.jpeg"
-    },
-    {
-      id: "wantutri-ai",
-      title: "Wantutri AI – AI Content Generation Platform",
-      category: "Data & AI Solution",
-      year: "2025",
-      domain: "Generative AI, Content Automation",
-      shortDesc: "A Generative AI platform for automatically producing promotional content for MSMEs.",
-      tags: ["Python", "FastAPI", "Next.js", "React", "TypeScript", "Tailwind CSS", "Qwen", "Wan", "Generative AI", "REST API"],
-      fullDesc: "Developed a Generative AI platform during the Alibaba Cloud AI x Creativity Hackathon. The platform utilizes a Large Language Model (Qwen) for script generation, AI Image Generation for visuals, and Wan Video Generation to automatically compile promotional videos from user inputs. This solution was designed to help MSMEs and digital content creators accelerate their digital content production process. The project successfully became a Finalist in the Alibaba Cloud AI x Creativity National Hackathon.",
-      linkGithub: "https://github.com/MuhammadBintang27/WanTuTriActIon",
-      linkWeb: "https://wantutriai.xyz/",
-      image: "/projects/wantutri-ai.png"
-    },
-    {
-      id: "plnalyze",
-      title: "Data Scientist Intern @ PT PLN (Persero)",
-      category: "Data & AI Solution",
-      year: "2025",
-      domain: "Predictive Analytics, Forecasting",
-      shortDesc: "An analytics platform to predict IP-VPN service disruption resolution times for PLN.",
-      tags: ["Python", "Pandas", "NumPy", "Scikit-learn", "XGBoost", "Random Forest", "Linear Regression", "FastAPI", "Docker", "PostgreSQL", "Jupyter Notebook"],
-      fullDesc: "Contributed to the development of a Machine Learning-based forecasting system to predict IP-VPN service disruption resolution times using historical operational data (2023–2025). The project focused on transforming raw operational data into predictive insights through preprocessing, feature engineering, model development, evaluation, dashboard integration, and automated retraining pipelines to support operational planning and decision-making.",
-      metrics: [
-        { label: "Duration", value: "2 Months (Aug - Sep 2025)" },
-        { label: "Historical Data", value: "2023–2025 Operational Records" },
-        { label: "ML Models", value: "XGBoost, Random Forest, Linear Regression" },
-        { label: "Forecast Horizon", value: "4 Weeks Ahead" },
-        { label: "Cleaned Dataset", value: "2,457 Records" },
-        { label: "Deliverables", value: "Forecasting System, Dashboard, Automated Retraining Pipeline" }
-      ],
-      sections: [
-        {
-          title: "Highlights",
-          list: [
-            "Processed and consolidated historical IP-VPN service disruption data from multiple Excel sources (2023–2025).",
-            "Built automated data loading and merging pipelines capable of handling inconsistent sheet structures and headers.",
-            "Cleaned, validated, and standardized operational datasets for Machine Learning workflows.",
-            "Conducted exploratory data analysis to identify missing values, outliers, and data inconsistencies.",
-            "Engineered temporal features (week, month, year) and lag features for time-series forecasting models.",
-            "Produced a production-ready dataset containing 2,457 cleaned records.",
-            "Developed forecasting models comparing multiple regression algorithms (XGBoost, Random Forest, Linear Regression).",
-            "Generated operational forecasts for the next 4 weeks to support maintenance planning.",
-            "Designed an interactive analytics dashboard for monitoring forecasting results.",
-            "Implemented automated data upload, preprocessing, and model retraining workflows with Machine Learning pipelines."
-          ]
-        },
-        {
-          title: "Machine Learning Workflow",
-          list: [
-            "Raw Operational Data → Data Collection → Data Cleaning",
-            "Exploratory Data Analysis → Feature Engineering",
-            "Model Development → Model Evaluation (MAE & MAPE)",
-            "Forecasting (4 Weeks Ahead) → Dashboard",
-            "Automated Retraining → Deployment"
-          ]
-        },
-        {
-          title: "Responsibilities",
-          list: [
-            "Data Collection, Cleaning, and Exploratory Data Analysis",
-            "Feature Engineering & Machine Learning Modeling",
-            "Forecasting & Model Evaluation",
-            "Dashboard Development & Pipeline Automation",
-            "Data Visualization & Technical Documentation"
-          ]
-        }
-      ],
-      image: "/projects/plnalyze.png",
-      images: [
-        "/projects/plnalyze.png",
-        "/projects/pln-dashboard.png"
-      ]
-    },
-    {
-      id: "petcare-search",
-      title: "PetCare Search Engine",
-      category: "Web Development",
-      year: "2024",
-      domain: "Information Retrieval System",
-      shortDesc: "An information search engine for animal health using Indonesian NLP.",
-      tags: ["Python", "Flask", "HTML", "CSS", "JavaScript", "TF-IDF", "Cosine Similarity", "Jaccard Similarity", "Sastrawi"],
-      fullDesc: "Developed a Flask-based search engine using TF-IDF, Cosine Similarity, and Jaccard Similarity, with Indonesian NLP preprocessing using Sastrawi, along with ranking and pagination features.",
-      linkGithub: "https://github.com/sadinal04/PetCareSearchEngine-Kelompok13",
-      image: "/projects/petcare-search.jpeg"
-    },
-    {
-      id: "youtube-comment-summarizer",
-      title: "YouTube Comment Summarizer using Fine-Tuned IndoT5",
-      category: "Data & AI Solution",
-      year: "2024",
-      domain: "Natural Language Processing",
-      shortDesc: "An Indonesian YouTube comment summarization system using a fine-tuned IndoT5 model.",
-      tags: ["Python", "PyTorch", "Hugging Face Transformers", "IndoT5", "Fine-Tuning", "YouTube Data API", "Pandas"],
-      fullDesc: "Developed an automated system to summarize Indonesian YouTube video comments using a fine-tuned `cahya/t5-base-indonesian-summarization-cased` model on a dataset scraped from YouTube comments. The system encompasses data collection, preprocessing, model fine-tuning, and inference to produce concise and informative summaries.",
-      linkGithub: "https://github.com/sadinal04/youtubeCommentSummarize",
-      image: "/projects/youtube-comment-summarizer.jpeg"
-    }
-  ]
+      {
+                  id: "multitask-plant-disease",
+                  title: "Multi-Task CNN with Self-Attention for Plant & Leaf Disease Classification",
+                  category: "Data & AI Solution",
+                  year: "2026",
+                  domain: "Computer Vision, Deep Learning, Mobile AI",
+                  shortDesc: "A lightweight Multi-Task CNN model for simultaneous plant species and leaf disease classification.",
+                  tags: ["Python", "TensorFlow", "Keras", "NumPy", "Pandas", "OpenCV", "Scikit-learn", "Matplotlib", "Seaborn", "CNN", "Multi-Task Learning", "Self-Attention (SE Block)", "Grad-CAM", "TensorFlow Lite", "Image Processing", "Computer Vision", "Deep Learning", "Data Augmentation", "Model Evaluation"],
+                  fullDesc: "Developed a Convolutional Neural Network (CNN)-based Multi-Task Deep Learning model with Self-Attention (Squeeze-and-Excitation Block) to simultaneously identify plant species and leaf diseases in a single inference process. The model features species-aware disease masking to ensure disease predictions align with the plant species, along with Grad-CAM to enhance the interpretability of predictions. The model was then optimized and exported to TensorFlow Lite for deployment on mobile devices.",
+                  keyInsights: [
+                    { title: "1. Multi-Task CNN Architecture", desc: "Developed a Multi-Task CNN architecture capable of simultaneously predicting 5 plant species and 14 disease classes." },
+                    { title: "2. Self-Attention Integration", desc: "Integrated Self-Attention (SE Block) to enhance the model's ability to extract critical features from leaf images." },
+                    { title: "3. Species-Aware Masking", desc: "Applied species-aware disease masking so that only diseases relevant to a specific plant can be predicted." },
+                    { title: "4. High Accuracy Performance", desc: "Achieved 98.31% accuracy for plant-disease combination identification, with 99.53% accuracy in plant classification and 98.72% in disease classification." },
+                    { title: "5. Edge Model Optimization", desc: "Produced a lightweight model exported to TensorFlow Lite with an inference time of approximately 58 ms per image, ready for deployment on mobile applications." }
+                  ],
+                  outcome: [
+                    "Successfully built a Multi-Task CNN model with Self-Attention for simultaneous plant and leaf disease identification.",
+                    "Achieved 98.31% accuracy in plant-disease combination classification, 99.53% in plant classification, and 98.72% in disease classification.",
+                    "Integrated Grad-CAM for visualizing critical areas used by the model during the prediction process.",
+                    "Exported the model into TensorFlow Lite format, making it ready for implementation on Android or edge devices."
+                  ],
+                  linkGithub: "https://github.com/sadinal04/PlantDiseaseClassification-Multitask-SelfAttention",
+                  image: "/projects/multitask-plant-disease.jpeg"
+                },
+          {
+                  id: "cobabantu",
+                  title: "COBABANTU – Smart Digital & AI Solutions",
+                  category: "Web Development",
+                  year: "2026",
+                  domain: "Company Profile, Digital Services",
+                  shortDesc: "A modern company profile website for Web Development, AI, Dashboard, and Data Analytics service providers.",
+                  tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel"],
+                  fullDesc: "Designed and developed a responsive company profile website for COBABANTU showcasing services, portfolio, technologies, and company information professionally. The website is optimized for performance, SEO, and user experience with a modern design acting as a digital branding and marketing medium.",
+                  linkWeb: "https://cobabantu.com",
+                  image: "/projects/cobabantu.png"
+                },
+          {
+                  id: "wantutri-ai",
+                  title: "Wantutri AI – AI Content Generation Platform",
+                  category: ["Data & AI Solution", "Web Development"],
+                  year: "2026",
+                  domain: "Generative AI, Content Automation",
+                  shortDesc: "A Generative AI platform for automatically producing promotional content for MSMEs.",
+                  tags: ["Python", "FastAPI", "Next.js", "React", "TypeScript", "Tailwind CSS", "Qwen", "Wan", "Generative AI", "REST API"],
+                  fullDesc: "Developed a Generative AI platform during the Alibaba Cloud AI x Creativity Hackathon. The platform utilizes a Large Language Model (Qwen) for script generation, AI Image Generation for visuals, and Wan Video Generation to automatically compile promotional videos from user inputs. This solution was designed to help MSMEs and digital content creators accelerate their digital content production process. The project successfully became a Finalist in the Alibaba Cloud AI x Creativity National Hackathon.",
+                  linkGithub: "https://github.com/MuhammadBintang27/WanTuTriActIon",
+                  linkWeb: "https://wantutriai.xyz/",
+                  image: "/projects/wantutri-ai.png"
+                },
+          {
+                  id: "movie-recommendation-system",
+                  title: "Movie Recommendation System using Content-Based & Collaborative Filtering",
+                  category: "Data & AI Solution",
+                  year: "2025",
+                  domain: "Machine Learning, Recommendation System",
+                  shortDesc: "Developed a movie recommendation system using Content-Based Filtering and Collaborative Filtering approaches to generate relevant recommendations based on movie characteristics and user preferences.",
+                  tags: ["Python", "Pandas", "NumPy", "Scikit-learn", "TensorFlow", "Keras", "Matplotlib", "Seaborn", "TF-IDF Vectorizer", "Cosine Similarity", "Content-Based Filtering", "Collaborative Filtering", "NCF", "Embedding Layer", "Recommendation System", "Machine Learning", "Feature Engineering"],
+                  fullDesc: "Developed a Machine Learning-based movie recommendation system by combining two approaches: Content-Based Filtering using TF-IDF and Cosine Similarity, and Collaborative Filtering using Neural Collaborative Filtering (NCF). The project includes data preprocessing, feature engineering, model building, and recommendation performance evaluation.",
+                  keyInsights: [
+                    { title: "1. Two Recommendation System Approaches", desc: "Built two recommendation system approaches: Content-Based Filtering and Collaborative Filtering." },
+                    { title: "2. High Precision Content-Based Filtering", desc: "Content-Based Filtering achieved a Precision@20 of 1.00 based on recommendation relevance evaluation." },
+                    { title: "3. Deep Learning-Based Collaborative Filtering", desc: "Collaborative Filtering utilized Neural Collaborative Filtering (TensorFlow/Keras) to learn user preferences through embeddings." },
+                    { title: "4. Accurate NCF Performance", desc: "The Collaborative Filtering model achieved an RMSE of approximately 0.18, indicating accurate rating prediction capabilities." }
+                  ],
+                  outcome: [
+                    "Produced a movie recommendation system based on content similarity and user preferences.",
+                    "Built recommendation models using TF-IDF, Cosine Similarity, and Neural Collaborative Filtering.",
+                    "Achieved a Precision@20 of 1.00 and an RMSE of approximately 0.18.",
+                    "Provided an end-to-end Recommendation System pipeline from preprocessing to model evaluation."
+                  ],
+                  linkGithub: "https://github.com/sadinal04/Sistem-Rekomendasi",
+                  linkNotebook: "https://github.com/sadinal04/Sistem-Rekomendasi/blob/main/Notebook.ipynb",
+                  image: "/projects/movie-recommendation-system.png"
+                },
+          {
+                  id: "grab-review-sentiment-analysis",
+                  title: "Grab Review Sentiment Analysis using Deep Learning",
+                  category: "Data & AI Solution",
+                  year: "2025",
+                  domain: "Natural Language Processing (NLP), Deep Learning, Sentiment Analysis",
+                  shortDesc: "Developed an end-to-end Natural Language Processing (NLP) pipeline to perform sentiment analysis on Grab app reviews in the Google Play Store, from web scraping, text preprocessing, and sentiment labeling to training and evaluating Deep Learning models.",
+                  tags: ["Python", "TensorFlow", "Keras", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Seaborn", "NLTK", "Sastrawi", "Google Play Scraper", "LSTM", "GRU", "RNN", "NLP", "Deep Learning"],
+                  fullDesc: "This project builds a Deep Learning-based sentiment analysis system using Grab app reviews obtained through web scraping from the Google Play Store. A total of 15,000 reviews were successfully collected and processed through data cleaning, case folding, tokenization, stopword removal, stemming, and sentiment labeling based on user ratings. Exploratory Data Analysis (EDA) was then performed to understand data distribution and review characteristics.\n\nThe feature extraction process utilized Keras Tokenizer and Padding Sequences prior to Deep Learning model training. Three neural network architectures, namely LSTM, Simple RNN, and GRU, were compared in terms of performance to determine the best model for classifying user sentiment. Experimental results showed that the LSTM model delivered the best performance with an accuracy of 92.13%, thus chosen as the primary model for sentiment classification. This project demonstrates the implementation of an end-to-end NLP pipeline from data collection to model evaluation.",
+                  keyInsights: [
+                    { title: "1. Scraped 15,000 Reviews", desc: "Successfully scraped 15,000 Grab user reviews from the Google Play Store." },
+                    { title: "2. End-to-End NLP Pipeline", desc: "Built a complete NLP pipeline from preprocessing to sentiment classification." },
+                    { title: "3. Model Architecture Comparison", desc: "Compared the performance of LSTM, GRU, and Simple RNN for sentiment classification." },
+                    { title: "4. LSTM as the Best Model", desc: "LSTM emerged as the best model with a 92.13% accuracy in classifying user review sentiment." }
+                  ],
+                  outcome: [
+                    "Produced a Grab review dataset ready for analysis.",
+                    "Built a sentiment analysis model with a peak accuracy of 92.13% using LSTM.",
+                    "Provided an end-to-end NLP pipeline applicable for customer feedback analysis and business intelligence."
+                  ],
+                  linkGithub: "https://github.com/sadinal04/Grab-Review-Sentiment-Analysis",
+                  linkNotebook: "https://github.com/sadinal04/Grab-Review-Sentiment-Analysis/blob/main/Pelatihan_Sentimen_Analisis.ipynb",
+                  image: "/projects/grab-review-sentiment-analysis.jpeg"
+                },
+          {
+                  id: "bank-transaction-clustering-classification",
+                  title: "Bank Transaction Clustering & Classification using Machine Learning",
+                  category: "Data & AI Solution",
+                  year: "2025",
+                  domain: "Machine Learning • Unsupervised Learning • Supervised Learning • Fraud Analytics",
+                  shortDesc: "Developed an end-to-end Machine Learning pipeline to analyze bank transactions using a clustering approach to find transaction patterns, then built a classification model to predict segmentation results using supervised learning algorithms.",
+                  tags: ["Python", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Seaborn", "K-Means", "KNN", "Naïve Bayes", "GridSearchCV", "PCA", "EDA"],
+                  fullDesc: "This project implements a complete Machine Learning workflow using the Bank Transaction Dataset for Fraud Detection, consisting of 2,512 transactions with 16 features that include information on transactions, customers, accounts, merchants, devices, locations, and account balances.\n\nThe first phase involved Exploratory Data Analysis (EDA) to understand the data distribution, numerical and categorical feature characteristics, and relationships between variables. Preprocessing followed, including the removal of irrelevant features, customer age grouping, label encoding, and data normalization.\n\nIn the unsupervised learning phase, the K-Means Clustering algorithm was used to group transactions based on their characteristics. The optimal number of clusters was determined using the Elbow Method and Silhouette Score, followed by feature selection to improve cluster quality. The clustering results were visualized using Principal Component Analysis (PCA) and interpreted based on the characteristics of each group.\n\nThe next phase utilized the clustering labels as targets to build supervised learning models. Two classification algorithms, K-Nearest Neighbors (KNN) and Gaussian Naïve Bayes, were compared using various evaluation metrics. Additionally, hyperparameter tuning was performed using GridSearchCV to improve the performance of the Naïve Bayes model.",
+                  keyInsights: [
+                    { title: "1. Clustering Produces Three Transaction Groups", desc: "Evaluation using the Elbow Method and Silhouette Score indicates that 3 clusters is the optimal number with a Silhouette Score of 0.6211." },
+                    { title: "2. Feature Selection Improves Cluster Quality", desc: "The application of SelectKBest successfully improved clustering quality compared to using all features, making transaction segmentation more representative." },
+                    { title: "3. Distinct Transaction Characteristics in Each Cluster", desc: "Each cluster possesses unique characteristics based on the average Transaction Amount, Account Balance, customer age, and other transaction attributes, allowing them to be used for understanding customer transaction behavior patterns." },
+                    { title: "4. KNN is the Best Classification Model", desc: "Model comparison shows that K-Nearest Neighbors (KNN) yields the best performance with an accuracy of approximately 99.4%, outperforming Gaussian Naïve Bayes." },
+                    { title: "5. Hyperparameter Tuning Enhances Naïve Bayes", desc: "Optimization using GridSearchCV successfully increased the accuracy of the Gaussian Naïve Bayes model from around 94.0% to 96.6%, demonstrating the importance of the tuning process in improving model performance." }
+                  ],
+                  outcome: [
+                    "Performed data cleaning and preprocessing on the bank transaction dataset.",
+                    "Generated transaction segmentation using the K-Means Clustering algorithm.",
+                    "Determined the optimal number of clusters using the Elbow Method and Silhouette Score.",
+                    "Improved cluster quality through feature selection.",
+                    "Developed a classification model based on clustering results.",
+                    "Compared the performance of KNN and Gaussian Naïve Bayes.",
+                    "Performed hyperparameter tuning to improve model performance.",
+                    "Built a Machine Learning pipeline from data exploration to model evaluation."
+                  ],
+                  linkGithub: "https://github.com/sadinal04/Bank-transaction-clustering-classification",
+                  image: "/projects/bank_transaction.jpeg"
+                },
+          {
+                  id: "bike-sharing-analysis",
+                  title: "Bike Sharing Data Analysis & Interactive Dashboard",
+                  category: "Data & AI Solution",
+                  year: "2025",
+                  domain: "Data Analytics • Business Intelligence • Streamlit Dashboard",
+                  shortDesc: "Performed exploratory data analysis (EDA) on the Bike Sharing Dataset to identify bike rental patterns based on seasons, time, workdays, customer types, and weather conditions. The analysis results were visualized in an interactive dashboard using Streamlit.",
+                  tags: ["Python", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Streamlit", "Jupyter Notebook", "Data Cleaning", "EDA", "Data Visualization", "Business Analytics"],
+                  fullDesc: "Developed an end-to-end data analysis project using the Bike Sharing Dataset to help understand the factors affecting the number of bike rentals.\n\nThe project started with data wrangling (data cleaning, data type transformation, and feature engineering), followed by Exploratory Data Analysis (EDA) to answer various business questions, such as the effect of seasons, operational hours, customer types, and weather conditions on the number of rentals.\n\nAll analysis results were then packaged into an interactive Streamlit-based dashboard so users can explore insights visually and easily.",
+                  keyInsights: [
+                    { title: "1. Season affects rental numbers", desc: "Fall (Autumn) has the highest average rentals. Spring has the lowest rental rates." },
+                    { title: "2. Rush Hour patterns exist", desc: "Peak rentals occur at 07.00–09.00 and 17.00–19.00. This pattern indicates the use of bikes as a mode of transportation for commuting to and from work." },
+                    { title: "3. Registered Users dominate", desc: "Most rentals come from registered users. The correlation between the number of registered users and total rentals reaches around 0.95, indicating high customer loyalty." },
+                    { title: "4. Significant growth in the following year", desc: "The number of rentals increased by about 64.8% from 2011 to 2012, indicating very rapid growth of the bike sharing service." },
+                    { title: "5. Weather affects demand", desc: "Temperature has a positive correlation with the number of rentals. Humidity and wind speed have a negative correlation with rentals." },
+                    { title: "6. Majority of days have high usage", desc: "Through simple binning/clustering techniques, the majority of days fall into the High Usage category, indicating the service has a high utilization rate." }
+                  ],
+                  outcome: [
+                    "Cleaned and transformed the dataset ready for analysis.",
+                    "Generated data-driven business insights regarding bike sharing user behavior.",
+                    "Built an interactive dashboard using Streamlit.",
+                    "Aided decision-making regarding service operations based on seasonal, time, and weather patterns.",
+                    "Presented easy-to-understand visualizations for stakeholders and non-technical users."
+                  ],
+                  linkGithub: "https://github.com/sadinal04/Analisis-Data-Bike-Sharing",
+                  linkWeb: "https://sadinal04-analisis-data-bike-sharing-dashboarddashboard-l3ldkz.streamlit.app/",
+                  image: "/projects/bike-sharing.jpeg"
+                },
+          {
+                  id: "transportation-risk-prediction",
+                  title: "Multi-Task CNN for Transportation Risk Prediction",
+                  category: "Data & AI Solution",
+                  year: "2025",
+                  domain: "Computer Vision, Intelligent Transportation",
+                  shortDesc: "A Deep Learning model to predict driving risks based on weather and visibility.",
+                  tags: ["Python", "TensorFlow", "Keras", "CNN", "OpenCV", "NumPy"],
+                  fullDesc: "Developed a Multi-Task CNN model to predict driving risk levels in real-time based on weather conditions and visibility. The model was optimized for embedded devices with a CPU inference time under 70 ms and an accuracy of approximately 96%.",
+                  linkNotebook: "https://drive.google.com/file/d/1jmjjjHamfHUu7UhB1mmp8jgJK8NFZUCJ/view",
+                  image: "/projects/transportation-risk.jpeg"
+                },
+          {
+                  id: "agriscan-ai",
+                  title: "AgriScan: AI-Powered Plant Disease Detection",
+                  category: "Data & AI Solution",
+                  year: "2025",
+                  domain: "Agriculture AI, Computer Vision",
+                  shortDesc: "A Streamlit-based AI system for detecting plant diseases.",
+                  tags: ["Python", "TensorFlow", "Keras", "ResNet50", "Transfer Learning", "Streamlit", "OpenCV"],
+                  fullDesc: "Developed a plant disease detection system using ResNet transfer learning. The model achieved an accuracy of around 99% and was implemented into a Streamlit-based web application for real-time predictions. This was my capstone project at Coding Camp Powered by DBS and Dicoding Indonesia 2025, where my role was Machine Learning Engineer.",
+                  linkGithub: "https://github.com/sadinal04/AgriScan-ML-CapstoneProject",
+                  image: "/projects/agriscan.jpeg"
+                },
+          {
+                  id: "predictive-analytics",
+                  title: "Predictive Analytics for Data-Driven Insights",
+                  category: "Data & AI Solution",
+                  year: "2025",
+                  domain: "Machine Learning, Predictive Analytics",
+                  shortDesc: "A Machine Learning pipeline for data analysis and predictions.",
+                  tags: ["Python", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Seaborn"],
+                  fullDesc: "Developed a full data science pipeline starting from preprocessing, exploratory data analysis, and feature engineering to training Machine Learning models and evaluating performance, aimed at generating data-driven insights and predictions.",
+                  linkGithub: "https://github.com/sadinal04/Predictive-Analytics",
+                  image: "/projects/predictive-analytics.jpeg"
+                },
+          {
+                  id: "plnalyze",
+                  title: "Data Scientist Intern @ PT PLN (Persero)",
+                  category: "Data & AI Solution",
+                  year: "2025",
+                  domain: "Predictive Analytics, Forecasting",
+                  shortDesc: "An analytics platform to predict IP-VPN service disruption resolution times for PLN.",
+                  tags: ["Python", "Pandas", "NumPy", "Scikit-learn", "XGBoost", "Random Forest", "Linear Regression", "FastAPI", "Docker", "PostgreSQL", "Jupyter Notebook"],
+                  fullDesc: "Contributed to the development of a Machine Learning-based forecasting system to predict IP-VPN service disruption resolution times using historical operational data (2023–2025). The project focused on transforming raw operational data into predictive insights through preprocessing, feature engineering, model development, evaluation, dashboard integration, and automated retraining pipelines to support operational planning and decision-making.",
+                  metrics: [
+                    { label: "Duration", value: "2 Months (Aug - Sep 2025)" },
+                    { label: "Historical Data", value: "2023–2025 Operational Records" },
+                    { label: "ML Models", value: "XGBoost, Random Forest, Linear Regression" },
+                    { label: "Forecast Horizon", value: "4 Weeks Ahead" },
+                    { label: "Cleaned Dataset", value: "2,457 Records" },
+                    { label: "Deliverables", value: "Forecasting System, Dashboard, Automated Retraining Pipeline" }
+                  ],
+                  sections: [
+                    {
+                      title: "Highlights",
+                      list: [
+                        "Processed and consolidated historical IP-VPN service disruption data from multiple Excel sources (2023–2025).",
+                        "Built automated data loading and merging pipelines capable of handling inconsistent sheet structures and headers.",
+                        "Cleaned, validated, and standardized operational datasets for Machine Learning workflows.",
+                        "Conducted exploratory data analysis to identify missing values, outliers, and data inconsistencies.",
+                        "Engineered temporal features (week, month, year) and lag features for time-series forecasting models.",
+                        "Produced a production-ready dataset containing 2,457 cleaned records.",
+                        "Developed forecasting models comparing multiple regression algorithms (XGBoost, Random Forest, Linear Regression).",
+                        "Generated operational forecasts for the next 4 weeks to support maintenance planning.",
+                        "Designed an interactive analytics dashboard for monitoring forecasting results.",
+                        "Implemented automated data upload, preprocessing, and model retraining workflows with Machine Learning pipelines."
+                      ]
+                    },
+                    {
+                      title: "Machine Learning Workflow",
+                      list: [
+                        "Raw Operational Data → Data Collection → Data Cleaning",
+                        "Exploratory Data Analysis → Feature Engineering",
+                        "Model Development → Model Evaluation (MAE & MAPE)",
+                        "Forecasting (4 Weeks Ahead) → Dashboard",
+                        "Automated Retraining → Deployment"
+                      ]
+                    },
+                    {
+                      title: "Responsibilities",
+                      list: [
+                        "Data Collection, Cleaning, and Exploratory Data Analysis",
+                        "Feature Engineering & Machine Learning Modeling",
+                        "Forecasting & Model Evaluation",
+                        "Dashboard Development & Pipeline Automation",
+                        "Data Visualization & Technical Documentation"
+                      ]
+                    }
+                  ],
+                  image: "/projects/plnalyze.png",
+                  images: [
+                    "/projects/plnalyze.png",
+                    "/projects/pln-dashboard.png"
+                  ]
+                },
+          {
+                  id: "petcare-search",
+                  title: "PetCare Search Engine",
+                  category: "Web Development",
+                  year: "2024",
+                  domain: "Information Retrieval System",
+                  shortDesc: "An information search engine for animal health using Indonesian NLP.",
+                  tags: ["Python", "Flask", "HTML", "CSS", "JavaScript", "TF-IDF", "Cosine Similarity", "Jaccard Similarity", "Sastrawi"],
+                  fullDesc: "Developed a Flask-based search engine using TF-IDF, Cosine Similarity, and Jaccard Similarity, with Indonesian NLP preprocessing using Sastrawi, along with ranking and pagination features.",
+                  linkGithub: "https://github.com/sadinal04/PetCareSearchEngine-Kelompok13",
+                  image: "/projects/petcare-search.jpeg"
+                },
+          {
+                  id: "youtube-comment-summarizer",
+                  title: "YouTube Comment Summarizer using Fine-Tuned IndoT5",
+                  category: "Data & AI Solution",
+                  year: "2024",
+                  domain: "Natural Language Processing",
+                  shortDesc: "An Indonesian YouTube comment summarization system using a fine-tuned IndoT5 model.",
+                  tags: ["Python", "PyTorch", "Hugging Face Transformers", "IndoT5", "Fine-Tuning", "YouTube Data API", "Pandas"],
+                  fullDesc: "Developed an automated system to summarize Indonesian YouTube video comments using a fine-tuned `cahya/t5-base-indonesian-summarization-cased` model on a dataset scraped from YouTube comments. The system encompasses data collection, preprocessing, model fine-tuning, and inference to produce concise and informative summaries.",
+                  linkGithub: "https://github.com/sadinal04/youtubeCommentSummarize",
+                  image: "/projects/youtube-comment-summarizer.jpeg"
+                }
+        ]
 };
 
 export const getPortfolioData = (lang: Language) => {

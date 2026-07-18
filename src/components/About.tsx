@@ -328,7 +328,7 @@ export default function About() {
               {/* Info */}
               <div className="flex flex-col items-center text-center gap-1">
                 <h3 className="font-inter text-2xl font-bold tracking-tight text-[#1C1D20]">Sadinal Mufti</h3>
-                <p className="text-sm font-semibold tracking-widest text-[#455CE9] uppercase">{language === 'id' ? 'Mahasiswa Informatika' : 'Computer Science Student'}</p>
+                <p className="text-sm font-semibold tracking-widest text-[#455CE9] uppercase">{language === 'id' ? 'Sarjana Komputer' : 'Bachelor of Computer Science'}</p>
               </div>
 
               {/* Contact Line */}

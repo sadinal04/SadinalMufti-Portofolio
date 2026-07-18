@@ -27,9 +27,13 @@ export default function Work() {
     "Web Development": t('work.web')
   };
   
-  const filteredProjects = portfolioData.projects.filter(proj => 
-    filter === "All" || proj.category === filter
-  );
+  const filteredProjects = portfolioData.projects.filter(proj => {
+    if (filter === "All") return true;
+    if (Array.isArray(proj.category)) {
+      return proj.category.includes(filter);
+    }
+    return proj.category === filter;
+  });
 
   useGSAP(() => {
     // Center the fixed elements initially using GSAP to avoid Tailwind transform conflicts
