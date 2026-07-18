@@ -143,7 +143,7 @@ const CertRow = ({ cert }: { cert: any }) => {
       <div className={`flex flex-col lg:flex-row lg:items-center justify-between gap-6 px-4 z-10 transition-colors duration-500 ${isHovered ? 'text-white' : ''}`}>
         
         {/* Left: Name & Issuer */}
-        <div className="flex flex-col gap-1 w-full lg:w-5/12 overflow-hidden pl-4 lg:pl-0 border-l-2 lg:border-l-0 border-[#1C1D20]/20 lg:border-transparent">
+        <div className="flex flex-col gap-1 w-full lg:w-5/12 overflow-hidden">
           <h4 className={`text-xl sm:text-2xl tracking-tight font-mono lg:font-sans lg:min-h-[auto] block truncate ${isHovered ? 'font-bold' : 'font-medium'}`} title={cert.name}>{displayText}</h4>
           <span className={`text-sm uppercase tracking-wider transition-colors duration-300 block truncate ${isHovered ? 'font-bold text-white/90' : 'font-semibold text-[#1C1D20]/60'}`}>{cert.issuer}</span>
         </div>
@@ -155,7 +155,7 @@ const CertRow = ({ cert }: { cert: any }) => {
         </div>
 
         {/* Right: Date, ID, and Arrow */}
-        <div className="flex flex-row lg:flex-col justify-between lg:justify-center items-center lg:items-end gap-2 w-full lg:w-3/12 pl-4 lg:pl-0">
+        <div className="flex flex-row lg:flex-col justify-between lg:justify-center items-center lg:items-end gap-2 w-full lg:w-3/12">
           <div className="flex flex-col text-left lg:text-right">
             <span className={`text-sm ${isHovered ? 'font-bold' : 'font-medium'}`}>{cert.date}</span>
             {cert.credentialId && <span className="text-xs uppercase tracking-wider opacity-60">ID: {cert.credentialId}</span>}
