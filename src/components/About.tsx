@@ -72,7 +72,7 @@ const ResumeRow = ({ title, subtitle, description, period, onClick }: { title: s
         </div>
 
         {/* Right: Date and Arrow */}
-        <div className="flex flex-row lg:flex-col justify-between lg:justify-center items-center lg:items-end gap-2 w-full lg:w-4/12">
+        <div className="flex flex-row lg:flex-col justify-between lg:justify-center items-center lg:items-end gap-2 w-full lg:w-4/12 pl-4 lg:pl-0">
           <div className="flex flex-col text-left lg:text-right">
             <span className={`text-sm transition-all ${isHovered ? 'font-bold' : 'font-normal'}`}>{period}</span>
           </div>

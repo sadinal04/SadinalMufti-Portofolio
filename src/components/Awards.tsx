@@ -91,9 +91,11 @@ const AwardCard = ({ award, onClick, t }: { award: any, onClick: () => void, t: 
 const CertRow = ({ cert }: { cert: any }) => {
   const { t } = useLanguage();
   const [displayText, setDisplayText] = useState(cert.name);
+  const [isHovered, setIsHovered] = useState(false);
   const intervalRef = useRef<any>(null);
 
   const startGlitch = () => {
+    setIsHovered(true);
     let iteration = 0;
     clearInterval(intervalRef.current);
     intervalRef.current = setInterval(() => {
@@ -112,6 +114,7 @@ const CertRow = ({ cert }: { cert: any }) => {
   };
 
   const stopGlitch = () => {
+    setIsHovered(false);
     clearInterval(intervalRef.current);
     setDisplayText(cert.name);
   };
@@ -123,40 +126,42 @@ const CertRow = ({ cert }: { cert: any }) => {
       rel="noopener noreferrer"
       onMouseEnter={startGlitch}
       onMouseLeave={stopGlitch}
-      className="cert-item group relative flex flex-col justify-center py-6 sm:py-8 border-b border-[#1C1D20]/10 overflow-hidden cursor-pointer"
+      onTouchStart={startGlitch}
+      onTouchEnd={stopGlitch}
+      className="cert-item relative flex flex-col justify-center py-6 sm:py-8 border-b border-[#1C1D20]/10 overflow-hidden cursor-pointer"
     >
       {/* Background Hover Effect: Matrix Grid */}
-      <div className="absolute inset-0 bg-[#455CE9] translate-y-[101%] transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-y-0 -z-20" />
+      <div className={`absolute inset-0 bg-[#455CE9] transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] -z-20 ${isHovered ? 'translate-y-0' : 'translate-y-[101%]'}`} />
       <div 
-        className="absolute inset-0 translate-y-[101%] transition-transform duration-500 delay-75 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-y-0 -z-10"
+        className={`absolute inset-0 transition-transform duration-500 delay-75 ease-[cubic-bezier(0.76,0,0.24,1)] -z-10 ${isHovered ? 'translate-y-0' : 'translate-y-[101%]'}`}
         style={{
           backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.15) 1px, transparent 1px)`,
           backgroundSize: '24px 24px'
         }}
       />
       
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 px-4 z-10 transition-colors duration-500 group-hover:text-white">
+      <div className={`flex flex-col lg:flex-row lg:items-center justify-between gap-6 px-4 z-10 transition-colors duration-500 ${isHovered ? 'text-white' : ''}`}>
         
         {/* Left: Name & Issuer */}
-        <div className="flex flex-col gap-1 w-full lg:w-5/12 overflow-hidden">
-          <h4 className="text-xl sm:text-2xl font-medium tracking-tight font-mono lg:font-sans lg:min-h-[auto] block truncate" title={cert.name}>{displayText}</h4>
-          <span className="text-sm font-semibold uppercase tracking-wider text-[#1C1D20]/60 group-hover:text-white/90 transition-colors duration-300 block truncate">{cert.issuer}</span>
+        <div className="flex flex-col gap-1 w-full lg:w-5/12 overflow-hidden pl-4 lg:pl-0 border-l-2 lg:border-l-0 border-[#1C1D20]/20 lg:border-transparent">
+          <h4 className={`text-xl sm:text-2xl tracking-tight font-mono lg:font-sans lg:min-h-[auto] block truncate ${isHovered ? 'font-bold' : 'font-medium'}`} title={cert.name}>{displayText}</h4>
+          <span className={`text-sm uppercase tracking-wider transition-colors duration-300 block truncate ${isHovered ? 'font-bold text-white/90' : 'font-semibold text-[#1C1D20]/60'}`}>{cert.issuer}</span>
         </div>
 
         {/* Center: Skills */}
-        <div className="flex flex-col gap-1 w-full lg:w-4/12 lg:text-center text-[#1C1D20]/80 group-hover:text-white/90">
+        <div className={`flex flex-col gap-1 w-full lg:w-4/12 lg:text-center transition-colors duration-300 ${isHovered ? 'text-white/90' : 'text-[#1C1D20]/80'}`}>
           <span className="text-xs uppercase tracking-widest opacity-50">{t('awards.skills')}</span>
-          <span className="text-sm sm:text-base font-light">{cert.skills}</span>
+          <span className={`text-sm sm:text-base ${isHovered ? 'font-normal' : 'font-light'}`}>{cert.skills}</span>
         </div>
 
         {/* Right: Date, ID, and Arrow */}
-        <div className="flex flex-row lg:flex-col justify-between lg:justify-center items-center lg:items-end gap-2 w-full lg:w-3/12">
+        <div className="flex flex-row lg:flex-col justify-between lg:justify-center items-center lg:items-end gap-2 w-full lg:w-3/12 pl-4 lg:pl-0">
           <div className="flex flex-col text-left lg:text-right">
-            <span className="text-sm font-medium">{cert.date}</span>
+            <span className={`text-sm ${isHovered ? 'font-bold' : 'font-medium'}`}>{cert.date}</span>
             {cert.credentialId && <span className="text-xs uppercase tracking-wider opacity-60">ID: {cert.credentialId}</span>}
           </div>
           {cert.link && (
-            <div className="w-10 h-10 rounded-full border border-[#1C1D20]/20 flex items-center justify-center transition-all duration-500 group-hover:border-white group-hover:-rotate-45 group-hover:bg-white group-hover:text-[#0A0A0A]">
+            <div className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-500 ${isHovered ? 'border-white -rotate-45 bg-white text-[#0A0A0A]' : 'border-[#1C1D20]/20'}`}>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </div>
           )}
