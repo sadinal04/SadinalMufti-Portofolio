@@ -239,20 +239,28 @@ export default function Work() {
                     onClick={() => handleProjectClick(proj.id)}
                     onMouseEnter={() => setModalData({ active: true, index: idx })}
                     onMouseLeave={() => setModalData({ active: false, index: idx })}
-                    className="work-item group relative flex flex-col lg:flex-row lg:items-center justify-between py-10 lg:py-14 border-b border-[#1C1D20]/20 cursor-pointer gap-4 lg:gap-0"
+                    className="work-item group relative flex flex-col lg:flex-row lg:items-center justify-between py-6 sm:py-10 lg:py-14 border-b border-[#1C1D20]/20 cursor-pointer gap-2 lg:gap-0"
                   >
                     <div className="w-full lg:w-[45%] pr-4">
-                      <h3 className="font-inter text-3xl lg:text-[40px] font-normal tracking-tight transition-all duration-500 group-hover:translate-x-4 group-hover:text-black/40 leading-[1.1]">
+                      <h3 className="font-inter text-2xl sm:text-3xl lg:text-[40px] font-normal tracking-tight transition-all duration-500 group-hover:translate-x-4 group-hover:text-black/40 leading-[1.2] lg:leading-[1.1]">
                         {proj.title}
                       </h3>
                     </div>
-                    <div className="w-full lg:w-[20%] text-sm sm:text-base text-[#1C1D20]/80 transition-colors duration-500 group-hover:text-black/40 pr-4">
+                    
+                    {/* Mobile-only compact info */}
+                    <div className="w-full flex lg:hidden items-center justify-between text-xs sm:text-sm text-[#1C1D20]/60 uppercase tracking-widest font-semibold mt-2">
+                      <span>{proj.domain}</span>
+                      <span>{proj.year}</span>
+                    </div>
+
+                    {/* Desktop-only columns */}
+                    <div className="hidden lg:block lg:w-[20%] text-sm sm:text-base text-[#1C1D20]/80 transition-colors duration-500 group-hover:text-black/40 pr-4">
                       {proj.domain}
                     </div>
-                    <div className="w-full lg:w-[25%] text-sm sm:text-base text-[#1C1D20]/80 transition-colors duration-500 group-hover:text-black/40 pr-4 line-clamp-2">
+                    <div className="hidden lg:block lg:w-[25%] text-sm sm:text-base text-[#1C1D20]/80 transition-colors duration-500 group-hover:text-black/40 pr-4 line-clamp-2">
                       {proj.tags.slice(0, 4).join(" & ")} {proj.tags.length > 4 && "..."}
                     </div>
-                    <div className="w-full lg:w-[10%] text-left lg:text-right text-sm sm:text-base text-[#1C1D20]/80 transition-colors duration-500 group-hover:text-black/40">
+                    <div className="hidden lg:block lg:w-[10%] text-right text-sm sm:text-base text-[#1C1D20]/80 transition-colors duration-500 group-hover:text-black/40">
                       {proj.year}
                     </div>
                   </div>
@@ -282,7 +290,7 @@ export default function Work() {
                   <div className="flex items-center gap-4 text-sm font-medium text-[#1C1D20]/60 uppercase tracking-wider mb-2">
                     <span>{proj.year}</span>
                     <span className="w-1 h-1 rounded-full bg-[#1C1D20]/40"></span>
-                    <span>{proj.category}</span>
+                    <span>{Array.isArray(proj.category) ? proj.category.join(", ") : proj.category}</span>
                   </div>
                   <p className="text-base text-[#1C1D20]/80 line-clamp-2">
                     {proj.shortDesc}

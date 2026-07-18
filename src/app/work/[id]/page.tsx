@@ -104,7 +104,7 @@ export default function ProjectDetail() {
               </div>
               <div className="flex flex-col gap-2">
                 <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-[#1C1D20]/40">Category & Role</span>
-                <span className="text-lg font-medium">{project.category}</span>
+                <span className="text-lg font-medium">{Array.isArray(project.category) ? project.category.join(", ") : project.category}</span>
               </div>
               <div className="flex flex-col gap-2">
                 <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-[#1C1D20]/40">Year</span>

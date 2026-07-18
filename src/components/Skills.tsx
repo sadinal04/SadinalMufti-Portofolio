@@ -71,21 +71,21 @@ export default function Skills() {
               className="skill-row group flex flex-col lg:flex-row items-start lg:items-center py-0.5 sm:py-1 border-b border-[#1C1D20]/20 hover:bg-[#1C1D20] transition-colors duration-300 cursor-default"
             >
               {/* Number Column */}
-              <div className="w-full lg:w-[10%] mb-2 lg:mb-0 px-4">
+              <div className="w-full lg:w-[10%] mb-1 lg:mb-0 px-0 lg:px-4">
                 <span className="text-xs font-mono text-[#1C1D20]/40 group-hover:text-white transition-colors duration-300">
                   ({String.fromCharCode(97 + index)}.)
                 </span>
               </div>
 
               {/* Category Column */}
-              <div className="w-full lg:w-[30%] mb-4 lg:mb-0 px-4">
+              <div className="w-full lg:w-[30%] mb-2 lg:mb-0 px-0 lg:px-4">
                 <span className="text-sm sm:text-base font-bold font-mono tracking-wider text-[#1C1D20]/80 group-hover:text-white transition-colors duration-300">
                   {skillGroup.category}
                 </span>
               </div>
               
               {/* Items Column (Comma separated) */}
-              <div className="w-full lg:w-[60%] px-4 text-left lg:text-right">
+              <div className="w-full lg:w-[60%] px-0 lg:px-4 text-left lg:text-right">
                 <p className="text-xs sm:text-sm font-mono font-medium tracking-wider text-[#1C1D20]/70 leading-tight group-hover:text-white transition-colors duration-300">
                   {skillGroup.items.join(', ')}
                 </p>
