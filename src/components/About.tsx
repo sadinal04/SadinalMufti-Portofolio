@@ -402,10 +402,10 @@ export default function About() {
 
           {/* Right Column: Scrollable Content */}
           <div className="flex-1 w-full flex flex-col justify-start">
-            <div ref={rightColRef} className="w-full flex flex-col lg:grid lg:[grid-template-areas:'stack'] relative gap-10 lg:gap-0 lg:h-full">
+            <div ref={rightColRef} className="w-full flex flex-col lg:grid lg:[grid-template-areas:'stack'] [@media(pointer:coarse)]:!flex [@media(pointer:coarse)]:!flex-col relative gap-10 lg:gap-0 lg:h-full">
               
               {/* --- STATE 1: Intro & Stats --- */}
-              <div ref={state1Ref} className="lg:[grid-area:stack] w-full flex flex-col justify-between z-10 origin-top">
+              <div ref={state1Ref} className="lg:[grid-area:stack] [@media(pointer:coarse)]:[grid-area:auto] w-full flex flex-col justify-between z-10 origin-top">
                 <div>
                   {/* Top Label */}
                   <div className="flex items-center gap-3 mb-6">
@@ -478,7 +478,7 @@ export default function About() {
 
               {/* --- STATE 2: Resume (Experience, Education, Coding Camp) --- */}
               {/* On mobile: always visible in normal flow. On desktop: hidden initially, revealed via GSAP */}
-              <div ref={state2Ref} className="lg:[grid-area:stack] w-full flex flex-col justify-between z-0 origin-bottom" style={{}}>
+              <div ref={state2Ref} className="lg:[grid-area:stack] [@media(pointer:coarse)]:[grid-area:auto] w-full flex flex-col justify-between z-0 origin-bottom" style={{}}>
                 
                 <div>
                   {/* Top Label */}
