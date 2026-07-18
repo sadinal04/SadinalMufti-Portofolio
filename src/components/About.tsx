@@ -42,6 +42,8 @@ const ResumeRow = ({ title, subtitle, description, period, onClick }: { title: s
     <div 
       onMouseEnter={startGlitch}
       onMouseLeave={stopGlitch}
+      onTouchStart={startGlitch}
+      onTouchEnd={stopGlitch}
       onClick={onClick}
       className="group relative flex flex-col justify-center py-2 sm:py-3 border-b border-[#1C1D20]/10 overflow-hidden cursor-pointer"
     >
@@ -369,10 +371,10 @@ export default function About() {
 
           {/* Right Column: Scrollable Content */}
           <div className="flex-1 w-full flex flex-col justify-start">
-            <div ref={rightColRef} className="w-full grid lg:[grid-template-areas:'stack'] relative gap-20 lg:gap-0 h-full">
+            <div ref={rightColRef} className="w-full grid lg:[grid-template-areas:'stack'] relative gap-12 lg:gap-0 h-full">
               
               {/* --- STATE 1: Intro & Stats --- */}
-              <div ref={state1Ref} className="lg:[grid-area:stack] w-full flex flex-col justify-between z-10 origin-top h-full">
+              <div ref={state1Ref} className="lg:[grid-area:stack] w-full flex flex-col justify-between z-10 origin-top h-auto lg:h-full">
                 <div>
                   {/* Top Label */}
                   <div className="flex items-center gap-3 mb-6">
@@ -444,7 +446,7 @@ export default function About() {
               </div>
 
               {/* --- STATE 2: Resume (Experience, Education, Coding Camp) --- */}
-              <div ref={state2Ref} className="lg:[grid-area:stack] w-full flex flex-col justify-between z-0 lg:invisible lg:opacity-0 origin-bottom h-full">
+              <div ref={state2Ref} className="lg:[grid-area:stack] w-full flex flex-col justify-between z-0 lg:invisible lg:opacity-0 origin-bottom h-auto lg:h-full">
                 
                 <div>
                   {/* Top Label */}
