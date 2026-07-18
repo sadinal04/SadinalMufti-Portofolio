@@ -7,7 +7,7 @@ import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
-    <div className="relative w-full">
+    <div className="relative w-full" style={{ overflowX: 'clip' }}>
       {/* Main Content Area */}
       <main className="w-full relative z-10 mb-[90vh] shadow-[0_20px_50px_rgba(0,0,0,0.5)] bg-[#E3E3E3]">
         {/* Sticky Hero Section */}
