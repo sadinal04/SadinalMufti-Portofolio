@@ -341,7 +341,7 @@ export const portfolioDataID = {
       ],
       linkGithub: "https://github.com/sadinal04/Sistem-Rekomendasi",
       linkNotebook: "https://github.com/sadinal04/Sistem-Rekomendasi/blob/main/Notebook.ipynb",
-      image: "/Projects/movie-recommendation-system.png"
+      image: "/projects/movie-recommendation-system.png"
     },
     {
       id: "grab-review-sentiment-analysis",
@@ -365,7 +365,7 @@ export const portfolioDataID = {
       ],
       linkGithub: "https://github.com/sadinal04/Grab-Review-Sentiment-Analysis",
       linkNotebook: "https://github.com/sadinal04/Grab-Review-Sentiment-Analysis/blob/main/Pelatihan_Sentimen_Analisis.ipynb",
-      image: "/Projects/grab-review-sentiment-analysis.jpeg"
+      image: "/projects/grab-review-sentiment-analysis.jpeg"
     },
     {
       id: "bank-transaction-clustering-classification",
@@ -394,7 +394,7 @@ export const portfolioDataID = {
         "Membangun pipeline Machine Learning dari tahap eksplorasi data hingga evaluasi model."
       ],
       linkGithub: "https://github.com/sadinal04/Bank-transaction-clustering-classification",
-      image: "/Projects/bank_transaction.jpeg"
+      image: "/projects/bank_transaction.jpeg"
     },
     {
       id: "bike-sharing-analysis",
@@ -422,7 +422,7 @@ export const portfolioDataID = {
       ],
       linkGithub: "https://github.com/sadinal04/Analisis-Data-Bike-Sharing",
       linkWeb: "https://sadinal04-analisis-data-bike-sharing-dashboarddashboard-l3ldkz.streamlit.app/",
-      image: "/Projects/bike-sharing.jpeg"
+      image: "/projects/bike-sharing.jpeg"
     },
     {
       id: "cobabantu",
@@ -434,7 +434,7 @@ export const portfolioDataID = {
       tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel"],
       fullDesc: "Merancang dan mengembangkan website company profile responsif untuk COBABANTU yang menampilkan layanan, portfolio, teknologi, dan informasi perusahaan secara profesional. Website dioptimalkan untuk performa, SEO, dan pengalaman pengguna dengan desain modern sebagai media branding dan pemasaran digital.",
       linkWeb: "https://cobabantu.com",
-      image: "/Projects/cobabantu.png"
+      image: "/projects/cobabantu.png"
     },
     {
       id: "multitask-plant-disease",
@@ -459,7 +459,7 @@ export const portfolioDataID = {
         "Mengekspor model ke format TensorFlow Lite sehingga siap diimplementasikan pada perangkat Android atau edge devices."
       ],
       linkGithub: "https://github.com/sadinal04/PlantDiseaseClassification-Multitask-SelfAttention",
-      image: "/Projects/multitask-plant-disease.jpeg"
+      image: "/projects/multitask-plant-disease.jpeg"
     },
     {
       id: "transportation-risk-prediction",
@@ -471,7 +471,7 @@ export const portfolioDataID = {
       tags: ["Python", "TensorFlow", "Keras", "CNN", "OpenCV", "NumPy"],
       fullDesc: "Mengembangkan model Multi-Task CNN untuk memprediksi tingkat risiko berkendara secara real-time berdasarkan kondisi cuaca dan visibilitas. Model dioptimalkan untuk perangkat embedded dengan inferensi CPU di bawah 70 ms dan akurasi sekitar 96%.",
       linkNotebook: "https://drive.google.com/file/d/1jmjjjHamfHUu7UhB1mmp8jgJK8NFZUCJ/view",
-      image: "/Projects/transportation-risk.jpeg"
+      image: "/projects/transportation-risk.jpeg"
     },
     {
       id: "agriscan-ai",
@@ -483,7 +483,7 @@ export const portfolioDataID = {
       tags: ["Python", "TensorFlow", "Keras", "ResNet50", "Transfer Learning", "Streamlit", "OpenCV"],
       fullDesc: "Mengembangkan sistem deteksi penyakit tanaman menggunakan transfer learning ResNet. Model mencapai akurasi sekitar 99% dan diimplementasikan ke aplikasi web berbasis Streamlit untuk prediksi secara real-time. ini adalah project capstone saya di Coding Camp Power by DBS dan Dicoding Indonesia 2025. role saya adalah Machine Learning Engineer.",
       linkGithub: "https://github.com/sadinal04/AgriScan-ML-CapstoneProject",
-      image: "/Projects/agriscan.jpeg"
+      image: "/projects/agriscan.jpeg"
     },
     {
       id: "predictive-analytics",
@@ -495,7 +495,7 @@ export const portfolioDataID = {
       tags: ["Python", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Seaborn"],
       fullDesc: "Mengembangkan pipeline data science mulai dari preprocessing, exploratory data analysis, feature engineering, pelatihan model Machine Learning, hingga evaluasi performa untuk menghasilkan insight dan prediksi berbasis data.",
       linkGithub: "https://github.com/sadinal04/Predictive-Analytics",
-      image: "/Projects/predictive-analytics.jpeg"
+      image: "/projects/predictive-analytics.jpeg"
     },
     {
       id: "wantutri-ai",
@@ -508,7 +508,7 @@ export const portfolioDataID = {
       fullDesc: "Mengembangkan platform berbasis Generative AI dalam kompetisi Alibaba Cloud AI x Creativity Hackathon. Platform memanfaatkan Large Language Model (Qwen) untuk menghasilkan naskah, AI Image Generation untuk membuat visual, serta Wan Video Generation untuk menghasilkan video promosi secara otomatis dari input pengguna. Solusi ini dirancang untuk membantu UMKM dan content creator mempercepat proses produksi konten digital. Proyek ini berhasil menjadi Finalist pada Alibaba Cloud AI x Creativity National Hackathon.",
       linkGithub: "https://github.com/MuhammadBintang27/WanTuTriActIon",
       linkWeb: "https://wantutriai.xyz/",
-      image: "/Projects/wantutri-ai.png"
+      image: "/projects/wantutri-ai.png"
     },
     {
       id: "plnalyze",
@@ -564,10 +564,10 @@ export const portfolioDataID = {
           ]
         }
       ],
-      image: "/Projects/plnalyze.png",
+      image: "/projects/plnalyze.png",
       images: [
-        "/Projects/plnalyze.png",
-        "/Projects/pln-dashboard.png"
+        "/projects/plnalyze.png",
+        "/projects/pln-dashboard.png"
       ]
     },
     {
@@ -580,7 +580,7 @@ export const portfolioDataID = {
       tags: ["Python", "Flask", "HTML", "CSS", "JavaScript", "TF-IDF", "Cosine Similarity", "Jaccard Similarity", "Sastrawi"],
       fullDesc: "Mengembangkan search engine berbasis Flask menggunakan TF-IDF, Cosine Similarity, dan Jaccard Similarity dengan preprocessing NLP Bahasa Indonesia menggunakan Sastrawi serta fitur ranking dan pagination.",
       linkGithub: "https://github.com/sadinal04/PetCareSearchEngine-Kelompok13",
-      image: "/Projects/petcare-search.jpeg"
+      image: "/projects/petcare-search.jpeg"
     },
     {
       id: "youtube-comment-summarizer",
@@ -592,7 +592,7 @@ export const portfolioDataID = {
       tags: ["Python", "PyTorch", "Hugging Face Transformers", "IndoT5", "Fine-Tuning", "YouTube Data API", "Pandas"],
       fullDesc: "Mengembangkan sistem otomatis untuk merangkum komentar video YouTube berbahasa Indonesia menggunakan model `cahya/t5-base-indonesian-summarization-cased` yang di-fine-tuning pada dataset hasil scraping komentar YouTube. Sistem mencakup proses pengumpulan data, preprocessing, fine-tuning model, dan inferensi untuk menghasilkan ringkasan yang ringkas dan informatif.",
       linkGithub: "https://github.com/sadinal04/youtubeCommentSummarize",
-      image: "/Projects/youtube-comment-summarizer.jpeg"
+      image: "/projects/youtube-comment-summarizer.jpeg"
     }
   ]
 };
@@ -938,7 +938,7 @@ export const portfolioDataEN = {
       ],
       linkGithub: "https://github.com/sadinal04/Sistem-Rekomendasi",
       linkNotebook: "https://github.com/sadinal04/Sistem-Rekomendasi/blob/main/Notebook.ipynb",
-      image: "/Projects/movie-recommendation-system.png"
+      image: "/projects/movie-recommendation-system.png"
     },
     {
       id: "grab-review-sentiment-analysis",
@@ -962,7 +962,7 @@ export const portfolioDataEN = {
       ],
       linkGithub: "https://github.com/sadinal04/Grab-Review-Sentiment-Analysis",
       linkNotebook: "https://github.com/sadinal04/Grab-Review-Sentiment-Analysis/blob/main/Pelatihan_Sentimen_Analisis.ipynb",
-      image: "/Projects/grab-review-sentiment-analysis.jpeg"
+      image: "/projects/grab-review-sentiment-analysis.jpeg"
     },
     {
       id: "bank-transaction-clustering-classification",
@@ -991,7 +991,7 @@ export const portfolioDataEN = {
         "Built a Machine Learning pipeline from data exploration to model evaluation."
       ],
       linkGithub: "https://github.com/sadinal04/Bank-transaction-clustering-classification",
-      image: "/Projects/bank_transaction.jpeg"
+      image: "/projects/bank_transaction.jpeg"
     },
     {
       id: "bike-sharing-analysis",
@@ -1019,7 +1019,7 @@ export const portfolioDataEN = {
       ],
       linkGithub: "https://github.com/sadinal04/Analisis-Data-Bike-Sharing",
       linkWeb: "https://sadinal04-analisis-data-bike-sharing-dashboarddashboard-l3ldkz.streamlit.app/",
-      image: "/Projects/bike-sharing.jpeg"
+      image: "/projects/bike-sharing.jpeg"
     },
     {
       id: "cobabantu",
@@ -1031,7 +1031,7 @@ export const portfolioDataEN = {
       tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel"],
       fullDesc: "Designed and developed a responsive company profile website for COBABANTU showcasing services, portfolio, technologies, and company information professionally. The website is optimized for performance, SEO, and user experience with a modern design acting as a digital branding and marketing medium.",
       linkWeb: "https://cobabantu.com",
-      image: "/Projects/cobabantu.png"
+      image: "/projects/cobabantu.png"
     },
     {
       id: "multitask-plant-disease",
@@ -1056,7 +1056,7 @@ export const portfolioDataEN = {
         "Exported the model into TensorFlow Lite format, making it ready for implementation on Android or edge devices."
       ],
       linkGithub: "https://github.com/sadinal04/PlantDiseaseClassification-Multitask-SelfAttention",
-      image: "/Projects/multitask-plant-disease.jpeg"
+      image: "/projects/multitask-plant-disease.jpeg"
     },
     {
       id: "transportation-risk-prediction",
@@ -1068,7 +1068,7 @@ export const portfolioDataEN = {
       tags: ["Python", "TensorFlow", "Keras", "CNN", "OpenCV", "NumPy"],
       fullDesc: "Developed a Multi-Task CNN model to predict driving risk levels in real-time based on weather conditions and visibility. The model was optimized for embedded devices with a CPU inference time under 70 ms and an accuracy of approximately 96%.",
       linkNotebook: "https://drive.google.com/file/d/1jmjjjHamfHUu7UhB1mmp8jgJK8NFZUCJ/view",
-      image: "/Projects/transportation-risk.jpeg"
+      image: "/projects/transportation-risk.jpeg"
     },
     {
       id: "agriscan-ai",
@@ -1080,7 +1080,7 @@ export const portfolioDataEN = {
       tags: ["Python", "TensorFlow", "Keras", "ResNet50", "Transfer Learning", "Streamlit", "OpenCV"],
       fullDesc: "Developed a plant disease detection system using ResNet transfer learning. The model achieved an accuracy of around 99% and was implemented into a Streamlit-based web application for real-time predictions. This was my capstone project at Coding Camp Powered by DBS and Dicoding Indonesia 2025, where my role was Machine Learning Engineer.",
       linkGithub: "https://github.com/sadinal04/AgriScan-ML-CapstoneProject",
-      image: "/Projects/agriscan.jpeg"
+      image: "/projects/agriscan.jpeg"
     },
     {
       id: "predictive-analytics",
@@ -1092,7 +1092,7 @@ export const portfolioDataEN = {
       tags: ["Python", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Seaborn"],
       fullDesc: "Developed a full data science pipeline starting from preprocessing, exploratory data analysis, and feature engineering to training Machine Learning models and evaluating performance, aimed at generating data-driven insights and predictions.",
       linkGithub: "https://github.com/sadinal04/Predictive-Analytics",
-      image: "/Projects/predictive-analytics.jpeg"
+      image: "/projects/predictive-analytics.jpeg"
     },
     {
       id: "wantutri-ai",
@@ -1105,7 +1105,7 @@ export const portfolioDataEN = {
       fullDesc: "Developed a Generative AI platform during the Alibaba Cloud AI x Creativity Hackathon. The platform utilizes a Large Language Model (Qwen) for script generation, AI Image Generation for visuals, and Wan Video Generation to automatically compile promotional videos from user inputs. This solution was designed to help MSMEs and digital content creators accelerate their digital content production process. The project successfully became a Finalist in the Alibaba Cloud AI x Creativity National Hackathon.",
       linkGithub: "https://github.com/MuhammadBintang27/WanTuTriActIon",
       linkWeb: "https://wantutriai.xyz/",
-      image: "/Projects/wantutri-ai.png"
+      image: "/projects/wantutri-ai.png"
     },
     {
       id: "plnalyze",
@@ -1161,10 +1161,10 @@ export const portfolioDataEN = {
           ]
         }
       ],
-      image: "/Projects/plnalyze.png",
+      image: "/projects/plnalyze.png",
       images: [
-        "/Projects/plnalyze.png",
-        "/Projects/pln-dashboard.png"
+        "/projects/plnalyze.png",
+        "/projects/pln-dashboard.png"
       ]
     },
     {
@@ -1177,7 +1177,7 @@ export const portfolioDataEN = {
       tags: ["Python", "Flask", "HTML", "CSS", "JavaScript", "TF-IDF", "Cosine Similarity", "Jaccard Similarity", "Sastrawi"],
       fullDesc: "Developed a Flask-based search engine using TF-IDF, Cosine Similarity, and Jaccard Similarity, with Indonesian NLP preprocessing using Sastrawi, along with ranking and pagination features.",
       linkGithub: "https://github.com/sadinal04/PetCareSearchEngine-Kelompok13",
-      image: "/Projects/petcare-search.jpeg"
+      image: "/projects/petcare-search.jpeg"
     },
     {
       id: "youtube-comment-summarizer",
@@ -1189,7 +1189,7 @@ export const portfolioDataEN = {
       tags: ["Python", "PyTorch", "Hugging Face Transformers", "IndoT5", "Fine-Tuning", "YouTube Data API", "Pandas"],
       fullDesc: "Developed an automated system to summarize Indonesian YouTube video comments using a fine-tuned `cahya/t5-base-indonesian-summarization-cased` model on a dataset scraped from YouTube comments. The system encompasses data collection, preprocessing, model fine-tuning, and inference to produce concise and informative summaries.",
       linkGithub: "https://github.com/sadinal04/youtubeCommentSummarize",
-      image: "/Projects/youtube-comment-summarizer.jpeg"
+      image: "/projects/youtube-comment-summarizer.jpeg"
     }
   ]
 };
