@@ -76,7 +76,7 @@ export default function Work() {
   }, [modalData.active, viewMode]);
 
   useGSAP(() => {
-    // Parallax Curtain Effect for the whole section
+    // Parallax Entrance Effect for the whole section
     gsap.fromTo(container.current,
       { y: 150 },
       { 
@@ -91,6 +91,21 @@ export default function Work() {
         } 
       }
     );
+
+    // Parallax Curtain Reveal (Exit Effect)
+    gsap.to(container.current, {
+      y: () => window.innerHeight * 0.15, // Move down slightly without scaling to maintain margins
+      opacity: 0.2,
+      ease: "none",
+      scrollTrigger: {
+        trigger: triggerRef.current,
+        start: "bottom bottom",
+        end: "+=150%", // Increased pin duration for wider distance after work
+        pin: true,
+        pinSpacing: false, // Critical to allow Awards to overlap
+        scrub: true,
+      }
+    });
 
     // Concave curve animation (SVG)
     gsap.fromTo(".work-curve",
@@ -136,6 +151,7 @@ export default function Work() {
   };
 
   return (
+    <>
     <div ref={triggerRef} className="relative w-full z-20 -mt-20">
       <section id="work" ref={container} className="relative w-full pt-20 sm:pt-28 pb-24 sm:pb-32 px-4 sm:px-12 bg-white text-[#1C1D20] drop-shadow-[0_-20px_25px_rgba(0,0,0,0.05)]">
       {/* Concave Curve SVG */}
@@ -273,6 +289,7 @@ export default function Work() {
         </div>
       </div>
     </section>
+    </div>
 
     {/* Mouse Follower Modal Container (List Mode Only) */}
     <div
@@ -296,6 +313,6 @@ export default function Work() {
     <div ref={cursorLabelRef} className="pointer-events-none fixed top-0 left-0 text-white font-bold text-sm z-[70] scale-0 opacity-0 hidden md:flex tracking-widest">
       {t('work.view')}
     </div>
-    </div>
+    </>
   );
 }

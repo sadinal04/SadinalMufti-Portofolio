@@ -257,7 +257,7 @@ export default function Awards() {
   };
 
   return (
-    <section id="awards" ref={container} className="relative w-full py-24 sm:py-32 bg-[#F3F3F3] text-[#1C1D20] z-10 overflow-hidden">
+    <section id="awards" ref={container} className="relative w-full py-24 sm:py-32 bg-[#F3F3F3] text-[#1C1D20] z-10 overflow-hidden rounded-t-[3rem] shadow-[0_-20px_50px_rgba(0,0,0,0.15)]">
       
       <div className="max-w-screen-2xl mx-auto flex flex-col px-4 sm:px-12">
         
