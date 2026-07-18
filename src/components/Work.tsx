@@ -316,7 +316,7 @@ export default function Work() {
     {/* Mouse Follower Modal Container (List Mode Only) */}
     <div
       ref={modalRef}
-      className="pointer-events-none fixed top-0 left-0 w-[400px] h-[225px] bg-transparent overflow-hidden flex items-center justify-center rounded-lg shadow-2xl z-50 scale-0 opacity-0 hidden md:flex"
+      className="pointer-events-none fixed top-0 left-0 w-[400px] h-[225px] bg-transparent overflow-hidden flex items-center justify-center rounded-lg shadow-2xl z-50 scale-0 opacity-0 hidden md:flex [@media(hover:none)]:!hidden"
     >
       <div 
         className="relative w-full h-full transition-transform duration-500 ease-out"
@@ -331,8 +331,8 @@ export default function Work() {
     </div>
 
     {/* View Cursor Label */}
-    <div ref={cursorRef} className="pointer-events-none fixed top-0 left-0 w-24 h-24 bg-[#455CE9] rounded-full z-[70] items-center justify-center scale-0 opacity-0 hidden md:flex shadow-[0_10px_30px_rgba(69,92,233,0.4)]" />
-    <div ref={cursorLabelRef} className="pointer-events-none fixed top-0 left-0 text-white font-bold text-sm z-[70] scale-0 opacity-0 hidden md:flex tracking-widest">
+    <div ref={cursorRef} className="pointer-events-none fixed top-0 left-0 w-24 h-24 bg-[#455CE9] rounded-full z-[70] items-center justify-center scale-0 opacity-0 hidden md:flex [@media(hover:none)]:!hidden shadow-[0_10px_30px_rgba(69,92,233,0.4)]" />
+    <div ref={cursorLabelRef} className="pointer-events-none fixed top-0 left-0 text-white font-bold text-sm z-[70] scale-0 opacity-0 hidden md:flex [@media(hover:none)]:!hidden tracking-widest">
       {t('work.view')}
     </div>
     </>

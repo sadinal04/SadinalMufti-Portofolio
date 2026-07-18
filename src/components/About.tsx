@@ -132,8 +132,8 @@ export default function About() {
     if (container.current && state1Ref.current && state2Ref.current) {
       let mm = gsap.matchMedia();
       
-      // Desktop (lg+): Pin + crossfade between State 1 & State 2
-      mm.add("(min-width: 1024px)", () => {
+      // Desktop (lg+) with mouse: Pin + crossfade between State 1 & State 2
+      mm.add("(min-width: 1024px) and (pointer: fine)", () => {
         // Initialize visibility for GSAP (only on desktop)
         gsap.set(state1Ref.current, { autoAlpha: 1 });
         gsap.set(state2Ref.current, { autoAlpha: 0, scale: 1.05, filter: "blur(8px)", y: 40 });
@@ -181,8 +181,8 @@ export default function About() {
         };
       });
 
-      // Mobile/Tablet portrait: no animation, both states visible naturally
-      mm.add("(max-width: 1023px)", () => {
+      // Mobile/Tablet or Touch devices: no animation, both states visible naturally
+      mm.add("(max-width: 1023px), (pointer: coarse)", () => {
         gsap.set(state1Ref.current, { clearProps: "all" });
         gsap.set(state2Ref.current, { clearProps: "all", autoAlpha: 1 });
       });
