@@ -324,7 +324,7 @@ export default function About() {
         <div ref={contentRowRef} className="flex flex-col lg:flex-row [@media(pointer:coarse)]:!flex-col items-stretch gap-8 lg:gap-16 w-full">
           
           {/* Left Column: Profile Card */}
-          <div className="w-full lg:w-[280px] xl:w-[320px] flex-shrink-0 mb-4 lg:mb-0 z-20">
+          <div className="w-full lg:w-[280px] xl:w-[320px] [@media(pointer:coarse)]:!w-full flex-shrink-0 mb-4 lg:mb-0 z-20">
             <div 
               ref={photoContainerRef}
               className="w-full h-full bg-white rounded-[1.5rem] p-4 sm:p-5 flex flex-col justify-between gap-6 shadow-[0_15px_35px_rgba(0,0,0,0.06)] border border-[#1C1D20]/5 relative overflow-hidden group"
