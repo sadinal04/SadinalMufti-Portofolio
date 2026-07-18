@@ -53,7 +53,7 @@ export default function Skills() {
   }, { scope: container });
 
   return (
-    <section ref={container} className="w-full bg-white text-[#1C1D20] pt-12 sm:pt-20 pb-[50vh] sm:pb-[45vh] px-4 sm:px-12 relative z-20">
+    <section ref={container} className="w-full bg-white text-[#1C1D20] pt-12 sm:pt-20 pb-[50vh] sm:pb-[30vh] px-4 sm:px-12 relative z-20">
       <div className="max-w-screen-2xl mx-auto w-full flex flex-col">
         
         {/* Header */}
@@ -68,7 +68,7 @@ export default function Skills() {
           {(Array.isArray(portfolioData.skills) ? portfolioData.skills : []).map((skillGroup, index) => (
             <div 
               key={index} 
-              className="skill-row group flex flex-col lg:flex-row items-start lg:items-center py-6 sm:py-8 border-b border-[#1C1D20]/20 hover:bg-[#1C1D20] transition-colors duration-500 cursor-default"
+              className="skill-row group flex flex-col lg:flex-row items-start lg:items-center py-0.5 sm:py-1 border-b border-[#1C1D20]/20 hover:bg-[#1C1D20] transition-colors duration-300 cursor-default"
             >
               {/* Number Column */}
               <div className="w-full lg:w-[10%] mb-2 lg:mb-0 px-4">
@@ -85,8 +85,8 @@ export default function Skills() {
               </div>
               
               {/* Items Column (Comma separated) */}
-              <div className="w-full lg:w-[60%] px-4">
-                <p className="text-xs sm:text-sm font-mono font-medium tracking-wider text-[#1C1D20]/70 leading-relaxed group-hover:text-white transition-colors duration-300">
+              <div className="w-full lg:w-[60%] px-4 text-left lg:text-right">
+                <p className="text-xs sm:text-sm font-mono font-medium tracking-wider text-[#1C1D20]/70 leading-tight group-hover:text-white transition-colors duration-300">
                   {skillGroup.items.join(', ')}
                 </p>
               </div>

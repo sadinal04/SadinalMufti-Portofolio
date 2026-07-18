@@ -11,15 +11,47 @@ export const portfolioDataID = {
   },
   skills: [
     {
-      category: "Technical Skills",
-      items: ["Python", "TensorFlow", "PyTorch", "Scikit-learn", "Deep Learning", "Computer Vision", "NLP", "Docker", "FastAPI", "Git", "TensorFlow Lite", "Model Deployment", "MLOps"]
+      category: "Bahasa Pemrograman",
+      items: ["Python", "SQL", "Java", "C", "TypeScript"]
+    },
+    {
+      category: "Analitik Data",
+      items: ["Data Cleaning", "Data Wrangling", "Exploratory Data Analysis (EDA)", "Data Visualization", "Statistical Analysis", "Feature Engineering", "Business Intelligence"]
+    },
+    {
+      category: "Machine Learning",
+      items: ["Supervised Learning", "Unsupervised Learning", "Classification", "Regression", "Clustering", "Recommendation System", "Forecasting", "Model Evaluation", "Hyperparameter Tuning"]
+    },
+    {
+      category: "Deep Learning",
+      items: ["TensorFlow", "Keras", "Convolutional Neural Networks (CNN)", "Multi-Task Learning", "Long Short-Term Memory (LSTM)", "Gated Recurrent Unit (GRU)", "Simple Recurrent Neural Network (Simple RNN)", "Transfer Learning", "Computer Vision"]
+    },
+    {
+      category: "Natural Language Processing",
+      items: ["Text Preprocessing", "Sentiment Analysis", "Tokenization", "Stemming", "TF-IDF", "Word Embedding", "Text Classification"]
+    },
+    {
+      category: "Pustaka & Framework",
+      items: ["Pandas", "NumPy", "Scikit-learn", "TensorFlow", "Keras", "Matplotlib", "Seaborn", "OpenCV", "NLTK", "Sastrawi", "Hugging Face Transformers", "Streamlit", "FastAPI", "Flask"]
+    },
+    {
+      category: "Basis Data",
+      items: ["PostgreSQL", "MongoDB"]
+    },
+    {
+      category: "Web & Deployment",
+      items: ["Streamlit", "FastAPI", "Next.js", "Tailwind CSS", "Docker", "Git", "GitHub"]
+    },
+    {
+      category: "Visualisasi Data",
+      items: ["Matplotlib", "Seaborn", "Streamlit Dashboard"]
     },
     {
       category: "Soft Skills",
       items: ["Analytical Thinking", "Attention to Detail", "Communication", "Problem Solving", "Team Collaboration", "Time Management", "Adaptability"]
     },
     {
-      category: "Languages",
+      category: "Bahasa",
       items: ["Indonesian (Native)", "English (Intermediate)"]
     }
   ],
@@ -576,8 +608,40 @@ export const portfolioDataEN = {
   },
   skills: [
     {
-      category: "Technical Skills",
-      items: ["Python", "TensorFlow", "PyTorch", "Scikit-learn", "Deep Learning", "Computer Vision", "NLP", "Docker", "FastAPI", "Git", "TensorFlow Lite", "Model Deployment", "MLOps"]
+      category: "Programming Languages",
+      items: ["Python", "SQL", "Java", "C", "TypeScript"]
+    },
+    {
+      category: "Data Analytics",
+      items: ["Data Cleaning", "Data Wrangling", "Exploratory Data Analysis (EDA)", "Data Visualization", "Statistical Analysis", "Feature Engineering", "Business Intelligence"]
+    },
+    {
+      category: "Machine Learning",
+      items: ["Supervised Learning", "Unsupervised Learning", "Classification", "Regression", "Clustering", "Recommendation System", "Forecasting", "Model Evaluation", "Hyperparameter Tuning"]
+    },
+    {
+      category: "Deep Learning",
+      items: ["TensorFlow", "Keras", "Convolutional Neural Networks (CNN)", "Multi-Task Learning", "Long Short-Term Memory (LSTM)", "Gated Recurrent Unit (GRU)", "Simple Recurrent Neural Network (Simple RNN)", "Transfer Learning", "Computer Vision"]
+    },
+    {
+      category: "Natural Language Processing",
+      items: ["Text Preprocessing", "Sentiment Analysis", "Tokenization", "Stemming", "TF-IDF", "Word Embedding", "Text Classification"]
+    },
+    {
+      category: "Libraries & Frameworks",
+      items: ["Pandas", "NumPy", "Scikit-learn", "TensorFlow", "Keras", "Matplotlib", "Seaborn", "OpenCV", "NLTK", "Sastrawi", "Hugging Face Transformers", "Streamlit", "FastAPI", "Flask"]
+    },
+    {
+      category: "Databases",
+      items: ["PostgreSQL", "MongoDB"]
+    },
+    {
+      category: "Web & Deployment",
+      items: ["Streamlit", "FastAPI", "Next.js", "Tailwind CSS", "Docker", "Git", "GitHub"]
+    },
+    {
+      category: "Data Visualization",
+      items: ["Matplotlib", "Seaborn", "Streamlit Dashboard"]
     },
     {
       category: "Soft Skills",
