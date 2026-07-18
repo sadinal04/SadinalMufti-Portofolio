@@ -18,8 +18,8 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Sadinal Mufti | Portfolio",
-  description: "Data Scientist & Machine Learning Engineer based in Banda Aceh.",
+  title: "Sadinal Mufti | Data & AI Enthusiast",
+  description: "Portfolio of Sadinal Mufti, a Data & AI Enthusiast showcasing projects in Data Analysis, Machine Learning, Deep Learning, and Artificial Intelligence.",
 };
 
 export default function RootLayout({

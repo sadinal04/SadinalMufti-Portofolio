@@ -9,6 +9,82 @@ import Image from "next/image";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 
+const AwardCard = ({ award, onClick, t }: { award: any, onClick: () => void, t: any }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    let interval: NodeJS.Timeout;
+    if (isHovered && award.images && award.images.length > 1) {
+      interval = setInterval(() => {
+        setCurrentImageIndex(prev => (prev + 1) % award.images.length);
+      }, 400); // Fast slideshow interval
+    } else {
+      setCurrentImageIndex(0);
+    }
+    return () => clearInterval(interval);
+  }, [isHovered, award.images]);
+
+  return (
+    <div 
+      onClick={onClick}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="award-card group cursor-pointer flex flex-col"
+    >
+      {/* Premium Card with Fixed Frame */}
+      <div 
+        className="w-full aspect-[4/3] sm:aspect-[16/11] relative flex items-center justify-center p-8 sm:p-16 mb-6 overflow-hidden rounded-2xl transition-all duration-[400ms] ease-[cubic-bezier(0.25,1,0.5,1)]"
+        style={{ backgroundColor: award.color }}
+      >
+        <div className="relative w-full h-full shadow-[0_20px_40px_rgba(0,0,0,0.15)] transition-all duration-[400ms] ease-[cubic-bezier(0.25,1,0.5,1)] rounded-md overflow-hidden group-hover:scale-[1.05] group-hover:shadow-[0_40px_70px_rgba(0,0,0,0.3)]">
+          {award.images && award.images.length > 0 ? (
+            award.images.map((src: string, idx: number) => (
+              <Image 
+                key={idx}
+                src={src} 
+                alt={`${award.title} - ${idx}`}
+                fill 
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority={idx === 0}
+                className={`object-cover absolute inset-0 transition-all duration-[400ms] ease-[cubic-bezier(0.25,1,0.5,1)] ${idx === currentImageIndex ? 'opacity-100 scale-100 group-hover:scale-[1.03]' : 'opacity-0 scale-95 z-[-1]'}`}
+              />
+            ))
+          ) : (
+            <Image 
+              src={award.coverImage!} 
+              alt={award.title}
+              fill 
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover transition-transform duration-[400ms] ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-110"
+            />
+          )}
+        </div>
+
+        {/* Floating Action Pill */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 px-6 py-3 bg-white/95 backdrop-blur-md text-[#1C1D20] text-sm font-bold tracking-widest uppercase rounded-full shadow-2xl opacity-0 translate-y-10 transition-all duration-[400ms] ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:opacity-100 group-hover:translate-y-0 flex items-center gap-2 z-20">
+          {t('awards.read_story')}
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </div>
+      
+      {/* Meta Information */}
+      <div className="flex flex-col">
+        <h4 className="text-2xl sm:text-3xl font-semibold tracking-tight mb-2 flex items-center gap-2 transition-colors duration-300 group-hover:text-[#455CE9]">
+          {award.title}
+          <span className="opacity-0 -translate-x-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0">↗</span>
+        </h4>
+        <p className="text-sm sm:text-base font-medium text-[#1C1D20]/60 mb-3 uppercase tracking-wider">
+          {award.event}
+        </p>
+        <p className="text-base sm:text-lg font-light leading-relaxed text-[#1C1D20]/80 transition-opacity duration-300 group-hover:opacity-70">
+          {award.description}
+        </p>
+      </div>
+    </div>
+  );
+};
+
 // A micro-component for the Hacker Glitch Effect on Hover
 const CertRow = ({ cert }: { cert: any }) => {
   const { t } = useLanguage();
@@ -240,47 +316,12 @@ export default function Awards() {
         <div className="award-section w-full mb-32">
           <div className="award-grid grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             {portfolioData.awards.map((award, i) => (
-              <div 
-                key={i} 
+              <AwardCard 
+                key={i}
+                award={award}
                 onClick={() => handleAwardClick(award.id!)}
-                className="award-card group cursor-pointer flex flex-col"
-              >
-                {/* Premium Card with Solid Background & Morphing Frame */}
-                <div 
-                  className="w-full aspect-[4/3] sm:aspect-[16/11] relative flex items-center justify-center p-8 sm:p-16 mb-6 overflow-hidden rounded-md transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:rounded-[2.5rem]"
-                  style={{ backgroundColor: award.color }}
-                >
-                  <div className="relative w-full h-full shadow-[0_20px_40px_rgba(0,0,0,0.15)] transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-[1.08] group-hover:-translate-y-4 group-hover:-rotate-2 group-hover:shadow-[0_40px_70px_rgba(0,0,0,0.4)]">
-                    <Image 
-                      src={award.coverImage!} 
-                      alt={award.title}
-                      fill 
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                  </div>
-
-                  {/* Floating Action Pill */}
-                  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 px-6 py-3 bg-white/95 backdrop-blur-md text-[#1C1D20] text-sm font-bold tracking-widest uppercase rounded-full shadow-2xl opacity-0 translate-y-10 transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:opacity-100 group-hover:translate-y-0 flex items-center gap-2 z-20">
-                    {t('awards.read_story')}
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                  </div>
-                </div>
-                
-                {/* Meta Information */}
-                <div className="flex flex-col">
-                  <h4 className="text-2xl sm:text-3xl font-semibold tracking-tight mb-2 flex items-center gap-2 transition-colors duration-300 group-hover:text-[#455CE9]">
-                    {award.title}
-                    <span className="opacity-0 -translate-x-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0">↗</span>
-                  </h4>
-                  <p className="text-sm sm:text-base font-medium text-[#1C1D20]/60 mb-3 uppercase tracking-wider">
-                    {award.event}
-                  </p>
-                  <p className="text-base sm:text-lg font-light leading-relaxed text-[#1C1D20]/80 transition-opacity duration-300 group-hover:opacity-70">
-                    {award.description}
-                  </p>
-                </div>
-              </div>
+                t={t}
+              />
             ))}
           </div>
         </div>

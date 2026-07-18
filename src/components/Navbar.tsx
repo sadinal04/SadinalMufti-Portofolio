@@ -203,14 +203,14 @@ export default function Navbar() {
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20 ml-2">
               <button 
                 onClick={() => setLanguage('en')}
-                className={`transition-colors duration-300 ${language === 'en' ? 'text-white' : 'text-white/50 hover:text-white/80'}`}
+                className={`transition-colors duration-300 ${language === 'en' ? 'text-white font-bold' : 'text-white/80 hover:text-white'}`}
               >
                 EN
               </button>
-              <span className="text-white/30">|</span>
+              <span className="text-white/50">|</span>
               <button 
                 onClick={() => setLanguage('id')}
-                className={`transition-colors duration-300 ${language === 'id' ? 'text-white' : 'text-white/50 hover:text-white/80'}`}
+                className={`transition-colors duration-300 ${language === 'id' ? 'text-white font-bold' : 'text-white/80 hover:text-white'}`}
               >
                 ID
               </button>

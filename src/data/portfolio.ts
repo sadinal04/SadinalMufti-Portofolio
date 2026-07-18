@@ -233,7 +233,6 @@ export const portfolioDataID = {
       coverImage: "/Achievements/FIT/FIT_1.jpeg",
       images: [
         "/Achievements/FIT/FIT_1.jpeg",
-        "/Achievements/FIT/FIT_2.jpeg",
         "/Achievements/FIT/FIT_3.jpeg",
         "/Achievements/FIT/FIT_4.jpeg"
       ],
@@ -799,7 +798,6 @@ export const portfolioDataEN = {
       coverImage: "/Achievements/FIT/FIT_1.jpeg",
       images: [
         "/Achievements/FIT/FIT_1.jpeg",
-        "/Achievements/FIT/FIT_2.jpeg",
         "/Achievements/FIT/FIT_3.jpeg",
         "/Achievements/FIT/FIT_4.jpeg"
       ],
