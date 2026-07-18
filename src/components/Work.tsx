@@ -173,20 +173,21 @@ export default function Work() {
       </svg>
       <div className="max-w-screen-2xl mx-auto flex flex-col">
         {/* Massive Headline */}
-        <div className="overflow-hidden mb-10 sm:mb-16">
-          <h2 className="font-inter work-title text-5xl sm:text-7xl lg:text-[90px] font-medium tracking-tight leading-[1.1] max-w-4xl text-[#1C1D20] break-words">
+        <div className="overflow-hidden mb-8 sm:mb-16">
+          <h2 className="font-inter work-title text-4xl sm:text-7xl lg:text-[90px] font-medium tracking-tight leading-[1.1] max-w-4xl text-[#1C1D20] break-words">
             {t('work.title')}
           </h2>
         </div>
 
         {/* Filters and View Toggles */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-16">
-          <div className="flex flex-wrap items-center gap-4">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-10 sm:mb-16">
+          {/* Filter pills: scrollable on mobile, wrapping on desktop */}
+          <div className="flex items-center gap-3 overflow-x-auto md:overflow-x-visible md:flex-wrap pb-1 md:pb-0 w-full md:w-auto scroll-smooth" style={{ scrollbarWidth: 'none' }}>
             {categories.map((cat, i) => (
               <button
                 key={i}
                 onClick={() => setFilter(cat)}
-                className={`work-filter px-6 py-3 rounded-full text-sm sm:text-base font-medium transition-colors duration-300 border ${
+                className={`work-filter flex-shrink-0 px-5 py-2.5 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-medium transition-colors duration-300 border ${
                   filter === cat
                     ? "bg-[#1C1D20] text-white border-[#1C1D20]"
                     : "bg-transparent text-[#1C1D20] border-[#1C1D20]/20 hover:border-[#1C1D20]"
@@ -197,10 +198,10 @@ export default function Work() {
             ))}
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-shrink-0">
             <button 
               onClick={() => setViewMode("list")}
-              className={`w-12 h-12 rounded-full flex items-center justify-center transition-colors duration-300 border ${viewMode === 'list' ? 'bg-[#1C1D20] text-white border-[#1C1D20]' : 'bg-transparent text-[#1C1D20] border-[#1C1D20]/20 hover:border-[#1C1D20]'}`}
+              className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-colors duration-300 border ${viewMode === 'list' ? 'bg-[#1C1D20] text-white border-[#1C1D20]' : 'bg-transparent text-[#1C1D20] border-[#1C1D20]/20 hover:border-[#1C1D20]'}`}
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path d="M4 6h16M4 12h16M4 18h16" strokeLinecap="round"/>
@@ -208,7 +209,7 @@ export default function Work() {
             </button>
             <button 
               onClick={() => setViewMode("grid")}
-              className={`w-12 h-12 rounded-full flex items-center justify-center transition-colors duration-300 border ${viewMode === 'grid' ? 'bg-[#1C1D20] text-white border-[#1C1D20]' : 'bg-transparent text-[#1C1D20] border-[#1C1D20]/20 hover:border-[#1C1D20]'}`}
+              className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-colors duration-300 border ${viewMode === 'grid' ? 'bg-[#1C1D20] text-white border-[#1C1D20]' : 'bg-transparent text-[#1C1D20] border-[#1C1D20]/20 hover:border-[#1C1D20]'}`}
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <rect x="4" y="4" width="6" height="6" rx="1" />

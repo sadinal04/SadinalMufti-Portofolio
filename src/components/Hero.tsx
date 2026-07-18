@@ -105,10 +105,10 @@ export default function Hero() {
         </div>
 
         {/* Right: Location Widget (The Black Pill) */}
-        <div className="flex bg-[#1C1D20] rounded-l-full rounded-r-none p-2 pl-2 pr-8 sm:pr-12 items-center gap-6 shadow-2xl relative z-10 transition-transform origin-right hover:scale-105 duration-300 self-end sm:self-auto -mr-4 sm:-mr-12">
-          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden bg-[#999999] relative flex items-center justify-center transition-all duration-500">
+        <div className="flex bg-[#1C1D20] rounded-l-full rounded-r-none p-2 pl-2 pr-6 sm:pr-12 items-center gap-4 sm:gap-6 shadow-2xl relative z-10 transition-transform origin-right hover:scale-105 duration-300 self-end sm:self-auto sm:-mr-12">
+          <div className="w-12 h-12 sm:w-20 sm:h-20 rounded-full overflow-hidden bg-[#999999] relative flex items-center justify-center transition-all duration-500">
             <svg 
-              className="w-8 h-8 sm:w-10 sm:h-10 text-white" 
+              className="w-6 h-6 sm:w-10 sm:h-10 text-white" 
               viewBox="0 0 16 16" 
               fill="none" 
               xmlns="http://www.w3.org/2000/svg"
@@ -124,7 +124,7 @@ export default function Hero() {
             </svg>
           </div>
           <p 
-            className="text-right text-sm sm:text-base font-medium leading-tight text-[#E3E3E3]"
+            className="text-right text-xs sm:text-base font-medium leading-tight text-[#E3E3E3]"
             dangerouslySetInnerHTML={{ __html: t('hero.location') }}
           />
         </div>

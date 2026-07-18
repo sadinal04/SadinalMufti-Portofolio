@@ -124,26 +124,30 @@ export default function About() {
   }, []);
 
   useGSAP(() => {
-    // GSAP Pause (Pin) at the start
-    // We pin ONLY the right column, so the parent section continues to scroll natively.
-    // This allows the CSS sticky profile card and background video to work perfectly!
-      if (container.current && state1Ref.current && state2Ref.current) {
-        let mm = gsap.matchMedia();
-        mm.add("(min-width: 1024px)", () => {
-          const tl = gsap.timeline({
-            scrollTrigger: {
-              trigger: container.current,
-              start: "top top", // Pins the whole section at the top of the screen
-              end: "+=1200", // Long track to absorb fast scrolls
-              pin: true, // Pin the whole section
-              scrub: 1, // Tie animation to scroll with smooth 1-second lag
-            }
-          });
+    // GSAP Pin animation — desktop only via matchMedia
+    if (container.current && state1Ref.current && state2Ref.current) {
+      let mm = gsap.matchMedia();
+      
+      // Desktop (lg+): Pin + crossfade between State 1 & State 2
+      mm.add("(min-width: 1024px)", () => {
+        // Initialize visibility for GSAP (only on desktop)
+        gsap.set(state1Ref.current, { autoAlpha: 1 });
+        gsap.set(state2Ref.current, { autoAlpha: 0, scale: 1.05, filter: "blur(8px)", y: 40 });
 
-        // Frame 1: Empty space (Absorbs the first 400px of scrolling so user is forced to see About Me)
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: container.current,
+            start: "top top",
+            end: "+=1200",
+            pin: true,
+            scrub: 1,
+          }
+        });
+
+        // Frame 1: pause so user reads State 1
         tl.to({}, { duration: 1 });
 
-        // Frame 2: Fade out, scale down, blur, and translate State 1 up
+        // Frame 2: fade State 1 out
         tl.to(state1Ref.current, {
           y: -40,
           scale: 0.95,
@@ -153,10 +157,7 @@ export default function About() {
           ease: "power2.inOut",
         }, "transition");
 
-        // Set initial state for State 2
-        gsap.set(state2Ref.current, { scale: 1.05, filter: "blur(8px)", y: 40 });
-
-        // Frame 3: Fade in, scale to normal, remove blur, and translate State 2 to original position
+        // Frame 3: fade State 2 in
         tl.to(state2Ref.current, {
           y: 0,
           scale: 1,
@@ -166,8 +167,20 @@ export default function About() {
           ease: "power2.out",
         }, "transition+=0.1");
 
-        // Frame 4: Empty space (Absorbs the last 400px of scrolling so user can see Resume)
+        // Frame 4: pause so user reads State 2
         tl.to({}, { duration: 1 });
+
+        return () => {
+          // Cleanup: reset on leave
+          gsap.set(state1Ref.current, { clearProps: "all" });
+          gsap.set(state2Ref.current, { clearProps: "all" });
+        };
+      });
+
+      // Mobile/Tablet portrait: no animation, both states visible naturally
+      mm.add("(max-width: 1023px)", () => {
+        gsap.set(state1Ref.current, { clearProps: "all" });
+        gsap.set(state2Ref.current, { clearProps: "all", autoAlpha: 1 });
       });
     }
 
@@ -286,7 +299,7 @@ export default function About() {
   }, { scope: container });
 
   return (
-    <section id="about" ref={container} className="relative w-full min-h-screen py-8 sm:py-12 px-4 sm:px-12 bg-white text-[#1C1D20] rounded-t-[40px] flex flex-col justify-center">
+    <section id="about" ref={container} className="relative w-full py-12 lg:min-h-screen lg:py-8 lg:flex lg:flex-col lg:justify-center px-4 sm:px-12 bg-white text-[#1C1D20] rounded-t-[40px]">
       {/* Native CSS Sticky Background - Uses clipPath to avoid breaking sticky with overflow-hidden */}
       <div 
         className="absolute inset-0 z-0 h-full w-full pointer-events-none"
@@ -307,10 +320,10 @@ export default function About() {
         <div ref={contentRowRef} className="flex flex-col lg:flex-row items-stretch gap-8 lg:gap-16 w-full">
           
           {/* Left Column: Profile Card */}
-          <div className="w-full lg:w-[280px] xl:w-[320px] flex-shrink-0 mb-6 lg:mb-0 z-20">
+          <div className="w-full lg:w-[280px] xl:w-[320px] flex-shrink-0 mb-4 lg:mb-0 z-20">
             <div 
               ref={photoContainerRef}
-              className="w-full h-full bg-white rounded-[1.5rem] p-4 sm:p-5 flex flex-col justify-between gap-4 shadow-[0_15px_35px_rgba(0,0,0,0.06)] border border-[#1C1D20]/5 relative overflow-hidden group"
+              className="w-full h-full bg-white rounded-[1.5rem] p-4 sm:p-5 flex flex-row lg:flex-col justify-between gap-4 shadow-[0_15px_35px_rgba(0,0,0,0.06)] border border-[#1C1D20]/5 relative overflow-hidden group"
             >
               {/* Animated Left Edge Glow */}
               <div className="absolute top-0 left-0 bottom-0 w-[5px] z-50 overflow-hidden">
@@ -322,25 +335,28 @@ export default function About() {
                 className="absolute top-0 left-0 w-[60%] h-full bg-gradient-to-r from-transparent via-[#455CE9]/10 to-transparent pointer-events-none shimmer-effect z-40"
               />
 
-              {/* Photo */}
-              <div className="w-3/4 mx-auto aspect-square rounded-full overflow-hidden relative shadow-sm mt-1">
+              {/* Photo — compact circle on mobile, large centered on desktop */}
+              <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-3/4 lg:h-auto lg:mx-auto lg:aspect-square flex-shrink-0 rounded-full overflow-hidden relative shadow-sm lg:mt-1">
                 <Image src="/profil_photo.jpeg" alt="Sadinal Mufti" fill sizes="(max-width: 768px) 100vw, 30vw" className="object-cover transition-transform duration-700 hover:scale-105" />
               </div>
               
-              {/* Info */}
-              <div className="flex flex-col items-center text-center gap-1">
-                <h3 className="font-inter text-2xl font-bold tracking-tight text-[#1C1D20]">Sadinal Mufti</h3>
-                <p className="text-sm font-semibold tracking-widest text-[#455CE9] uppercase">{language === 'id' ? 'Sarjana Komputer' : 'Bachelor of Computer Science'}</p>
+              {/* Info — beside photo on mobile, below photo centered on desktop */}
+              <div className="flex-1 flex flex-col lg:items-center lg:text-center gap-1 justify-center">
+                <h3 className="font-inter text-base sm:text-lg lg:text-2xl font-bold tracking-tight text-[#1C1D20]">Sadinal Mufti</h3>
+                <p className="text-[10px] sm:text-xs lg:text-sm font-semibold tracking-widest text-[#455CE9] uppercase">{language === 'id' ? 'Sarjana Komputer' : 'Bachelor of Computer Science'}</p>
+                {/* Email shown only on mobile */}
+                <a href="mailto:muftisadinal@gmail.com" className="text-[10px] sm:text-xs font-medium text-[#1C1D20]/60 hover:text-[#455CE9] transition-colors mt-0.5 block lg:hidden truncate">muftisadinal@gmail.com</a>
+                <span className="text-[10px] text-[#1C1D20]/40 lg:hidden">{t('about.based')}</span>
               </div>
 
-              {/* Contact Line */}
-              <div className="flex flex-col items-center gap-1 w-full border-t border-b border-[#1C1D20]/10 py-5">
+              {/* Contact Line — desktop only */}
+              <div className="hidden lg:flex flex-col items-center gap-1 w-full border-t border-b border-[#1C1D20]/10 py-5">
                 <a href="mailto:muftisadinal@gmail.com" className="text-base font-medium text-[#1C1D20] hover:text-[#455CE9] transition-colors">muftisadinal@gmail.com</a>
                 <span className="text-sm text-[#1C1D20]/50">{t('about.based')}</span>
               </div>
 
-              {/* Socials */}
-              <div className="flex justify-center gap-4">
+              {/* Socials — desktop only full row, mobile hidden (shown in action buttons area) */}
+              <div className="hidden lg:flex justify-center gap-4">
                 <a href="mailto:muftisadinal@gmail.com" className="w-12 h-12 rounded-full bg-[#f4f4f4] border border-[#1C1D20]/10 text-[#1C1D20] flex items-center justify-center hover:bg-[#1C1D20] hover:text-white hover:scale-110 transition-all duration-300 shadow-sm">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                 </a>
@@ -355,8 +371,8 @@ export default function About() {
                 </a>
               </div>
 
-              {/* Action Buttons */}
-              <div className="flex flex-col gap-2 w-full mt-1">
+              {/* Action Buttons — desktop only full stack, mobile shows as row */}
+              <div className="hidden lg:flex flex-col gap-2 w-full mt-1">
                 <a href="/cv.pdf" target="_blank" className="w-full flex items-center justify-center gap-2 bg-transparent border border-[#1C1D20]/20 text-[#1C1D20] py-2.5 rounded-xl font-medium hover:bg-[#1C1D20] hover:text-white transition-colors duration-300 text-sm">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                   {t('about.cv')}
@@ -366,15 +382,26 @@ export default function About() {
                   {t('about.contact')}
                 </a>
               </div>
+              {/* Mobile action buttons row */}
+              <div className="flex lg:hidden gap-2 w-full mt-1 flex-col">
+                <a href="/cv.pdf" target="_blank" className="flex-1 flex items-center justify-center gap-2 bg-transparent border border-[#1C1D20]/20 text-[#1C1D20] py-2 rounded-xl font-medium hover:bg-[#1C1D20] hover:text-white transition-colors duration-300 text-xs">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                  {t('about.cv')}
+                </a>
+                <a href="#contact" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }); }} className="flex-1 flex items-center justify-center gap-2 bg-[#455CE9] text-white py-2 rounded-xl font-medium hover:bg-[#1C1D20] transition-colors duration-300 text-xs">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                  {t('about.contact')}
+                </a>
+              </div>
             </div>
           </div>
 
           {/* Right Column: Scrollable Content */}
           <div className="flex-1 w-full flex flex-col justify-start">
-            <div ref={rightColRef} className="w-full grid lg:[grid-template-areas:'stack'] relative gap-12 lg:gap-0 h-full">
+            <div ref={rightColRef} className="w-full flex flex-col lg:grid lg:[grid-template-areas:'stack'] relative gap-10 lg:gap-0 lg:h-full">
               
               {/* --- STATE 1: Intro & Stats --- */}
-              <div ref={state1Ref} className="lg:[grid-area:stack] w-full flex flex-col justify-between z-10 origin-top h-auto lg:h-full">
+              <div ref={state1Ref} className="lg:[grid-area:stack] w-full flex flex-col justify-between z-10 origin-top">
                 <div>
                   {/* Top Label */}
                   <div className="flex items-center gap-3 mb-6">
@@ -446,7 +473,8 @@ export default function About() {
               </div>
 
               {/* --- STATE 2: Resume (Experience, Education, Coding Camp) --- */}
-              <div ref={state2Ref} className="lg:[grid-area:stack] w-full flex flex-col justify-between z-0 lg:invisible lg:opacity-0 origin-bottom h-auto lg:h-full">
+              {/* On mobile: always visible in normal flow. On desktop: hidden initially, revealed via GSAP */}
+              <div ref={state2Ref} className="lg:[grid-area:stack] w-full flex flex-col justify-between z-0 origin-bottom" style={{}}>
                 
                 <div>
                   {/* Top Label */}
@@ -538,8 +566,8 @@ export default function About() {
                 </div>
               </div>
 
-              {/* --- Section 3: Unique Scroll Indicator --- */}
-                <div className="flex flex-col items-center justify-center mt-6 mb-4 group cursor-pointer w-full">
+              {/* --- Section 3: Scroll Indicator (Desktop only) --- */}
+                <div className="hidden lg:flex flex-col items-center justify-center mt-6 mb-4 group cursor-pointer w-full">
                   <div className="w-[30px] h-[46px] rounded-[15px] border-2 border-[#1C1D20]/20 flex justify-center p-1.5 mb-2 relative overflow-hidden group-hover:border-[#455CE9] transition-colors duration-500 shadow-sm">
                     <div className="w-1.5 h-1.5 rounded-full bg-[#1C1D20]/40 group-hover:bg-[#455CE9] animate-[bounce_1.5s_infinite] transition-colors duration-500"></div>
                   </div>

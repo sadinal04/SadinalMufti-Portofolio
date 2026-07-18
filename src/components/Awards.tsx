@@ -262,10 +262,10 @@ export default function Awards() {
       <div className="max-w-screen-2xl mx-auto flex flex-col px-4 sm:px-12">
         
         {/* Title Section */}
-        <div className="award-section w-full mb-16">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
-            <h2 className="font-inter text-4xl sm:text-6xl font-medium tracking-tight whitespace-pre-line">{t('awards.title')}</h2>
-            <p className="text-[#1C1D20]/60 max-w-sm text-base sm:text-lg">
+        <div className="award-section w-full mb-12 sm:mb-16">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 sm:gap-6">
+            <h2 className="font-inter text-3xl sm:text-4xl lg:text-6xl font-medium tracking-tight whitespace-pre-line">{t('awards.title')}</h2>
+            <p className="text-[#1C1D20]/60 max-w-sm text-sm sm:text-base lg:text-lg">
               {t('awards.subtitle')}
             </p>
           </div>
@@ -329,8 +329,8 @@ export default function Awards() {
 
         {/* fications - Full Width Interactive List */}
         <div className="award-section cert-container w-full border-t border-[#1C1D20]/20 pt-16 sm:pt-24 mb-24">
-          <div className="overflow-hidden mb-10 sm:mb-16">
-            <h2 className="font-inter text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-medium tracking-tight leading-[1.1] max-w-none">
+          <div className="overflow-hidden mb-8 sm:mb-16">
+            <h2 className="font-inter text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-medium tracking-tight leading-[1.1] max-w-none">
               {t('awards.cert_title')}
             </h2>
           </div>
