@@ -172,17 +172,27 @@ export default function ProjectDetail() {
               <h3 className="md:col-span-3 text-sm font-semibold uppercase tracking-widest text-[#1C1D20]/40 group-hover/section:text-[#455CE9] transition-colors duration-500 reveal-element">
                 <span className="inline-block transition-transform duration-500 group-hover/section:translate-x-3">02 &mdash; Key Insights</span>
               </h3>
-              <div className="md:col-span-9 grid grid-cols-1 md:grid-cols-2 gap-6">
-                {(project as any).keyInsights.map((insight: any, i: number) => (
-                  <div 
-                    key={i} 
-                    className="insight-card group flex flex-col gap-3 bg-white border border-[#1C1D20]/10 hover:border-[#455CE9] hover:bg-[#455CE9] p-6 sm:p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1 shadow-[0_4px_20px_transparent] hover:shadow-[0_10px_30px_rgba(69,92,233,0.2)] cursor-default"
-                  >
-                    <h4 className="text-lg font-bold tracking-tight text-[#1C1D20] group-hover:text-white leading-snug transition-colors duration-300">{insight.title}</h4>
-                    <p className="text-sm sm:text-base text-[#1C1D20]/80 group-hover:text-white/90 leading-relaxed transition-colors duration-300">{insight.desc}</p>
-                  </div>
-                ))}
+              <div className="md:col-span-9">
+                <div className="flex flex-col border-t border-[#1C1D20]/20 -mx-4 sm:-mx-6">
+                  {(project as any).keyInsights.map((insight: any, i: number) => (
+                    <div 
+                      key={i} 
+                      className="insight-card group flex flex-col py-4 px-4 sm:py-5 sm:px-6 border-b border-[#1C1D20]/20 hover:bg-[#455CE9] transition-colors duration-300 cursor-default"
+                    >
+                      {/* Title */}
+                      <h4 className="text-lg font-bold tracking-tight text-[#1C1D20] group-hover:text-white leading-snug transition-colors duration-300 mb-2">
+                        {insight.title}
+                      </h4>
+                      
+                      {/* Description */}
+                      <p className="text-sm sm:text-base text-[#1C1D20]/80 group-hover:text-white/90 leading-relaxed transition-colors duration-300 text-justify">
+                        {insight.desc}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
+
             </div>
           )}
 

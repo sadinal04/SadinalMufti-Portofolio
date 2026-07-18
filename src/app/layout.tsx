@@ -29,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${roboto.variable} font-sans antialiased`}>
-      <body className="min-h-screen bg-[#E3E3E3] text-[#1C1D20]" style={{ overflowX: 'clip' }}>
+      <body className="min-h-screen bg-[#E3E3E3] text-[#1C1D20] overflow-x-clip">
         <LanguageProvider>
           <TransitionOverlay />
           <SmoothScroll />
