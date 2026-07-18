@@ -80,35 +80,35 @@ export default function Hero() {
       </div>
 
       {/* Main Content Wrapper (Middle of the screen) */}
-      <div className="absolute top-[40%] lg:top-[50%] -translate-y-1/2 w-full px-4 lg:px-12 z-10 flex flex-col lg:flex-row justify-between items-start lg:items-center left-0 right-0 gap-16 lg:gap-0">
+      <div className="absolute top-[40%] md:top-[50%] -translate-y-1/2 w-full px-4 sm:px-8 md:px-12 z-10 flex flex-col md:flex-row justify-between items-start md:items-center left-0 right-0 gap-16 md:gap-0">
         {/* Left: Main Typography */}
-        <div className="flex flex-col relative z-10 lg:pl-8">
+        <div className="flex flex-col relative z-10 md:pl-8">
           {/* Arrow */}
-          <div className="mb-4 lg:mb-6">
-            <svg className="w-10 h-10 lg:w-12 lg:h-12 shrink-0 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <div className="mb-4 md:mb-6">
+            <svg className="w-10 h-10 md:w-12 md:h-12 shrink-0 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
               <line x1="7" y1="7" x2="17" y2="17"></line>
               <polyline points="8 17 17 17 17 8"></polyline>
             </svg>
           </div>
           
           <div className="flex flex-col overflow-hidden">
-            <h1 className="font-inter text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.2] tracking-tight text-white">
+            <h1 className="font-inter text-3xl sm:text-4xl md:text-3xl lg:text-5xl font-medium leading-[1.2] tracking-tight text-white">
               <span ref={addToRefs} className="inline-block">Data Analyst</span>
             </h1>
-            <h1 className="font-inter text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.2] tracking-tight text-white">
+            <h1 className="font-inter text-3xl sm:text-4xl md:text-3xl lg:text-5xl font-medium leading-[1.2] tracking-tight text-white">
               <span ref={addToRefs} className="inline-block">Data Scientist</span>
             </h1>
-            <h1 className="font-inter text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.2] tracking-tight text-white">
+            <h1 className="font-inter text-3xl sm:text-4xl md:text-3xl lg:text-5xl font-medium leading-[1.2] tracking-tight text-white">
               <span ref={addToRefs} className="inline-block">Machine Learning Engineer</span>
             </h1>
           </div>
         </div>
 
         {/* Right: Location Widget (The Black Pill) */}
-        <div className="flex bg-[#1C1D20] rounded-l-full rounded-r-none p-2 pl-2 pr-6 lg:pr-12 items-center gap-4 lg:gap-6 shadow-2xl relative z-10 transition-transform origin-right hover:scale-105 duration-300 self-end lg:self-auto lg:-mr-12">
-          <div className="w-12 h-12 lg:w-20 lg:h-20 rounded-full overflow-hidden bg-[#999999] relative flex items-center justify-center transition-all duration-500">
+        <div className="flex bg-[#1C1D20] rounded-l-full rounded-r-none p-2 pl-2 pr-6 md:pr-12 items-center gap-4 md:gap-6 shadow-2xl relative z-10 transition-transform origin-right hover:scale-105 duration-300 self-end md:self-auto md:-mr-12">
+          <div className="w-12 h-12 md:w-20 md:h-20 rounded-full overflow-hidden bg-[#999999] relative flex items-center justify-center transition-all duration-500">
             <svg 
-              className="w-6 h-6 lg:w-10 lg:h-10 text-white" 
+              className="w-6 h-6 md:w-10 md:h-10 text-white" 
               viewBox="0 0 16 16" 
               fill="none" 
               xmlns="http://www.w3.org/2000/svg"
@@ -124,7 +124,7 @@ export default function Hero() {
             </svg>
           </div>
           <p 
-            className="text-right text-xs lg:text-base font-medium leading-tight text-[#E3E3E3]"
+            className="text-right text-xs md:text-base font-medium leading-tight text-[#E3E3E3]"
             dangerouslySetInnerHTML={{ __html: t('hero.location') }}
           />
         </div>

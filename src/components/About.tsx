@@ -321,13 +321,13 @@ export default function About() {
       </div>
 
       <div className="relative z-10 max-w-screen-2xl mx-auto w-full">
-        <div ref={contentRowRef} className="flex flex-col lg:flex-row items-stretch gap-8 lg:gap-16 w-full">
+        <div ref={contentRowRef} className="flex flex-col lg:flex-row [@media(pointer:coarse)]:!flex-col items-stretch gap-8 lg:gap-16 w-full">
           
           {/* Left Column: Profile Card */}
           <div className="w-full lg:w-[280px] xl:w-[320px] flex-shrink-0 mb-4 lg:mb-0 z-20">
             <div 
               ref={photoContainerRef}
-              className="w-full h-full bg-white rounded-[1.5rem] p-4 sm:p-5 flex flex-row lg:flex-col justify-between gap-4 shadow-[0_15px_35px_rgba(0,0,0,0.06)] border border-[#1C1D20]/5 relative overflow-hidden group"
+              className="w-full h-full bg-white rounded-[1.5rem] p-4 sm:p-5 flex flex-row lg:flex-col [@media(pointer:coarse)]:!flex-row justify-between gap-4 shadow-[0_15px_35px_rgba(0,0,0,0.06)] border border-[#1C1D20]/5 relative overflow-hidden group"
             >
               {/* Animated Left Edge Glow */}
               <div className="absolute top-0 left-0 bottom-0 w-[5px] z-50 overflow-hidden">
@@ -340,27 +340,27 @@ export default function About() {
               />
 
               {/* Photo — compact circle on mobile, large centered on desktop */}
-              <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-3/4 lg:h-auto lg:mx-auto lg:aspect-square flex-shrink-0 rounded-full overflow-hidden relative shadow-sm lg:mt-1">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-3/4 lg:h-auto lg:mx-auto lg:aspect-square [@media(pointer:coarse)]:!w-24 [@media(pointer:coarse)]:!h-24 [@media(pointer:coarse)]:!mx-0 [@media(pointer:coarse)]:!mt-0 flex-shrink-0 rounded-full overflow-hidden relative shadow-sm lg:mt-1">
                 <Image src="/profil_photo.jpeg" alt="Sadinal Mufti" fill sizes="(max-width: 768px) 100vw, 30vw" className="object-cover transition-transform duration-700 hover:scale-105" />
               </div>
               
               {/* Info — beside photo on mobile, below photo centered on desktop */}
-              <div className="flex-1 flex flex-col lg:items-center lg:text-center gap-1 justify-center">
+              <div className="flex-1 flex flex-col lg:items-center lg:text-center [@media(pointer:coarse)]:!items-start [@media(pointer:coarse)]:!text-left gap-1 justify-center">
                 <h3 className="font-inter text-base sm:text-lg lg:text-2xl font-bold tracking-tight text-[#1C1D20]">Sadinal Mufti</h3>
                 <p className="text-[10px] sm:text-xs lg:text-sm font-semibold tracking-widest text-[#455CE9] uppercase">{language === 'id' ? 'Sarjana Komputer' : 'Bachelor of Computer Science'}</p>
                 {/* Email shown only on mobile */}
-                <a href="mailto:muftisadinal@gmail.com" className="text-[10px] sm:text-xs font-medium text-[#1C1D20]/60 hover:text-[#455CE9] transition-colors mt-0.5 block lg:hidden truncate">muftisadinal@gmail.com</a>
-                <span className="text-[10px] text-[#1C1D20]/40 lg:hidden">{t('about.based')}</span>
+                <a href="mailto:muftisadinal@gmail.com" className="text-[10px] sm:text-xs font-medium text-[#1C1D20]/60 hover:text-[#455CE9] transition-colors mt-0.5 block lg:hidden [@media(pointer:coarse)]:!block truncate">muftisadinal@gmail.com</a>
+                <span className="text-[10px] text-[#1C1D20]/40 lg:hidden [@media(pointer:coarse)]:!block">{t('about.based')}</span>
               </div>
 
               {/* Contact Line — desktop only */}
-              <div className="hidden lg:flex flex-col items-center gap-1 w-full border-t border-b border-[#1C1D20]/10 py-5">
+              <div className="hidden lg:flex flex-col items-center gap-1 w-full border-t border-b border-[#1C1D20]/10 py-5 [@media(pointer:coarse)]:!hidden">
                 <a href="mailto:muftisadinal@gmail.com" className="text-base font-medium text-[#1C1D20] hover:text-[#455CE9] transition-colors">muftisadinal@gmail.com</a>
                 <span className="text-sm text-[#1C1D20]/50">{t('about.based')}</span>
               </div>
 
               {/* Socials — desktop only full row, mobile hidden (shown in action buttons area) */}
-              <div className="hidden lg:flex justify-center gap-4">
+              <div className="hidden lg:flex justify-center gap-4 [@media(pointer:coarse)]:!hidden">
                 <a href="mailto:muftisadinal@gmail.com" className="w-12 h-12 rounded-full bg-[#f4f4f4] border border-[#1C1D20]/10 text-[#1C1D20] flex items-center justify-center hover:bg-[#1C1D20] hover:text-white hover:scale-110 transition-all duration-300 shadow-sm">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                 </a>
@@ -376,7 +376,7 @@ export default function About() {
               </div>
 
               {/* Action Buttons — desktop only full stack, mobile shows as row */}
-              <div className="hidden lg:flex flex-col gap-2 w-full mt-1">
+              <div className="hidden lg:flex flex-col gap-2 w-full mt-1 [@media(pointer:coarse)]:!hidden">
                 <button onClick={() => setShowCVPdf(true)} className="w-full flex items-center justify-center gap-2 bg-transparent border border-[#1C1D20]/20 text-[#1C1D20] py-2.5 rounded-xl font-medium hover:bg-[#1C1D20] hover:text-white transition-colors duration-300 text-sm">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                   {t('about.cv')}
@@ -387,7 +387,7 @@ export default function About() {
                 </a>
               </div>
               {/* Mobile action buttons row */}
-              <div className="flex lg:hidden gap-2 w-full mt-1 flex-col">
+              <div className="flex lg:hidden [@media(pointer:coarse)]:!flex gap-2 w-full mt-1 flex-col">
                 <button onClick={() => setShowCVPdf(true)} className="flex-1 flex items-center justify-center gap-2 bg-transparent border border-[#1C1D20]/20 text-[#1C1D20] py-2 rounded-xl font-medium hover:bg-[#1C1D20] hover:text-white transition-colors duration-300 text-xs">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
                   {t('about.cv')}
