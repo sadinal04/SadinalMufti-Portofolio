@@ -104,6 +104,7 @@ export default function Work() {
         pin: true,
         pinSpacing: false, // Critical to allow Awards to overlap
         scrub: true,
+        invalidateOnRefresh: true, // Forces recalculation on resize/monitor switch
       }
     });
 
