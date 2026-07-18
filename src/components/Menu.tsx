@@ -16,21 +16,29 @@ export default function Menu({ isScrolled }: { isScrolled: boolean }) {
   const buttonContainerRef = useRef<HTMLDivElement>(null);
   
   const pathname = usePathname();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 1024);
+    handleResize(); // Initial check
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     if(isActive) setIsActive(false);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
-  // Handle Hamburger Scale In/Out on Scroll
+  // Handle Hamburger Scale In/Out on Scroll or Mobile
   useEffect(() => {
-    if (isScrolled) {
+    if (isScrolled || isMobile) {
       gsap.to(buttonContainerRef.current, { scale: 1, duration: 0.3, ease: "power3.out" });
     } else {
       gsap.to(buttonContainerRef.current, { scale: 0, duration: 0.3, ease: "power3.in" });
       if (isActive) setIsActive(false); // Close menu if scrolling back to top
     }
-  }, [isScrolled, isActive]);
+  }, [isScrolled, isActive, isMobile]);
 
   useEffect(() => {
     const tl = gsap.timeline();
@@ -71,15 +79,20 @@ export default function Menu({ isScrolled }: { isScrolled: boolean }) {
   return (
     <>
       {/* Floating Button Container */}
-      <div ref={buttonContainerRef} className="fixed top-8 right-8 z-[70] scale-0 origin-center">
+      <div ref={buttonContainerRef} className="fixed top-4 right-4 sm:top-8 sm:right-8 lg:right-12 z-[70] scale-0 origin-center">
         <Magnetic>
           <button
             onClick={() => setIsActive(!isActive)}
-            className="w-20 h-20 bg-[#1C1D20] hover:bg-[#455CE9] transition-colors duration-500 rounded-full flex flex-col items-center justify-center gap-1.5 overflow-hidden group shadow-lg"
+            className="w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-[#1C1D20] hover:bg-[#455CE9] transition-colors duration-500 rounded-full flex flex-col items-center justify-center gap-1.5 overflow-hidden group shadow-lg relative"
           >
-            <div className={`w-6 h-[2px] bg-white transition-transform duration-500 ${isActive ? 'rotate-45 translate-y-[8px]' : ''}`} />
-            <div className={`w-6 h-[2px] bg-white transition-opacity duration-500 ${isActive ? 'opacity-0' : ''}`} />
-            <div className={`w-6 h-[2px] bg-white transition-transform duration-500 ${isActive ? '-rotate-45 -translate-y-[8px]' : ''}`} />
+            <div className={`w-5 sm:w-6 h-[2px] bg-white transition-transform duration-500 ${isActive ? 'rotate-45 translate-y-[8px]' : ''}`} />
+            <div className={`w-5 sm:w-6 h-[2px] bg-white transition-opacity duration-500 ${isActive ? 'opacity-0' : ''}`} />
+            <div className={`w-5 sm:w-6 h-[2px] bg-white transition-transform duration-500 ${isActive ? '-rotate-45 -translate-y-[8px]' : ''}`} />
+            
+            {/* Explicit CLOSE text that appears when active */}
+            <span className={`absolute bottom-1.5 sm:bottom-2 text-[8px] sm:text-[10px] font-bold tracking-widest text-white transition-all duration-300 ${isActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+              CLOSE
+            </span>
           </button>
         </Magnetic>
       </div>
@@ -108,13 +121,13 @@ export default function Menu({ isScrolled }: { isScrolled: boolean }) {
           </div>
         </div>
 
-        {/* Centered Navigation Links */}
-        <div className="flex-1 flex flex-col justify-center pb-8">
-          <div className="flex flex-col items-start mb-8 w-full">
+        {/* Navigation Links */}
+        <div className="flex-1 flex flex-col justify-start mt-4 sm:mt-8 pb-8">
+          <div className="flex flex-col items-start mb-6 w-full">
             <p className="text-xs font-semibold text-gray-500 tracking-widest uppercase">{t('nav.navigation')}</p>
           </div>
         
-        <div ref={linksRef} className="flex flex-col gap-3 text-4xl sm:text-5xl font-light tracking-tight mb-12">
+        <div ref={linksRef} className="flex flex-col gap-3 text-4xl sm:text-5xl font-light tracking-tight mb-20 sm:mb-24">
           <a href="#hero" onClick={(e) => scrollTo(e, '#hero')} className="hover:pl-4 transition-all duration-300 cursor-pointer">Home</a>
           <a href="#about" onClick={(e) => scrollTo(e, '#about')} className="hover:pl-4 transition-all duration-300 cursor-pointer">{t('nav.about')}</a>
           <a href="#work" onClick={(e) => scrollTo(e, '#work')} className="hover:pl-4 transition-all duration-300 cursor-pointer">{t('nav.work')}</a>

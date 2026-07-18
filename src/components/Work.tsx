@@ -153,7 +153,7 @@ export default function Work() {
   return (
     <>
     <div ref={triggerRef} className="relative w-full z-20 -mt-20">
-      <section id="work" ref={container} className="relative w-full pt-20 sm:pt-28 pb-24 sm:pb-32 px-4 sm:px-12 bg-white text-[#1C1D20] drop-shadow-[0_-20px_25px_rgba(0,0,0,0.05)]">
+      <section id="work" ref={container} className="relative w-full pt-20 sm:pt-28 pb-48 sm:pb-[30vh] px-4 sm:px-12 bg-white text-[#1C1D20] drop-shadow-[0_-20px_25px_rgba(0,0,0,0.05)]">
       {/* Concave Curve SVG */}
       <svg 
         className="absolute top-0 left-0 w-full h-[70px] sm:h-[120px] -translate-y-[calc(100%-1px)] pointer-events-none" 
@@ -169,7 +169,7 @@ export default function Work() {
       <div className="max-w-screen-2xl mx-auto flex flex-col">
         {/* Massive Headline */}
         <div className="overflow-hidden mb-10 sm:mb-16">
-          <h2 className="font-inter work-title text-5xl sm:text-7xl lg:text-[90px] font-medium tracking-tight leading-[1.1] max-w-4xl text-[#1C1D20]">
+          <h2 className="font-inter work-title text-5xl sm:text-7xl lg:text-[90px] font-medium tracking-tight leading-[1.1] max-w-4xl text-[#1C1D20] break-words">
             {t('work.title')}
           </h2>
         </div>

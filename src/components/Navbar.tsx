@@ -161,8 +161,8 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full p-8 flex justify-between items-start z-[60] pointer-events-none transition-all duration-500">
-        
+      <nav className="fixed top-0 left-0 w-full pt-8 pb-4 flex justify-between items-start z-[60] pointer-events-none transition-all duration-500">
+        <div className="w-full max-w-screen-2xl mx-auto px-4 sm:px-12 flex justify-between items-start">
         {/* Left Side: Logo OR Back Button */}
         <div 
           className={`font-semibold text-lg tracking-tight pointer-events-auto group cursor-pointer overflow-hidden flex flex-col relative h-[28px] ${pathname !== "/" ? 'w-[100px]' : 'w-[180px]'} transition-all duration-300 ${pathname === "/" ? (isLightSection ? 'text-[#1C1D20]' : 'text-white drop-shadow-md') : 'text-[#1C1D20]'}`}
@@ -190,9 +190,9 @@ export default function Navbar() {
           </div>
         </div>
         
-        {/* Inline Links (Visible only at the top of the homepage) */}
+        {/* Inline Links (Visible only at the top of the homepage on desktop) */}
         {pathname === "/" && (
-          <div className={`pointer-events-auto flex items-center gap-8 lg:gap-12 font-inter font-semibold text-xs lg:text-sm tracking-widest transition-opacity duration-300 drop-shadow-md ${isMenuHidden ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+          <div className={`hidden lg:flex pointer-events-auto items-center gap-8 lg:gap-12 font-inter font-semibold text-xs lg:text-sm tracking-widest transition-opacity duration-300 drop-shadow-md ${isMenuHidden ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
             <NavItem title="Home" target="#hero" onClick={scrollTo} />
             <NavItem title={t('nav.about')} target="#about" onClick={scrollTo} />
             <NavItem title={t('nav.work')} target="#work" onClick={scrollTo} />
@@ -217,6 +217,7 @@ export default function Navbar() {
             </div>
           </div>
         )}
+        </div>
       </nav>
       <Menu isScrolled={pathname === "/" ? isMenuHidden : true} />
     </>

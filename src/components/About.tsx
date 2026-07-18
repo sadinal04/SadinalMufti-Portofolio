@@ -405,7 +405,7 @@ export default function About() {
                   </div>
 
                   {/* Huge Headline */}
-                  <h2 className="font-inter text-[2rem] sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-tight leading-[1.15] mb-6 text-[#1C1D20]">
+                  <h2 className="font-inter text-[2rem] sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-tight leading-[1.15] mb-6 text-[#1C1D20] break-words">
                     {t('about.headline')}
                   </h2>
 
