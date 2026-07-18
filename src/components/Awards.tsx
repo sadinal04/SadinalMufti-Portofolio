@@ -30,14 +30,16 @@ const AwardCard = ({ award, onClick, t }: { award: any, onClick: () => void, t: 
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="award-card group cursor-pointer flex flex-col"
+      onTouchStart={() => setIsHovered(true)}
+      onTouchEnd={() => setIsHovered(false)}
+      className="award-card cursor-pointer flex flex-col"
     >
       {/* Premium Card with Fixed Frame */}
       <div 
         className="w-full aspect-[4/3] sm:aspect-[16/11] relative flex items-center justify-center p-8 sm:p-16 mb-6 overflow-hidden rounded-2xl transition-all duration-[400ms] ease-[cubic-bezier(0.25,1,0.5,1)]"
         style={{ backgroundColor: award.color }}
       >
-        <div className="relative w-full h-full shadow-[0_20px_40px_rgba(0,0,0,0.15)] transition-all duration-[400ms] ease-[cubic-bezier(0.25,1,0.5,1)] rounded-md overflow-hidden group-hover:scale-[1.05] group-hover:shadow-[0_40px_70px_rgba(0,0,0,0.3)]">
+        <div className={`relative w-full h-full shadow-[0_20px_40px_rgba(0,0,0,0.15)] transition-all duration-[400ms] ease-[cubic-bezier(0.25,1,0.5,1)] rounded-md overflow-hidden ${isHovered ? 'scale-[1.05] shadow-[0_40px_70px_rgba(0,0,0,0.3)]' : ''}`}>
           {award.images && award.images.length > 0 ? (
             award.images.map((src: string, idx: number) => (
               <Image 
@@ -47,7 +49,7 @@ const AwardCard = ({ award, onClick, t }: { award: any, onClick: () => void, t: 
                 fill 
                 sizes="(max-width: 768px) 100vw, 50vw"
                 priority={idx === 0}
-                className={`object-cover absolute inset-0 transition-all duration-[400ms] ease-[cubic-bezier(0.25,1,0.5,1)] ${idx === currentImageIndex ? 'opacity-100 scale-100 group-hover:scale-[1.03]' : 'opacity-0 scale-95 z-[-1]'}`}
+                className={`object-cover absolute inset-0 transition-all duration-[400ms] ease-[cubic-bezier(0.25,1,0.5,1)] ${idx === currentImageIndex ? `opacity-100 ${isHovered ? 'scale-[1.03]' : 'scale-100'}` : 'opacity-0 scale-95 z-[-1]'}`}
               />
             ))
           ) : (
@@ -56,13 +58,13 @@ const AwardCard = ({ award, onClick, t }: { award: any, onClick: () => void, t: 
               alt={award.title}
               fill 
               sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover transition-transform duration-[400ms] ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-110"
+              className={`object-cover transition-transform duration-[400ms] ease-[cubic-bezier(0.25,1,0.5,1)] ${isHovered ? 'scale-110' : ''}`}
             />
           )}
         </div>
 
         {/* Floating Action Pill */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 px-6 py-3 bg-white/95 backdrop-blur-md text-[#1C1D20] text-sm font-bold tracking-widest uppercase rounded-full shadow-2xl opacity-0 translate-y-10 transition-all duration-[400ms] ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:opacity-100 group-hover:translate-y-0 flex items-center gap-2 z-20">
+        <div className={`absolute bottom-6 left-1/2 -translate-x-1/2 px-6 py-3 bg-white/95 backdrop-blur-md text-[#1C1D20] text-sm font-bold tracking-widest uppercase rounded-full shadow-2xl transition-all duration-[400ms] ease-[cubic-bezier(0.25,1,0.5,1)] flex items-center gap-2 z-20 ${isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           {t('awards.read_story')}
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </div>
@@ -70,14 +72,14 @@ const AwardCard = ({ award, onClick, t }: { award: any, onClick: () => void, t: 
       
       {/* Meta Information */}
       <div className="flex flex-col">
-        <h4 className="text-2xl sm:text-3xl font-semibold tracking-tight mb-2 flex items-center gap-2 transition-colors duration-300 group-hover:text-[#455CE9]">
+        <h4 className={`text-2xl sm:text-3xl font-semibold tracking-tight mb-2 flex items-center gap-2 transition-colors duration-300 ${isHovered ? 'text-[#455CE9]' : ''}`}>
           {award.title}
-          <span className="opacity-0 -translate-x-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0">↗</span>
+          <span className={`transition-all duration-500 ${isHovered ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}>↗</span>
         </h4>
         <p className="text-sm sm:text-base font-medium text-[#1C1D20]/60 mb-3 uppercase tracking-wider">
           {award.event}
         </p>
-        <p className="text-base sm:text-lg font-light leading-relaxed text-[#1C1D20]/80 transition-opacity duration-300 group-hover:opacity-70">
+        <p className={`text-base sm:text-lg font-light leading-relaxed text-[#1C1D20]/80 transition-opacity duration-300 ${isHovered ? 'opacity-70' : ''}`}>
           {award.description}
         </p>
       </div>

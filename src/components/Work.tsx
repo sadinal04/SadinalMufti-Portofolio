@@ -234,16 +234,20 @@ export default function Work() {
 
               {/* Table Rows */}
               <div className="flex flex-col">
-                {filteredProjects.map((proj, idx) => (
+                {filteredProjects.map((proj, idx) => {
+                  const isHovered = modalData.active && modalData.index === idx;
+                  return (
                   <div
                     key={proj.id}
                     onClick={() => handleProjectClick(proj.id)}
                     onMouseEnter={() => setModalData({ active: true, index: idx })}
                     onMouseLeave={() => setModalData({ active: false, index: idx })}
-                    className="work-item group relative flex flex-col lg:flex-row lg:items-center justify-between py-6 sm:py-10 lg:py-14 border-b border-[#1C1D20]/20 cursor-pointer gap-2 lg:gap-0"
+                    onTouchStart={() => setModalData({ active: true, index: idx })}
+                    onTouchEnd={() => setModalData({ active: false, index: idx })}
+                    className="work-item relative flex flex-col lg:flex-row lg:items-center justify-between py-6 sm:py-10 lg:py-14 border-b border-[#1C1D20]/20 cursor-pointer gap-2 lg:gap-0"
                   >
                     <div className="w-full lg:w-[45%] pr-4">
-                      <h3 className="font-inter text-2xl sm:text-3xl lg:text-[40px] font-normal tracking-tight transition-all duration-500 group-hover:translate-x-4 group-hover:text-black/40 leading-[1.2] lg:leading-[1.1]">
+                      <h3 className={`font-inter text-2xl sm:text-3xl lg:text-[40px] font-normal tracking-tight transition-all duration-500 leading-[1.2] lg:leading-[1.1] ${isHovered ? 'translate-x-4 text-black/40' : ''}`}>
                         {proj.title}
                       </h3>
                     </div>
@@ -255,37 +259,41 @@ export default function Work() {
                     </div>
 
                     {/* Desktop-only columns */}
-                    <div className="hidden lg:block lg:w-[20%] text-sm sm:text-base text-[#1C1D20]/80 transition-colors duration-500 group-hover:text-black/40 pr-4">
+                    <div className={`hidden lg:block lg:w-[20%] text-sm sm:text-base transition-colors duration-500 pr-4 ${isHovered ? 'text-black/40' : 'text-[#1C1D20]/80'}`}>
                       {proj.domain}
                     </div>
-                    <div className="hidden lg:block lg:w-[25%] text-sm sm:text-base text-[#1C1D20]/80 transition-colors duration-500 group-hover:text-black/40 pr-4 line-clamp-2">
+                    <div className={`hidden lg:block lg:w-[25%] text-sm sm:text-base transition-colors duration-500 pr-4 line-clamp-2 ${isHovered ? 'text-black/40' : 'text-[#1C1D20]/80'}`}>
                       {proj.tags.slice(0, 4).join(" & ")} {proj.tags.length > 4 && "..."}
                     </div>
-                    <div className="hidden lg:block lg:w-[10%] text-right text-sm sm:text-base text-[#1C1D20]/80 transition-colors duration-500 group-hover:text-black/40">
+                    <div className={`hidden lg:block lg:w-[10%] text-right text-sm sm:text-base transition-colors duration-500 ${isHovered ? 'text-black/40' : 'text-[#1C1D20]/80'}`}>
                       {proj.year}
                     </div>
                   </div>
-                ))}
+                )})}
               </div>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 lg:gap-16">
-              {filteredProjects.map((proj, idx) => (
+              {filteredProjects.map((proj, idx) => {
+                const isHovered = modalData.active && modalData.index === idx;
+                return (
                 <div 
                   key={proj.id}
                   onClick={() => handleProjectClick(proj.id)}
                   onMouseEnter={() => setModalData({ active: true, index: idx })}
                   onMouseLeave={() => setModalData({ active: false, index: idx })}
-                  className="work-item group cursor-pointer flex flex-col"
+                  onTouchStart={() => setModalData({ active: true, index: idx })}
+                  onTouchEnd={() => setModalData({ active: false, index: idx })}
+                  className="work-item cursor-pointer flex flex-col"
                 >
                   <div className="w-full relative rounded-lg overflow-hidden mb-6 bg-gray-100 flex items-center justify-center">
                     <img 
                       src={(proj as any).image || "/Background_photo.jpg"} 
                       alt={proj.title} 
-                      className="w-full h-auto transition-transform duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-105" 
+                      className={`w-full h-auto transition-transform duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] ${isHovered ? 'scale-105' : ''}`} 
                     />
                   </div>
-                  <h3 className="font-inter text-2xl sm:text-3xl font-medium tracking-tight mb-2 group-hover:underline decoration-2 underline-offset-4">
+                  <h3 className={`font-inter text-2xl sm:text-3xl font-medium tracking-tight mb-2 decoration-2 underline-offset-4 ${isHovered ? 'underline' : ''}`}>
                     {proj.title}
                   </h3>
                   <div className="flex items-center gap-4 text-sm font-medium text-[#1C1D20]/60 uppercase tracking-wider mb-2">
@@ -297,7 +305,7 @@ export default function Work() {
                     {proj.shortDesc}
                   </p>
                 </div>
-              ))}
+              )})}
             </div>
           )}
         </div>
