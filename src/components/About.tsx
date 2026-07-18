@@ -14,9 +14,11 @@ const roles = ["Data Analyst", "Data Scientist", "Machine Learning Engineer"];
 
 const ResumeRow = ({ title, subtitle, description, period, onClick }: { title: string, subtitle: string, description?: string, period: string, onClick: () => void }) => {
   const [displayText, setDisplayText] = useState(title);
+  const [isHovered, setIsHovered] = useState(false);
   const intervalRef = useRef<any>(null);
 
   const startGlitch = () => {
+    setIsHovered(true);
     let iteration = 0;
     clearInterval(intervalRef.current);
     intervalRef.current = setInterval(() => {
@@ -34,6 +36,7 @@ const ResumeRow = ({ title, subtitle, description, period, onClick }: { title: s
   };
 
   const stopGlitch = () => {
+    setIsHovered(false);
     clearInterval(intervalRef.current);
     setDisplayText(title);
   };
@@ -48,32 +51,32 @@ const ResumeRow = ({ title, subtitle, description, period, onClick }: { title: s
       className="group relative flex flex-col justify-center py-2 sm:py-3 border-b border-[#1C1D20]/10 overflow-hidden cursor-pointer"
     >
       {/* Background Hover Effect: Matrix Grid */}
-      <div className="absolute inset-0 bg-[#455CE9] translate-y-[101%] transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-y-0" />
+      <div className={`absolute inset-0 bg-[#455CE9] transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] ${isHovered ? 'translate-y-0' : 'translate-y-[101%]'}`} />
       <div 
-        className="absolute inset-0 translate-y-[101%] transition-transform duration-500 delay-75 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-y-0"
+        className={`absolute inset-0 transition-transform duration-500 delay-75 ease-[cubic-bezier(0.76,0,0.24,1)] ${isHovered ? 'translate-y-0' : 'translate-y-[101%]'}`}
         style={{
           backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.15) 1px, transparent 1px)`,
           backgroundSize: '24px 24px'
         }}
       />
       
-      <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-4 pr-4 transition-colors duration-500 group-hover:text-white">
+      <div className={`relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-4 pr-4 transition-colors duration-500 ${isHovered ? 'text-white' : ''}`}>
         
         {/* Left: Role / Degree & Institution */}
-        <div className="flex flex-col gap-0.5 w-full lg:w-8/12 overflow-hidden pl-4 border-l-2 border-[#1C1D20]/20 group-hover:border-white/50 transition-colors">
-          <h4 className="text-base sm:text-lg font-normal group-hover:font-bold tracking-tight font-mono lg:font-sans lg:min-h-[auto] block truncate" title={title}>{displayText}</h4>
-            <span className="text-xs sm:text-sm font-normal group-hover:font-bold uppercase tracking-wider text-[#1C1D20]/60 group-hover:text-white/90 transition-all duration-300 block truncate">{subtitle}</span>
+        <div className={`flex flex-col gap-0.5 w-full lg:w-8/12 overflow-hidden pl-4 border-l-2 transition-colors ${isHovered ? 'border-white/50' : 'border-[#1C1D20]/20'}`}>
+          <h4 className={`text-base sm:text-lg tracking-tight font-mono lg:font-sans lg:min-h-[auto] block truncate ${isHovered ? 'font-bold' : 'font-normal'}`} title={title}>{displayText}</h4>
+            <span className={`text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 block truncate ${isHovered ? 'font-bold text-white/90' : 'font-normal text-[#1C1D20]/60'}`}>{subtitle}</span>
             {description && (
-            <span className="text-xs font-normal group-hover:font-bold text-[#1C1D20]/50 group-hover:text-white/60 transition-all mt-1">{description}</span>
+            <span className={`text-xs transition-all mt-1 ${isHovered ? 'font-bold text-white/60' : 'font-normal text-[#1C1D20]/50'}`}>{description}</span>
           )}
         </div>
 
         {/* Right: Date and Arrow */}
         <div className="flex flex-row lg:flex-col justify-between lg:justify-center items-center lg:items-end gap-2 w-full lg:w-4/12">
           <div className="flex flex-col text-left lg:text-right">
-            <span className="text-sm font-normal group-hover:font-bold transition-all">{period}</span>
+            <span className={`text-sm transition-all ${isHovered ? 'font-bold' : 'font-normal'}`}>{period}</span>
           </div>
-          <div className="w-10 h-10 rounded-full border border-[#1C1D20]/20 flex items-center justify-center transition-all duration-500 group-hover:border-white group-hover:-rotate-45 group-hover:bg-white group-hover:text-[#0A0A0A]">
+          <div className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-500 ${isHovered ? 'border-white -rotate-45 bg-white text-[#0A0A0A]' : 'border-[#1C1D20]/20'}`}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </div>
         </div>
