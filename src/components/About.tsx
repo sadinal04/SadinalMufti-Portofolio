@@ -112,14 +112,20 @@ export default function About() {
   useEffect(() => {
     if (selectedDetail || showCVPdf) {
       document.body.style.overflow = 'hidden';
-      document.documentElement.style.overflow = 'hidden';
-      window.dispatchEvent(new Event('stop-scroll'));
+      
+      const isTouch = window.matchMedia('(pointer: coarse)').matches;
+      if (!isTouch) {
+        window.dispatchEvent(new Event('stop-scroll'));
+      }
 
       // Robust mobile background scroll lock
       const preventTouchMove = (e: TouchEvent) => {
-        const target = e.target as HTMLElement;
-        if (!target.closest('.modal-scroll-content')) {
-          e.preventDefault();
+        const target = e.target as Node;
+        const element = target instanceof Element ? target : target.parentElement;
+        if (element && !element.closest('.modal-scroll-content')) {
+          if (e.cancelable) {
+            e.preventDefault();
+          }
         }
       };
       document.addEventListener('touchmove', preventTouchMove, { passive: false });
@@ -127,12 +133,12 @@ export default function About() {
       return () => {
         document.removeEventListener('touchmove', preventTouchMove);
         document.body.style.overflow = '';
-        document.documentElement.style.overflow = '';
-        window.dispatchEvent(new Event('start-scroll'));
+        if (!isTouch) {
+          window.dispatchEvent(new Event('start-scroll'));
+        }
       };
     } else {
       document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
       window.dispatchEvent(new Event('start-scroll'));
     }
   }, [selectedDetail, showCVPdf]);
@@ -623,6 +629,7 @@ export default function About() {
             <div 
               className="relative group bg-[#1C1D20] text-white w-full max-w-5xl rounded-[1.5rem] sm:rounded-[2rem] overflow-y-auto custom-scrollbar max-h-[75vh] md:max-h-[85vh] shadow-2xl animate-[fadeInUp_0.4s_ease-out_forwards] flex flex-col md:flex-row transition-transform duration-700 hover:scale-[1.02] cursor-pointer modal-scroll-content"
               style={{ WebkitOverflowScrolling: 'touch' }}
+              data-lenis-prevent="true"
               onClick={() => {
                 sessionStorage.setItem('backTarget', '#about');
                 router.push(selectedDetail.link!);
@@ -722,7 +729,11 @@ export default function About() {
               </div>
             </div>
           ) : selectedDetail.type === 'education' ? (
-            <div className="relative group bg-[#1C1D20] text-white w-full max-w-5xl rounded-[1.5rem] sm:rounded-[2rem] overflow-y-auto custom-scrollbar max-h-[75vh] md:max-h-[85vh] shadow-2xl animate-[fadeInUp_0.4s_ease-out_forwards] flex flex-col md:flex-row transition-transform duration-700 hover:scale-[1.02]">
+            <div 
+              className="relative group bg-[#1C1D20] text-white w-full max-w-5xl rounded-[1.5rem] sm:rounded-[2rem] overflow-y-auto custom-scrollbar max-h-[75vh] md:max-h-[85vh] shadow-2xl animate-[fadeInUp_0.4s_ease-out_forwards] flex flex-col md:flex-row transition-transform duration-700 hover:scale-[1.02] modal-scroll-content"
+              style={{ WebkitOverflowScrolling: 'touch' }}
+              data-lenis-prevent="true"
+            >
               <button 
                 className="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 transition-colors z-20 group/close"
                 onClick={(e) => {
@@ -771,7 +782,7 @@ export default function About() {
               </div>
 
               {/* Right Side: Organizations Timeline */}
-              <div className="flex flex-col justify-center p-6 sm:p-8 md:w-7/12 bg-white/5 border-t md:border-t-0 md:border-l border-white/10 group-hover:bg-white/10 transition-colors duration-500 max-h-[85vh] overflow-y-auto custom-scrollbar">
+              <div className="flex flex-col p-6 sm:p-8 md:w-7/12 bg-white/5 border-t md:border-t-0 md:border-l border-white/10 group-hover:bg-white/10 transition-colors duration-500">
                 {selectedDetail.organizations && (
                   <div className="flex flex-col">
                     <h5 className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#455CE9] mb-3">{t('about.org_experience')}</h5>
@@ -831,6 +842,7 @@ export default function About() {
             <div 
               className="relative bg-[#f4f4f4] w-full max-w-2xl rounded-[1.5rem] sm:rounded-2xl p-5 sm:p-10 shadow-2xl animate-[fadeInUp_0.4s_ease-out_forwards] overflow-y-auto custom-scrollbar max-h-[75vh] md:max-h-[85vh] modal-scroll-content"
               style={{ WebkitOverflowScrolling: 'touch' }}
+              data-lenis-prevent="true"
             >
               <button 
                 className="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 flex items-center justify-center rounded-full bg-black/5 hover:bg-black/10 transition-colors group/close"
@@ -885,7 +897,7 @@ export default function About() {
             </div>
             
             {/* PDF Viewer */}
-            <div className="flex-1 w-full bg-[#E5E7EB] overflow-y-auto overscroll-contain modal-scroll-content" style={{ WebkitOverflowScrolling: 'touch' }}>
+            <div className="flex-1 w-full bg-[#E5E7EB] overflow-y-auto overscroll-contain modal-scroll-content" style={{ WebkitOverflowScrolling: 'touch' }} data-lenis-prevent="true">
               <iframe 
                 src="/CV/CV_SADINAL%20MUFTI.pdf#view=FitH" 
                 className="w-full h-full min-h-[80vh] border-none" 
