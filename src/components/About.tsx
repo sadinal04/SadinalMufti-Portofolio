@@ -114,6 +114,22 @@ export default function About() {
       document.body.style.overflow = 'hidden';
       document.documentElement.style.overflow = 'hidden';
       window.dispatchEvent(new Event('stop-scroll'));
+
+      // Robust mobile background scroll lock
+      const preventTouchMove = (e: TouchEvent) => {
+        const target = e.target as HTMLElement;
+        if (!target.closest('.modal-scroll-content')) {
+          e.preventDefault();
+        }
+      };
+      document.addEventListener('touchmove', preventTouchMove, { passive: false });
+
+      return () => {
+        document.removeEventListener('touchmove', preventTouchMove);
+        document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
+        window.dispatchEvent(new Event('start-scroll'));
+      };
     } else {
       document.body.style.overflow = '';
       document.documentElement.style.overflow = '';
@@ -335,7 +351,7 @@ export default function About() {
       </div>
 
       <div className="relative z-10 max-w-screen-2xl mx-auto w-full">
-        <div ref={contentRowRef} className="flex flex-col lg:flex-row [@media(pointer:coarse)]:!flex-col items-stretch gap-8 lg:gap-16 w-full">
+        <div ref={contentRowRef} className="flex flex-col lg:flex-row [@media(pointer:coarse)]:!flex-col items-stretch gap-8 xl:gap-16 w-full">
           
           {/* Left Column: Profile Card */}
           <div className="w-full lg:w-[280px] xl:w-[320px] [@media(pointer:coarse)]:!w-full flex-shrink-0 mb-4 lg:mb-0 z-20">
@@ -421,7 +437,7 @@ export default function About() {
 
                   {/* Typewriter Text */}
                   <div className="w-full leading-tight min-h-[3rem] mb-5 flex items-center">
-                     <h3 className="font-inter text-3xl sm:text-[2.25rem] font-medium text-[#1C1D20] flex items-center whitespace-nowrap">
+                     <h3 className="font-inter text-2xl sm:text-3xl xl:text-[2.25rem] font-medium text-[#1C1D20] flex items-center whitespace-nowrap">
                         {t('about.hello')}&nbsp;
                         <span className="relative inline-flex flex-col items-start overflow-visible ml-1">
                           {/* Invisible text to reserve width and avoid layout shift */}
@@ -444,40 +460,40 @@ export default function About() {
                   </div>
 
                   {/* Huge Headline */}
-                  <h2 className="font-inter text-[2rem] sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-tight leading-[1.15] mb-6 text-[#1C1D20] break-words">
+                  <h2 className="font-inter text-[2rem] sm:text-4xl lg:text-4xl xl:text-5xl 2xl:text-[3.5rem] font-bold tracking-tight leading-[1.15] mb-6 text-[#1C1D20] break-words">
                     {t('about.headline')}
                   </h2>
 
                   {/* Description Paragraph */}
-                  <p ref={textRef} className="text-base sm:text-lg font-light leading-[1.6] text-[#1C1D20]/70 mb-10 w-full text-justify hyphens-auto">
+                  <p ref={textRef} className="text-sm sm:text-base xl:text-lg font-light leading-[1.6] text-[#1C1D20]/70 mb-6 xl:mb-10 w-full text-justify hyphens-auto">
                     {portfolioData.profile.summary}
                   </p>
                 </div>
 
                 {/* Stats Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 xl:gap-6">
                      {/* Card 1 */}
-                     <div ref={addToExtraRefs} className="bg-[#f4f4f4]/80  rounded-2xl p-6 sm:p-8 flex flex-col gap-2 hover:bg-[#1C1D20] transition-colors duration-300 group border border-[#1C1D20]/5">
-                       <span className="text-4xl sm:text-5xl font-bold text-[#1C1D20] group-hover:text-white transition-colors duration-300">
+                     <div ref={addToExtraRefs} className="bg-[#f4f4f4]/80  rounded-2xl p-5 sm:p-6 xl:p-8 flex flex-col gap-2 hover:bg-[#1C1D20] transition-colors duration-300 group border border-[#1C1D20]/5">
+                       <span className="text-3xl sm:text-4xl xl:text-5xl font-bold text-[#1C1D20] group-hover:text-white transition-colors duration-300">
                          <span className="stat-number-float" data-val="3.70">0.00</span>
                        </span>
-                       <span className="text-sm font-medium tracking-wide text-[#1C1D20]/60 group-hover:text-white/60 transition-colors duration-300">{t('about.stats.gpa')}</span>
+                       <span className="text-xs xl:text-sm font-medium tracking-wide text-[#1C1D20]/60 group-hover:text-white/60 transition-colors duration-300">{t('about.stats.gpa')}</span>
                      </div>
                      
                      {/* Card 2 */}
-                     <div ref={addToExtraRefs} className="bg-[#f4f4f4]/80  rounded-2xl p-6 sm:p-8 flex flex-col gap-2 hover:bg-[#1C1D20] transition-colors duration-300 group border border-[#1C1D20]/5">
-                       <span className="text-4xl sm:text-5xl font-bold text-[#1C1D20] group-hover:text-white transition-colors duration-300">
+                     <div ref={addToExtraRefs} className="bg-[#f4f4f4]/80  rounded-2xl p-5 sm:p-6 xl:p-8 flex flex-col gap-2 hover:bg-[#1C1D20] transition-colors duration-300 group border border-[#1C1D20]/5">
+                       <span className="text-3xl sm:text-4xl xl:text-5xl font-bold text-[#1C1D20] group-hover:text-white transition-colors duration-300">
                          <span className="stat-number-int" data-val="15">0</span>+
                        </span>
-                       <span className="text-sm font-medium tracking-wide text-[#1C1D20]/60 group-hover:text-white/60 transition-colors duration-300">{t('about.stats.projects')}</span>
+                       <span className="text-xs xl:text-sm font-medium tracking-wide text-[#1C1D20]/60 group-hover:text-white/60 transition-colors duration-300">{t('about.stats.projects')}</span>
                      </div>
                      
                      {/* Card 3 */}
-                     <div ref={addToExtraRefs} className="bg-[#f4f4f4]/80  rounded-2xl p-6 sm:p-8 flex flex-col gap-2 hover:bg-[#1C1D20] transition-colors duration-300 group border border-[#1C1D20]/5">
-                       <span className="text-4xl sm:text-5xl font-bold text-[#1C1D20] group-hover:text-white transition-colors duration-300">
+                     <div ref={addToExtraRefs} className="bg-[#f4f4f4]/80  rounded-2xl p-5 sm:p-6 xl:p-8 flex flex-col gap-2 hover:bg-[#1C1D20] transition-colors duration-300 group border border-[#1C1D20]/5">
+                       <span className="text-3xl sm:text-4xl xl:text-5xl font-bold text-[#1C1D20] group-hover:text-white transition-colors duration-300">
                          <span className="stat-number-int" data-val="15">0</span>+
                        </span>
-                       <span className="text-sm font-medium tracking-wide text-[#1C1D20]/60 group-hover:text-white/60 transition-colors duration-300">{t('about.stats.certs')}</span>
+                       <span className="text-xs xl:text-sm font-medium tracking-wide text-[#1C1D20]/60 group-hover:text-white/60 transition-colors duration-300">{t('about.stats.certs')}</span>
                      </div>
                   </div>
               </div>
@@ -605,7 +621,8 @@ export default function About() {
           
           {selectedDetail.link ? (
             <div 
-              className="relative group bg-[#1C1D20] text-white w-full max-w-5xl rounded-[1.5rem] sm:rounded-[2rem] overflow-y-auto custom-scrollbar max-h-[75vh] md:max-h-[85vh] shadow-2xl animate-[fadeInUp_0.4s_ease-out_forwards] flex flex-col md:flex-row transition-transform duration-700 hover:scale-[1.02] cursor-pointer"
+              className="relative group bg-[#1C1D20] text-white w-full max-w-5xl rounded-[1.5rem] sm:rounded-[2rem] overflow-y-auto custom-scrollbar max-h-[75vh] md:max-h-[85vh] shadow-2xl animate-[fadeInUp_0.4s_ease-out_forwards] flex flex-col md:flex-row transition-transform duration-700 hover:scale-[1.02] cursor-pointer modal-scroll-content"
+              style={{ WebkitOverflowScrolling: 'touch' }}
               onClick={() => {
                 sessionStorage.setItem('backTarget', '#about');
                 router.push(selectedDetail.link!);
@@ -811,7 +828,10 @@ export default function About() {
               </div>
             </div>
           ) : (
-            <div className="relative bg-[#f4f4f4] w-full max-w-2xl rounded-[1.5rem] sm:rounded-2xl p-5 sm:p-10 shadow-2xl animate-[fadeInUp_0.4s_ease-out_forwards] overflow-y-auto custom-scrollbar max-h-[75vh] md:max-h-[85vh]">
+            <div 
+              className="relative bg-[#f4f4f4] w-full max-w-2xl rounded-[1.5rem] sm:rounded-2xl p-5 sm:p-10 shadow-2xl animate-[fadeInUp_0.4s_ease-out_forwards] overflow-y-auto custom-scrollbar max-h-[75vh] md:max-h-[85vh] modal-scroll-content"
+              style={{ WebkitOverflowScrolling: 'touch' }}
+            >
               <button 
                 className="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 flex items-center justify-center rounded-full bg-black/5 hover:bg-black/10 transition-colors group/close"
                 onClick={(e) => {
@@ -865,7 +885,7 @@ export default function About() {
             </div>
             
             {/* PDF Viewer */}
-            <div className="flex-1 w-full bg-[#E5E7EB] overflow-y-auto overscroll-contain" style={{ WebkitOverflowScrolling: 'touch' }}>
+            <div className="flex-1 w-full bg-[#E5E7EB] overflow-y-auto overscroll-contain modal-scroll-content" style={{ WebkitOverflowScrolling: 'touch' }}>
               <iframe 
                 src="/CV/CV_SADINAL%20MUFTI.pdf#view=FitH" 
                 className="w-full h-full min-h-[80vh] border-none" 
