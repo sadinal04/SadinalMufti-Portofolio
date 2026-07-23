@@ -11,7 +11,7 @@ export default function Home() {
       {/* Main Content Area */}
       <main className="w-full relative z-10 mb-[90vh] shadow-[0_20px_50px_rgba(0,0,0,0.5)] bg-[#E3E3E3]">
         {/* Sticky Hero Section */}
-        <div className="sticky top-0 z-0 h-screen w-full">
+        <div className="sticky top-0 z-0 h-[calc(100vh+40px)] w-full">
           <Hero />
         </div>
         

@@ -71,6 +71,11 @@ export const portfolioDataID = {
       degree: "S1 Informatika. Sarjana Komputer (S.Kom)",
       period: "Agustus 2022 - Februari 2026",
       gpa: "3.70 / 4.00",
+      thesis: {
+        id: "Pengebangan Model Deep Learning Multi-Task Berbasis CNN dengan Self-Attention pada Identifikasi Tnaman dan Penyakit Daun.",
+        en: "Development of a Lightweight Multi-Task CNN with Self-Attention for Plant and Leaf Disease Identification.",
+        link: "/work/multitask-plant-disease"
+      },
       organizations: {
         name: "Himpunan Mahasiswa Informatika Universitas Syiah Kuala",
         type: "Musiman · 2 tahun",

@@ -72,7 +72,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="hero" ref={container} className="relative h-screen w-full bg-[#1C1D20] overflow-hidden text-[#E3E3E3]">
+    <section id="hero" ref={container} className="relative h-[calc(100vh+40px)] w-full bg-[#1C1D20] overflow-hidden text-[#E3E3E3]">
       
       {/* Parallax Background Image */}
       <div className="absolute inset-0 z-0" data-speed="0.5">
@@ -80,32 +80,36 @@ export default function Hero() {
       </div>
 
       {/* Main Content Wrapper (Middle of the screen) */}
-      <div className="absolute top-[40%] md:top-[50%] -translate-y-1/2 w-full px-4 sm:px-8 md:px-12 z-10 flex flex-col md:flex-row justify-between items-start md:items-center left-0 right-0 gap-16 md:gap-0">
-        {/* Left: Main Typography */}
-        <div className="flex flex-col relative z-10">
-          {/* Arrow */}
-          <div className="mb-4 md:mb-6">
-            <svg className="w-10 h-10 md:w-12 md:h-12 shrink-0 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="7" y1="7" x2="17" y2="17"></line>
-              <polyline points="8 17 17 17 17 8"></polyline>
-            </svg>
-          </div>
-          
-          <div className="flex flex-col overflow-hidden">
-            <h1 className="font-inter text-3xl sm:text-4xl md:text-3xl lg:text-5xl font-medium leading-[1.2] tracking-tight text-white">
-              <span ref={addToRefs} className="inline-block">Data Analyst</span>
-            </h1>
-            <h1 className="font-inter text-3xl sm:text-4xl md:text-3xl lg:text-5xl font-medium leading-[1.2] tracking-tight text-white">
-              <span ref={addToRefs} className="inline-block">Data Scientist</span>
-            </h1>
-            <h1 className="font-inter text-3xl sm:text-4xl md:text-3xl lg:text-5xl font-medium leading-[1.2] tracking-tight text-white">
-              <span ref={addToRefs} className="inline-block">Machine Learning Engineer</span>
-            </h1>
+      <div className="absolute top-[40%] md:top-[50%] -translate-y-1/2 w-full px-4 sm:px-12 z-10 left-0 right-0 pointer-events-none">
+        
+        {/* Constrained Wrapper for Typography */}
+        <div className="w-full max-w-screen-2xl mx-auto relative pointer-events-auto">
+          {/* Left: Main Typography */}
+          <div className="flex flex-col relative z-10">
+            {/* Arrow */}
+            <div className="mb-4 md:mb-6">
+              <svg className="w-10 h-10 md:w-12 md:h-12 shrink-0 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="7" y1="7" x2="17" y2="17"></line>
+                <polyline points="8 17 17 17 17 8"></polyline>
+              </svg>
+            </div>
+            
+            <div className="flex flex-col overflow-hidden">
+              <h1 className="font-inter text-3xl sm:text-4xl md:text-3xl lg:text-5xl font-medium leading-[1.2] tracking-tight text-white">
+                <span ref={addToRefs} className="inline-block">Data Analyst</span>
+              </h1>
+              <h1 className="font-inter text-3xl sm:text-4xl md:text-3xl lg:text-5xl font-medium leading-[1.2] tracking-tight text-white">
+                <span ref={addToRefs} className="inline-block">Data Scientist</span>
+              </h1>
+              <h1 className="font-inter text-3xl sm:text-4xl md:text-3xl lg:text-5xl font-medium leading-[1.2] tracking-tight text-white">
+                <span ref={addToRefs} className="inline-block">Machine Learning Engineer</span>
+              </h1>
+            </div>
           </div>
         </div>
 
-        {/* Right: Location Widget (The Black Pill) */}
-        <div className="flex bg-[#1C1D20] rounded-l-full rounded-r-none p-2 pl-2 pr-6 md:pr-12 items-center gap-4 md:gap-6 shadow-2xl relative z-10 transition-transform origin-right hover:scale-105 duration-300 self-end md:self-auto md:-mr-12">
+        {/* Right: Location Widget (Absolute to screen edge) */}
+        <div className="absolute right-0 top-full mt-8 md:mt-0 md:top-1/2 md:-translate-y-1/2 flex bg-[#1C1D20] rounded-l-full rounded-r-none p-2 pl-2 pr-6 md:pr-12 items-center gap-4 md:gap-6 shadow-2xl z-10 transition-transform origin-right hover:scale-105 duration-300 pointer-events-auto">
           <div className="w-12 h-12 md:w-20 md:h-20 rounded-full overflow-hidden bg-[#999999] relative flex items-center justify-center transition-all duration-500">
             <svg 
               className="w-6 h-6 md:w-10 md:h-10 text-white" 

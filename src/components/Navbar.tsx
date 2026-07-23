@@ -161,8 +161,8 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full pt-8 pb-4 flex justify-between items-start z-[60] pointer-events-none transition-all duration-500">
-        <div className="w-full max-w-screen-2xl mx-auto px-4 sm:px-12 flex justify-between items-start">
+      <nav className="fixed top-0 left-0 w-full pt-8 pb-4 px-4 sm:px-12 flex justify-between items-start z-[60] pointer-events-none transition-all duration-500">
+        <div className="w-full max-w-screen-2xl mx-auto flex justify-between items-start">
         {/* Left Side: Logo OR Back Button */}
         <div 
           className={`font-semibold text-lg tracking-tight pointer-events-auto group cursor-pointer overflow-hidden flex flex-col relative h-[28px] ${pathname !== "/" ? 'w-[100px]' : 'w-[180px]'} transition-all duration-300 ${pathname === "/" ? (isLightSection ? 'text-[#1C1D20]' : 'text-white drop-shadow-md') : 'text-[#1C1D20]'}`}

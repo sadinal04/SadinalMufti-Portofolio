@@ -104,8 +104,20 @@ export default function About() {
   };
 
   const [roleIndex, setRoleIndex] = useState(0);
-  const [selectedDetail, setSelectedDetail] = useState<{type?: 'education', title: string, subtitle: string, description?: string, period: string, link?: string, organizations?: any} | null>(null);
+  const [selectedDetail, setSelectedDetail] = useState<{type?: 'education', title: string, subtitle: string, description?: string, period: string, link?: string, organizations?: any, thesis?: any} | null>(null);
   const [showCVPdf, setShowCVPdf] = useState(false);
+
+  // Lock body scroll when a modal is open
+  useEffect(() => {
+    if (selectedDetail || showCVPdf) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [selectedDetail, showCVPdf]);
 
   // Width-expand animation for typewriter
   useEffect(() => {
@@ -303,7 +315,7 @@ export default function About() {
   }, { scope: container });
 
   return (
-    <section id="about" ref={container} className="relative w-full py-12 lg:min-h-screen lg:py-8 lg:flex lg:flex-col lg:justify-center px-4 sm:px-12 bg-white text-[#1C1D20] rounded-t-[40px]">
+    <section id="about" ref={container} className="relative z-10 w-full py-12 lg:min-h-screen lg:py-8 lg:flex lg:flex-col lg:justify-center px-4 sm:px-12 bg-white text-[#1C1D20] rounded-t-[40px] -mt-[40px]">
       {/* Native CSS Sticky Background - Uses clipPath to avoid breaking sticky with overflow-hidden */}
       <div 
         className="absolute inset-0 z-0 h-full w-full pointer-events-none"
@@ -582,7 +594,7 @@ export default function About() {
       </div>
       {/* --- Detail Popup Modal --- */}
       {selectedDetail && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 md:p-12">
           <div 
             className="absolute inset-0 bg-black/60 backdrop-blur-sm cursor-pointer transition-opacity duration-300"
             onClick={() => setSelectedDetail(null)}
@@ -590,7 +602,7 @@ export default function About() {
           
           {selectedDetail.link ? (
             <div 
-              className="relative group bg-[#1C1D20] text-white w-full max-w-5xl rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden shadow-2xl animate-[fadeInUp_0.4s_ease-out_forwards] flex flex-col md:flex-row transition-transform duration-700 hover:scale-[1.02] cursor-pointer"
+              className="relative group bg-[#1C1D20] text-white w-full max-w-5xl rounded-[1.5rem] sm:rounded-[2rem] overflow-y-auto custom-scrollbar max-h-[75vh] md:max-h-[85vh] shadow-2xl animate-[fadeInUp_0.4s_ease-out_forwards] flex flex-col md:flex-row transition-transform duration-700 hover:scale-[1.02] cursor-pointer"
               onClick={() => {
                 sessionStorage.setItem('backTarget', '#about');
                 router.push(selectedDetail.link!);
@@ -690,7 +702,7 @@ export default function About() {
               </div>
             </div>
           ) : selectedDetail.type === 'education' ? (
-            <div className="relative group bg-[#1C1D20] text-white w-full max-w-5xl rounded-[1.5rem] sm:rounded-[2rem] overflow-y-auto custom-scrollbar max-h-[90vh] shadow-2xl animate-[fadeInUp_0.4s_ease-out_forwards] flex flex-col md:flex-row transition-transform duration-700 hover:scale-[1.02]">
+            <div className="relative group bg-[#1C1D20] text-white w-full max-w-5xl rounded-[1.5rem] sm:rounded-[2rem] overflow-y-auto custom-scrollbar max-h-[75vh] md:max-h-[85vh] shadow-2xl animate-[fadeInUp_0.4s_ease-out_forwards] flex flex-col md:flex-row transition-transform duration-700 hover:scale-[1.02]">
               <button 
                 className="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 transition-colors z-20 group/close"
                 onClick={(e) => {
@@ -796,7 +808,7 @@ export default function About() {
               </div>
             </div>
           ) : (
-            <div className="relative bg-[#f4f4f4] w-full max-w-2xl rounded-[1.5rem] sm:rounded-2xl p-5 sm:p-10 shadow-2xl animate-[fadeInUp_0.4s_ease-out_forwards]">
+            <div className="relative bg-[#f4f4f4] w-full max-w-2xl rounded-[1.5rem] sm:rounded-2xl p-5 sm:p-10 shadow-2xl animate-[fadeInUp_0.4s_ease-out_forwards] overflow-y-auto custom-scrollbar max-h-[75vh] md:max-h-[85vh]">
               <button 
                 className="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 flex items-center justify-center rounded-full bg-black/5 hover:bg-black/10 transition-colors group/close"
                 onClick={(e) => {
@@ -827,7 +839,7 @@ export default function About() {
       )}
       {/* CV PDF Popup Modal */}
       {showCVPdf && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#1C1D20]/90 backdrop-blur-md p-4 sm:p-8 md:p-12">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#1C1D20]/90 backdrop-blur-md p-6 md:p-12">
           <div className="relative w-full max-w-4xl h-[90vh] md:h-[95vh] bg-white rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden shadow-2xl flex flex-col animate-[fadeInUp_0.4s_ease-out_forwards]">
             
             {/* Modal Header */}
