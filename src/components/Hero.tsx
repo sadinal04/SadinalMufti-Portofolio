@@ -135,7 +135,7 @@ export default function Hero() {
       </div>
 
       {/* Sliding Marquee (Absolute Bottom of Screen, Massive text) */}
-      <div className="absolute bottom-2 sm:bottom-6 left-0 w-full z-20 flex pointer-events-none overflow-hidden">
+      <div className="absolute bottom-[calc(40px+0.5rem)] sm:bottom-[calc(40px+1.5rem)] left-0 w-full z-20 flex pointer-events-none overflow-hidden">
         <div ref={sliderRef} className="flex whitespace-nowrap text-[15vw] sm:text-[12vw] font-medium tracking-tighter leading-none text-white drop-shadow-2xl relative">
           <div className="flex shrink-0">
             <p className="pr-12">Sadinal Mufti —</p>

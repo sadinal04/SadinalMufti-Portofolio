@@ -111,13 +111,16 @@ export default function About() {
   useEffect(() => {
     if (selectedDetail || showCVPdf) {
       document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
       window.dispatchEvent(new Event('stop-scroll'));
     } else {
       document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
       window.dispatchEvent(new Event('start-scroll'));
     }
     return () => {
       document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
       window.dispatchEvent(new Event('start-scroll'));
     };
   }, [selectedDetail, showCVPdf]);
@@ -412,7 +415,7 @@ export default function About() {
             <div ref={rightColRef} className="w-full flex flex-col lg:grid lg:[grid-template-areas:'stack'] [@media(pointer:coarse)]:!flex [@media(pointer:coarse)]:!flex-col relative gap-10 lg:gap-0 lg:h-full">
               
               {/* --- STATE 1: Intro & Stats --- */}
-              <div ref={state1Ref} className="lg:[grid-area:stack] [@media(pointer:coarse)]:[grid-area:auto] w-full flex flex-col justify-between z-10 origin-top">
+              <div ref={state1Ref} className="lg:[grid-area:stack] [@media(pointer:coarse)]:[grid-area:auto] w-full flex flex-col justify-between lg:h-full z-10 origin-top">
                 <div>
                   {/* Top Label */}
                   <div className="flex items-center gap-3 mb-6">
@@ -485,7 +488,7 @@ export default function About() {
 
               {/* --- STATE 2: Resume (Experience, Education, Coding Camp) --- */}
               {/* On mobile: always visible in normal flow. On desktop: hidden initially, revealed via GSAP */}
-              <div ref={state2Ref} className="lg:[grid-area:stack] [@media(pointer:coarse)]:[grid-area:auto] w-full flex flex-col justify-between z-0 origin-bottom mt-16 lg:mt-0 [@media(pointer:coarse)]:!mt-16" style={{}}>
+              <div ref={state2Ref} className="lg:[grid-area:stack] [@media(pointer:coarse)]:[grid-area:auto] w-full flex flex-col justify-between lg:h-full z-0 origin-bottom mt-16 lg:mt-0 [@media(pointer:coarse)]:!mt-16">
                 
                 <div>
                   {/* Top Label */}
