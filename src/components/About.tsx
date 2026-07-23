@@ -110,19 +110,25 @@ export default function About() {
   // Lock body scroll and Lenis when a modal is open
   useEffect(() => {
     if (selectedDetail || showCVPdf) {
+      const currentScrollY = window.scrollY;
+      document.body.dataset.scrollY = currentScrollY.toString();
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${currentScrollY}px`;
+      document.body.style.width = '100%';
       document.body.style.overflow = 'hidden';
-      document.documentElement.style.overflow = 'hidden';
       window.dispatchEvent(new Event('stop-scroll'));
     } else {
+      const scrollY = document.body.dataset.scrollY;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
       document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
+      
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || '0'));
+      }
       window.dispatchEvent(new Event('start-scroll'));
     }
-    return () => {
-      document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
-      window.dispatchEvent(new Event('start-scroll'));
-    };
   }, [selectedDetail, showCVPdf]);
 
   // Width-expand animation for typewriter

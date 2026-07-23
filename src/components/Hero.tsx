@@ -72,7 +72,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="hero" ref={container} className="relative h-[calc(100vh+40px)] w-full bg-[#1C1D20] overflow-hidden text-[#E3E3E3]">
+    <section id="hero" ref={container} className="relative h-[calc(100dvh+40px)] w-full bg-[#1C1D20] overflow-hidden text-[#E3E3E3]">
       
       {/* Parallax Background Image */}
       <div className="absolute inset-0 z-0" data-speed="0.5">
