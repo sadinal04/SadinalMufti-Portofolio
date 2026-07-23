@@ -107,15 +107,18 @@ export default function About() {
   const [selectedDetail, setSelectedDetail] = useState<{type?: 'education', title: string, subtitle: string, description?: string, period: string, link?: string, organizations?: any, thesis?: any} | null>(null);
   const [showCVPdf, setShowCVPdf] = useState(false);
 
-  // Lock body scroll when a modal is open
+  // Lock body scroll and Lenis when a modal is open
   useEffect(() => {
     if (selectedDetail || showCVPdf) {
       document.body.style.overflow = 'hidden';
+      window.dispatchEvent(new Event('stop-scroll'));
     } else {
       document.body.style.overflow = '';
+      window.dispatchEvent(new Event('start-scroll'));
     }
     return () => {
       document.body.style.overflow = '';
+      window.dispatchEvent(new Event('start-scroll'));
     };
   }, [selectedDetail, showCVPdf]);
 

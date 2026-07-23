@@ -21,7 +21,15 @@ export default function SmoothScroll({ children }: { children?: React.ReactNode 
 
     gsap.ticker.lagSmoothing(0);
 
+    const stopScroll = () => lenis.stop();
+    const startScroll = () => lenis.start();
+    
+    window.addEventListener("stop-scroll", stopScroll);
+    window.addEventListener("start-scroll", startScroll);
+
     return () => {
+      window.removeEventListener("stop-scroll", stopScroll);
+      window.removeEventListener("start-scroll", startScroll);
       gsap.ticker.remove((time) => {
         lenis.raf(time * 1000);
       });
