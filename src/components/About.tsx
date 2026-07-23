@@ -9,6 +9,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import Image from "next/image";
 import Magnetic from "./Magnetic";
 import { useRouter } from "next/navigation";
+import { createPortal } from "react-dom";
 
 const roles = ["Data Analyst", "Data Scientist", "Machine Learning Engineer"];
 
@@ -110,23 +111,12 @@ export default function About() {
   // Lock body scroll and Lenis when a modal is open
   useEffect(() => {
     if (selectedDetail || showCVPdf) {
-      const currentScrollY = window.scrollY;
-      document.body.dataset.scrollY = currentScrollY.toString();
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${currentScrollY}px`;
-      document.body.style.width = '100%';
       document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
       window.dispatchEvent(new Event('stop-scroll'));
     } else {
-      const scrollY = document.body.dataset.scrollY;
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
       document.body.style.overflow = '';
-      
-      if (scrollY) {
-        window.scrollTo(0, parseInt(scrollY || '0'));
-      }
+      document.documentElement.style.overflow = '';
       window.dispatchEvent(new Event('start-scroll'));
     }
   }, [selectedDetail, showCVPdf]);
@@ -605,11 +595,12 @@ export default function About() {
         </div>
       </div>
       {/* --- Detail Popup Modal --- */}
-      {selectedDetail && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 md:p-12">
+      {selectedDetail && typeof document !== 'undefined' && createPortal(
+        <div className="fixed inset-0 z-[99999] flex items-center justify-center p-6 md:p-12 overscroll-contain">
           <div 
             className="absolute inset-0 bg-black/60 backdrop-blur-sm cursor-pointer transition-opacity duration-300"
             onClick={() => setSelectedDetail(null)}
+            style={{ touchAction: 'none' }}
           />
           
           {selectedDetail.link ? (
@@ -847,11 +838,16 @@ export default function About() {
               )}
             </div>
           )}
-        </div>
+        </div>, document.body
       )}
       {/* CV PDF Popup Modal */}
-      {showCVPdf && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#1C1D20]/90 backdrop-blur-md p-6 md:p-12">
+      {showCVPdf && typeof document !== 'undefined' && createPortal(
+        <div className="fixed inset-0 z-[99999] flex items-center justify-center p-6 md:p-12 overscroll-contain">
+          <div 
+            className="absolute inset-0 bg-[#1C1D20]/90 backdrop-blur-md cursor-pointer transition-opacity duration-300"
+            onClick={() => setShowCVPdf(false)}
+            style={{ touchAction: 'none' }}
+          />
           <div className="relative w-full max-w-4xl h-[90vh] md:h-[95vh] bg-white rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden shadow-2xl flex flex-col animate-[fadeInUp_0.4s_ease-out_forwards]">
             
             {/* Modal Header */}
@@ -877,7 +873,7 @@ export default function About() {
               />
             </div>
           </div>
-        </div>
+        </div>, document.body
       )}
     </section>
   );
