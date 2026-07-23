@@ -82,7 +82,7 @@ export default function Hero() {
       {/* Main Content Wrapper (Middle of the screen) */}
       <div className="absolute top-[40%] md:top-[50%] -translate-y-1/2 w-full px-4 sm:px-8 md:px-12 z-10 flex flex-col md:flex-row justify-between items-start md:items-center left-0 right-0 gap-16 md:gap-0">
         {/* Left: Main Typography */}
-        <div className="flex flex-col relative z-10 md:pl-8">
+        <div className="flex flex-col relative z-10">
           {/* Arrow */}
           <div className="mb-4 md:mb-6">
             <svg className="w-10 h-10 md:w-12 md:h-12 shrink-0 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">

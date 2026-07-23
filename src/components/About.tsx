@@ -553,7 +553,8 @@ export default function About() {
                             subtitle: edu.institution, 
                             description: `GPA: ${edu.gpa}`, 
                             period: edu.period,
-                            organizations: edu.organizations
+                            organizations: edu.organizations,
+                            thesis: edu.thesis
                           })}
                         />
                       ))}
@@ -689,7 +690,7 @@ export default function About() {
               </div>
             </div>
           ) : selectedDetail.type === 'education' ? (
-            <div className="relative group bg-[#1C1D20] text-white w-full max-w-5xl rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden shadow-2xl animate-[fadeInUp_0.4s_ease-out_forwards] flex flex-col md:flex-row transition-transform duration-700 hover:scale-[1.02]">
+            <div className="relative group bg-[#1C1D20] text-white w-full max-w-5xl rounded-[1.5rem] sm:rounded-[2rem] overflow-y-auto custom-scrollbar max-h-[90vh] shadow-2xl animate-[fadeInUp_0.4s_ease-out_forwards] flex flex-col md:flex-row transition-transform duration-700 hover:scale-[1.02]">
               <button 
                 className="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 transition-colors z-20 group/close"
                 onClick={(e) => {
@@ -701,16 +702,16 @@ export default function About() {
               </button>
               
               {/* Left Side: Title & Info */}
-              <div className="flex flex-col justify-between p-6 sm:p-12 md:w-5/12 relative z-10">
+              <div className="flex flex-col justify-between p-6 sm:p-8 md:w-5/12 relative z-10">
                 <div>
-                  <div className="inline-flex items-center gap-3 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-white/10 text-white text-[10px] sm:text-xs font-semibold tracking-widest uppercase mb-6 sm:mb-8">
+                  <div className="inline-flex items-center gap-3 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-white/10 text-white text-[10px] sm:text-xs font-semibold tracking-widest uppercase mb-4 sm:mb-6">
                     <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#455CE9] animate-pulse" />
                     {selectedDetail.subtitle}
                   </div>
-                  <h4 className="text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight mb-4 sm:mb-6 group-hover:text-[#455CE9] transition-colors duration-500">
+                  <h4 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight mb-3 sm:mb-4 group-hover:text-[#455CE9] transition-colors duration-500">
                     {selectedDetail.title}
                   </h4>
-                  <p className="text-sm sm:text-lg font-light text-white/70 leading-relaxed mb-4 sm:mb-6">
+                  <p className="text-sm sm:text-base font-light text-white/70 leading-relaxed mb-4 sm:mb-6">
                     {selectedDetail.period}
                   </p>
                   <div className="inline-flex items-center px-3 py-2 sm:px-4 sm:py-3 border border-white/20 rounded-xl bg-white/5 shadow-inner">
@@ -738,30 +739,57 @@ export default function About() {
               </div>
 
               {/* Right Side: Organizations Timeline */}
-              <div className="flex flex-col justify-center p-6 sm:p-12 md:w-7/12 bg-white/5 border-t md:border-t-0 md:border-l border-white/10 group-hover:bg-white/10 transition-colors duration-500 max-h-[85vh] overflow-y-auto custom-scrollbar">
+              <div className="flex flex-col justify-center p-6 sm:p-8 md:w-7/12 bg-white/5 border-t md:border-t-0 md:border-l border-white/10 group-hover:bg-white/10 transition-colors duration-500 max-h-[85vh] overflow-y-auto custom-scrollbar">
                 {selectedDetail.organizations && (
                   <div className="flex flex-col">
-                    <h5 className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#455CE9] mb-4">{t('about.org_experience')}</h5>
-                    <h3 className="text-2xl sm:text-3xl font-medium text-white mb-3 leading-tight pr-4">{selectedDetail.organizations.name}</h3>
-                    <div className="flex flex-wrap items-center gap-3 text-sm text-white/50 font-medium tracking-wide mb-10">
+                    <h5 className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#455CE9] mb-3">{t('about.org_experience')}</h5>
+                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-medium text-white mb-2 leading-tight pr-4">{selectedDetail.organizations.name}</h3>
+                    <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm text-white/50 font-medium tracking-wide mb-6">
                       <span>{selectedDetail.organizations.type}</span>
                       <span className="w-1 h-1 rounded-full bg-white/20" />
                       <span>{selectedDetail.organizations.location}</span>
                     </div>
 
-                    <div className="flex flex-col gap-10 relative">
+                    <div className="flex flex-col gap-6 relative">
                       {selectedDetail.organizations.roles.map((role: any, i: number) => (
                         <div key={i} className="flex flex-col relative pl-6 sm:pl-8">
                           {/* Dot */}
                           <span className="absolute left-0 top-1.5 w-2 h-2 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)] z-10" />
                           
                           {/* Disconnected Line Segment */}
-                          <div className="absolute left-[3px] top-8 bottom-0 w-[2px] bg-white/10 rounded-full" />
+                          <div className="absolute left-[3px] top-6 bottom-0 w-[2px] bg-white/10 rounded-full" />
                           
-                          <h4 className="text-base sm:text-lg lg:text-xl font-medium text-white mb-2 leading-snug">{role.title}</h4>
-                          <span className="text-xs font-bold tracking-[0.15em] uppercase text-[#455CE9]">{role.period}</span>
+                          <h4 className="text-sm sm:text-base lg:text-lg font-medium text-white mb-1.5 leading-snug">{role.title}</h4>
+                          <span className="text-[10px] sm:text-xs font-bold tracking-[0.15em] uppercase text-[#455CE9]">{role.period}</span>
                         </div>
                       ))}
+                    </div>
+                  </div>
+                )}
+
+                {selectedDetail.thesis && (
+                  <div className="flex flex-col mt-6 border-t border-white/10 pt-6">
+                    <h5 className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#455CE9] mb-3">
+                      {language === 'id' ? 'Tugas Akhir / Skripsi' : 'Thesis / Final Project'}
+                    </h5>
+                    <div 
+                      className="group/thesis cursor-pointer relative pl-6 sm:pl-8"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedDetail(null);
+                        router.push(selectedDetail.thesis.link);
+                      }}
+                    >
+                      {/* Dot */}
+                      <span className="absolute left-0 top-1.5 w-2 h-2 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)] z-10 transition-all duration-300 group-hover/thesis:scale-125 group-hover/thesis:bg-[#455CE9]" />
+                      
+                      <h4 className="text-sm sm:text-base lg:text-lg font-medium text-white/90 mb-2 leading-snug group-hover/thesis:text-white transition-colors duration-300">
+                        {language === 'id' ? selectedDetail.thesis.id : selectedDetail.thesis.en}
+                      </h4>
+                      <div className="inline-flex items-center gap-2 text-[10px] sm:text-xs font-bold tracking-[0.15em] uppercase text-[#455CE9] group-hover/thesis:text-white transition-colors duration-300">
+                        {t('about.explore')}
+                        <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover/thesis:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                      </div>
                     </div>
                   </div>
                 )}
@@ -819,7 +847,7 @@ export default function About() {
             {/* PDF Viewer */}
             <div className="flex-1 w-full bg-[#E5E7EB] overflow-y-auto overscroll-contain" style={{ WebkitOverflowScrolling: 'touch' }}>
               <iframe 
-                src="/CV/CV_ATS_SADINAL_MUFTI_ATS.pdf#view=FitH" 
+                src="/CV/CV_SADINAL%20MUFTI.pdf#view=FitH" 
                 className="w-full h-full min-h-[80vh] border-none" 
                 title="CV PDF Viewer"
               />

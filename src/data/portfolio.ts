@@ -668,6 +668,11 @@ export const portfolioDataEN = {
       degree: "Computer Science (Bachelor of Computer Science)",
       period: "August 2022 - February 2026",
       gpa: "3.70 / 4.00",
+      thesis: {
+        id: "Pengebangan Model Deep Learning Multi-Task Berbasis CNN dengan Self-Attention pada Identifikasi Tnaman dan Penyakit Daun.",
+        en: "Development of a Lightweight Multi-Task CNN with Self-Attention for Plant and Leaf Disease Identification.",
+        link: "/work/multitask-plant-disease"
+      },
       organizations: {
         name: "Informatics Student Association Universitas Syiah Kuala",
         type: "Seasonal · 2 yrs",
